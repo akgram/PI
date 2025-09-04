@@ -1,0 +1,81 @@
+information and preventing excessive centralization of the
+   world’s information infrastructure. Of course, a lot of us just find
+   it great fun.
+
+   Debian is so committed to free software that we thought it would be
+   useful if it was formalized in a document of some sort. Our Social
+   Contract[8] promises that Debian will always be 100% free software.
+   When you install a package from the Debian main distribution, you
+   can be sure it meets our Free Software Guidelines.
+
+ [8] http://www.debian.org/social_contract
+
+   Although Debian believes in free software, there are cases where
+   people want to put proprietary software on their machine. Whenever
+   possible Debian will support this; though proprietary software is
+   not included in the main distribution, it is sometimes available on
+   the FTP site in the non-free directory, and there is a growing
+   number of packages whose sole job is to install proprietary software
+   we are not allowed to distribute ourselves.
+
+   It is important to distinguish _commercial_ software from
+   _proprietary_ software. Proprietary software is non-free software;
+   commercial software is software sold for money. Debian permits
+   commercial software, but not proprietary software, to be a part of
+   the main distribution. Remember that the phrase “free software” does
+   not refer to price; it is quite possible to sell free software. For
+   more clarification of the terminology, see
+   http://www.opensource.org/or
+   http://www.fsf.org/philosophy/categories.html.
+
+
+1.4 About This Book
+
+   This book is aimed at readers who are new to Debian GNU/Linux. It
+   assumes no prior knowledge of GNU/Linux or other Unix-like systems,
+   but it does assume very basic general knowledge about computers and
+   hardware; you should know what the basic parts of a computer are,
+   and what one might use a computer to do.
+
+   In general, this tutorial tries to help you understand what happens
+   inside a Debian system. The idea is to empower you to solve new
+   problems and get the most out of your computer. Thus there’s plenty
+   of theory and fun facts thrown in with the “How To” aspects of the
+   manual.
+
+   We’d love to hear your comments about this book! You can reach the
+   authors at debian-guide@complete.org. We’re especially interested in
+   whether it was helpful to you and how we could make it better.
+   Whether you have a comment or think this book is the greatest thing
+   since sliced bread, please send us e-mail.
+
+   Please do not send the authors technical questions about Debian,
+   because there are other forums for that; see Appendix A on page [*]
+   for more information on the documentation and getting help. Only
+   send mail regarding the book itself to the above address.
+
+
+1.4.1 How to Read This Book
+
+   The best way to learn about almost any computer program is by using
+   it. Most people find that reading a book without using the program
+   isn’t beneficial. The best way to learn about Unix and GNU/Linux is
+   by using them. Use GNU/Linux for everything you can. Feel free to
+   experiment!
+
+   Debian isn’t as intuitively obvious as some other operating systems.
+   You will probably end up reading at least the first few chapters of
+   this book. GNU/Linux’s power and complexity make it difficult to
+   approach at first, but far more rewarding in the long run.
+
+   The suggested way to learn is to read a little, and then play a
+   little. Keep playing until you’re comfortable with the concepts, and
+   then start skipping around in the book. You’ll find a variety of
+   topics are covered, some of which you might find interesting. After
+   a while, you should feel confident enough to start using commands
+   without knowing exactly what they do. This is a good thing.
+
+     Tip: If you ever mistakenly type a command or don’t know how to
+     exit a program, press CTRL-c (the Ctrl key and the lowercase
+     letter c pressed simultaneously). This will often stop the
+     pro

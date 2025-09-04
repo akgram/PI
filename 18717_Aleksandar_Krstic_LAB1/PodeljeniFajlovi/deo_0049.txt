@@ -1,0 +1,101 @@
+). To access a filesystem, you must mount it at some mount
+   point.
+
+   So, for example, you might mount a CD at the mount point /cdrom.
+   This means that if you look in the directory /cdrom, you’ll see the
+   contents of the CD. The /cdrom directory itself is actually on your
+   hard disk. For all practical purposes, the contents of the CD become
+   a part of the root filesystem, and when you type commands and use
+   programs, it doesn’t make any difference what the actual physical
+   location of the files is. You could have created a directory on your
+   hard disk called /cdrom and put some files in it, and everything
+   would behave in exactly the same way. Once you mount a filesystem,
+   there’s no need to pay any attention to physical devices.
+
+   However, before you can mount a filesystem or actually create a
+   filesystem on a disk that doesn’t have one yet, it’s necessary to
+   refer to the devices themselves. All devices have names, which are
+   located in the /dev directory. If you type ls /dev now, you’ll see a
+   pretty lengthy list of every possible device you could have on your
+   Debian system. For a summary of some devices, see Table 2.1 on page
+   [*]. A more thorough list can be found on your system in the file
+   /usr/src/linux/Documentation/devices.txt.
+
+   To mount a filesystem, we want to tell Linux to associate whatever
+   filesystem it finds on a particular device with a particular mount
+   point. In the process, we might have to tell Linux what kind of
+   filesystem to look for.
+
+
+10.2.2 Example: Mounting a CD-ROM
+
+   As a simple demonstration, we’ll go through mounting a CD-ROM, such
+   as the one you may have used to install Debian. You’ll need to be
+   root to do this, so be careful; whenever you’re root, you have the
+   power to manipulate the whole system, not just your own files. Also,
+   these commands assume there’s a CD in your drive; you should put one
+   in the drive now. Then start with the following command:
+
+   su
+
+   If you haven’t already, you need to either log in as root or gain
+   root privileges with the su (super user) command. If you use su,
+   enter the root password when prompted.
+
+   ls /cdrom
+
+   Use this command to see what’s in the /cdrom directory before you
+   start. If you don’t have a /cdrom directory, you may have to make
+   one using mkdir /cdrom.
+
+   mount
+
+   Simply typing mount with no arguments lists the currently mounted
+   filesystems.
+
+   mount -t iso9660 _CD-device_ /cdrom
+
+   For this command, you should substitute the name of your CD-ROM
+   device for _CD-device_ in the above command line. If you aren’t
+   sure, /dev/cdrom is a good guess because the install process should
+   have created this symbolic link on the system. If that fails, try
+   the different IDE devices:
+   /dev/hdc, etc. You should see a message like this: mount: block
+   /device dev/hdc is write-protected, mounting read-only.
+   /
+   /
+   /
+   The -t option specifies the type of the filesystem, in this case
+   iso9660. Most CDs are iso9660. The next argument is the name of the
+   device to mount, and the final argument is the mount point. There
+   are many other arguments for mount; see the manual page for details.
+
+   Once a CD is mounted, you may find that your drive tray will not
+   open. You must unmount the CD before removing it.
+
+   ls /cdrom
+
+   Confirms that /cdrom now contains whatever is on the CD in your
+   drive.
+
+   mount
+
+   Displays the list of filesystems again; notice that your CD drive is
+   now mounted.
+
+   umount /cdrom
+
+   This unmounts the CD. It’s now safe to remove the CD from the drive.
+   Notice that the command is umount with no “n,” even though it’s used
+   to unmount the filesystem.
+
+   exit
+
+   Don’t leave yourself logged on as root. Log out immediately, just to
+   be safe.
+
+
+10.2.3 /etc/fstab: Automating the Mount Process
+
+   The file /etc/fstab (it stands for “filesystem table”) contains
+   descriptions of filesystems that

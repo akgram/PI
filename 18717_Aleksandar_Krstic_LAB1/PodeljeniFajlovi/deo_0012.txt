@@ -1,0 +1,93 @@
+very good documentation that you may want to read. You
+   should definitely read the documentation if you use a disk
+   compression driver or a disk manager. Create the disk and read the
+   documentation _before_ you continue.
+
+   The next thing to be done is to move all the data to the beginning
+   of the partition. DEFRAG, which comes standard with DOS 6.0 and
+   later, can easily do the job. See the FIPS documentation for a list
+   of other software that may also work. Note that if you have Windows
+   95 or higher, you must run DEFRAG from there, because DOS doesn’t
+   understand VFAT, which is used to support long filenames in Windows
+   95 and higher.
+
+   After running the defragmenter (which can take a while on a large
+   disk), reboot with the FIPS floppy disk you created. Simply type a:\
+   fips and follow the directions.
+
+   Note that there are many other other partition managers out there,
+   in case FIPS doesn’t work for you.
+
+
+2.3.7 Debian Installation Steps
+
+   As you initially install Debian, you will proceed through several
+   different steps:
+
+    1. Boot the installation system
+    2. Initial system configuration
+    3. Install the base system
+    4. Boot the newly installed base system
+    5. Install the rest of the system
+
+   Booting the Debian installation system, the first step, is generally
+   done with the Rescue Floppy or from the CD-ROM.
+
+   Once you’ve booted into Linux, the dbootstrap program will launch
+   and guide you through the second step, the initial system
+   configuration. This step is described in detail in section 3 on page
+   [*].
+
+   The “Debian base system” is a core set of packages that are required
+   to run Debian in a minimal, stand-alone fashion. dbootstrap will
+   install it from your CD-ROM, as described in section 3.12 on page
+   [*]. Once you have configured and installed the base system, your
+   machine can “stand on its own.”
+
+   The final step is the installation of the remainder of the Debian
+   system. This would include the applications and documents that you
+   actually use on your computer, such as the X Window system, editors,
+   shells, and development environments. The rest of the Debian system
+   can be installed from CD-ROM. At this point, you’ll be using the
+   standard Debian package management tools, such as dselect. This step
+   is described in section 3.20 on page [*].
+
+
+2.4 Choosing Your Installation Media
+
+   First, choose the boot media for the installation system. Next,
+   choose the method you will use to install the base system.
+
+   To boot the installation system, you have the following choices:
+   bootable CD-ROM, floppies, or a non-Linux boot loader.
+
+   CD-ROM booting is one of the easiest ways to install. Not all
+   machines can boot directly from the CD-ROM so you may still need to
+   use floppies. Booting from floppies is supported for most platforms.
+   Floppy booting is described in section 2.4.2 on page [*].
+
+
+2.4.1 Installing from a CD-ROM
+
+   If your system supports booting from a CD-ROM, you don’t need any
+   floppies. Put the CD-ROM into the drive, turn your computer off, and
+   then turn it back on. You should see a Welcome screen with a boot
+   prompt at the bottom. Now you can skip down to section 2.5.
+
+   If your computer didn’t “see” the Debian CD-ROM, the easiest option
+   is to make two floppies for booting (described in section 2.4.2) and
+   then use them to start Debian. Don’t worry; after Debian is finished
+   with those two floppies, it will find your CD-ROM with no trouble.
+
+
+2.4.2 Booting from Floppies
+
+   It’s not hard at all to boot from floppies. In fact, your CD-ROM
+   contains all the information necessary to create boot disks for you.
+   For these instructions, you will need to get two disks. Label the
+   first one “Debian 2.1 Install/Rescue Disk” and the second “Debian
+   2.1 Modules/Drivers Disk.”
+
+  Creating Floppies from Disk Images
+
+   Disk images are files containing the complete contents

@@ -1,0 +1,92 @@
+
+   work for each disk is outlined here:
+
+    1. Insert the CD in your CD-ROM drive.
+    2. From the main dselect menu, select “Install.”
+    3. Wait until dpkg finishes installing from this CD. (It may report
+    installation successful, or possibly installation errors. Don’t
+    worry about these until later.)
+    4. Press Return to go back to the main dselect menu.
+    5. Repeat with the next CD in the set.
+
+   It may be necessary to run the installation step more than once to
+   cover the order of package installation; some packages installed
+   early may need to have later packages installed before they will
+   configure properly.
+
+   Running a “Configure” step is recommended to help fix any packages
+   that may end up in this state.
+
+   multi_nfs, multi_mount. These are similar to the multi_cd method and
+   are refinements on the theme of coping with changing media—for
+   example, installing from a multi_cd set exported via NFS from
+   another machine’s CD-ROM drive. indexdselect!multi-NFS, multi-mount
+   installation
+
+   apt. One of the best options for installation from a local mirror of
+   the Debian archive or from the network. This method uses the “apt”
+   system to do complete dependency analysis and ordering, so it’s most
+   likely to install packages in the optimal order.
+
+   Configuration of this method is straightforward. You may select any
+   number of different locations, mixing and matching file: URLs (local
+   disks or NFS mounted disks), http: URLs, or ftp: URLs. Note,
+   however, that the HTTP and FTP options do not support local
+   authenticating proxies.
+
+   If you have proxy server for either HTTP or FTP (or both), make sure
+   you set the http_proxy and ftp_proxy environment variables,
+   respectively. Set them from your shell before starting dselect by
+   using the following command:
+
+   # export http_proxy=http://gateway:3128/
+   # 
+   # dselect
+   # 
+   # 
+   # 
+   # 
+  Update
+
+   dselect will read the Packages or Packages.gz files from the mirror
+   and create a database on your system of all available packages. This
+   may take a while as it downloads and processes the files.
+
+  Select
+
+   Hang on to your hat. This is where it all happens. The object of the
+   exercise is to select just which packages you wish to have
+   installed.
+
+   Press Enter. If you have a slow machine, be aware that the screen
+   will clear and can remain blank for 15 seconds. So don’t start
+   bashing keys at this point.
+
+   The first thing that comes up on the screen is page 1 of the Help
+   file. You can get to this help by pressing ? at any point in the
+   “Select” screens, and you can page through the help screens by
+   hitting the . (full stop) key.
+
+   Before you dive in, note these points:
+
+     ◼ To exit the “Select” screen after all selections are complete,
+     press Enter. This will return you to the main screen if there is
+     no problem with your selection. Otherwise, you will be asked to
+     deal with that problem. When you are happy with any given screen,
+     press Enter to get out.
+     ◼ Problems are quite normal and are to be expected. If you select
+     package A and that package requires package B to run, dselect will
+     warn you of the problem and will most likely suggest a solution.
+     If package A conflicts with package B (i.e., if they are mutually
+     exclusive), you will be asked to decide between them.
+
+   Let’s look at the top two lines of the Select screen. This header
+   reminds us of some of the special keys listed in Table 3.1.
+
+Table 3.1: Special dselect keys
+            +------------------------------------------------------+
+            | Key  |                  Description                  |
+            |------+-----------------------------------------------|
+            |  +   |      Select a package for installation.       |
+            |------+-----------------------------------------------|
+            |  =   |            Place a package on hold   

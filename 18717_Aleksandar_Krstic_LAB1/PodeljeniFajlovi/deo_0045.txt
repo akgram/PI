@@ -1,0 +1,88 @@
+ help. That’s it! Knowing this will let
+   you do basic editing. For programming or more detailed editing work,
+   you’ll want to investigate other editors as discussed earlier.
+
+
+
+
+9. The X Window System
+
+
+   This chapter describes the X Window system graphical user interface.
+   It assumes that you have already successfully configured X as
+   described in the Installation Manual (again, the install manual is
+   not yet written; for now you will need to use the XFree86 HOWTO, the
+   contents of /usr/doc/X11, and this chapter). Once you install X, you
+   can enter the X environment by typing startx or via xdm, depending
+   on your choice during configuration.
+
+
+9.1 Introduction to X
+
+   A GUI (Graphical User Interface) is part and parcel of the Windows
+   and Mac operating systems. It’s basically impossible to write an
+   application for those systems that does not use the GUI, and the
+   systems can’t be used effectively from the command line. GNU/Linux
+   is more _modular_, that is, it’s made up of many small, independent
+   components that can be used or not according to one’s needs and
+   preferences. One of these components is the X Window system, or
+   simply X.
+
+   This component is also sometimes called X11. Please note that “X
+   Windows” is _not_ correct.
+
+   X itself is a means for programs to talk to your mouse and video
+   card without knowing what kind of mouse and video card you have.
+   That is, it’s an _abstraction_ of the graphics hardware. User
+   applications talk to X in X’s language; X then translates into the
+   language of your particular hardware. This means that programs only
+   have to be written once, and they work on everyone’s computer.
+
+   In X jargon, the program that speaks to the hardware is known as an
+   _X server_. User applications that ask the X server to show windows
+   or graphics on the screen are called _X clients_. The X server
+   includes a _video driver_, so you must have an X server that matches
+   your video card.
+
+   The X server doesn’t provide any of the features one might expect
+   from a GUI, such as resizing and rearranging windows. A special X
+   client, called a _window manager_, draws borders and title bars for
+   windows, resizes and arranges windows, and provides facilities for
+   starting other X clients from a menu. Specific window managers may
+   have additional features.
+
+   Window managers available on a Debian system include fvwm, fvwm2,
+   icewm, afterstep, olvwm, wmaker, twm, and enlightenment. You’ll
+   probably want to try them all and pick your favorite.
+
+   Neither the X server nor the window manager provide a _file
+   manager;_ that is, there aren’t any windows containing icons for
+   your files and directories. You can launch a file manager as a
+   separate application, and there are many of them available. The
+   GNOME desktop project is developing an icon-based file manager and
+   other GUI facilities. See the GNOME homepage[1] for the latest news
+   on this.
+
+ [1] http://www.gnome.org/
+
+   A final feature of X is its _network transparency_, meaning that X
+   clients don’t care if they’re talking to an X server on the same
+   machine or an X server somewhere on the network. In practical terms,
+   this means you can run a program on a more powerful remote machine
+   but display it on your desktop computer.
+
+
+9.2 Starting the X Environment
+
+   There are two ways to start X. The first is to start X manually when
+   you feel like using it. To do so, log in to one of the text consoles
+   and type startx. This will start X and switch you to its virtual
+   console.
+
+   The second (and recommended) way to use X is with xdm or X Display
+   Manager. Basically, xdm gives you a nice graphical login prompt on
+   the X virtual console (probably VC 7), and you log in there.
+
+   By default, either method will also start an xterm, which is a small
+   window containing a shell prompt. At the shell prompt, you can type
+   any commands just as you wo

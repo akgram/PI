@@ -1,0 +1,106 @@
+l” is commonly
+   used to mean “command-line shell.”
+
+   Needless to say, the hackers who work on shells aren’t satisfied
+   with simply launching commands. Your shell has a bewildering number
+   of convenient and powerful features if you would like to take
+   advantage of them.
+
+   There are countless different shells available; most are based on
+   either the _Bourne shell_ or the _C shell_, two of the oldest
+   shells. The original Bourne shell’s program name is sh, while csh is
+   the C shell. Bourne shell variants include the Bourne Again Shell
+   from the GNU project (bash, the Debian default), the Korn shell
+   (ksh), and the Z shell (zsh). There is also ash, a traditional
+   implementation of the Bourne shell. The most common C shell variant
+   is tcsh (the t pays tribute to the TENEX and TOPS-20 operating
+   systems, which inspired some of tcsh’s improvements over csh).
+
+   bash is probably the best choice for new users. It is the default
+   and has all the features you’re likely to need. But all the shells
+   have loyal followings; if you want to experiment, install some
+   different shell packages and change your shell with the chsh
+   command. Just type chsh, supply a password when asked, and choose a
+   shell. When you next log in, you’ll be using the new shell.
+
+
+5.5 Managing Processes with bash
+
+   Debian is a multitasking system, so you need a way to do more than
+   one thing at once. Graphical environments like X provide a natural
+   way to do this; they allow multiple windows on the screen at any one
+   time. Naturally, bash (or any other shell) provides similar
+   facilities.
+
+   Earlier you used top to look at the different processes on the
+   system. Your shell provides some convenient ways to keep track of
+   only those processes you’ve started from the command line. Each
+   command line starts a _job_ (also called a _process group_) to be
+   carried out by the shell. A job can consist of a single process or a
+   set of processes in a _pipeline_ (more on pipelines later).
+
+   Entering a command line will start a job. Try typing man cp, and the
+   cp manual page will appear on the screen. The shell will go into the
+   background and return when you finish reading the manual page (or
+   you can press q to quit rather than scrolling through the whole
+   thing).
+
+   But say you’re reading the manual page, and you want to do something
+   else for a minute. No problem. Press Ctrl-z while you’re reading to
+   _suspend_ the current foreground job and put the shell in the
+   foreground. When you suspend a job, bash will first give you some
+   information on it, followed by a shell prompt. You will see
+   something like this on the screen:
+
+   NAME cp - copy files SYNOPSIS cp [options] source
+   --More--
+   [1]+ Stopped man cp
+   $
+
+   Note the last two lines. The next to last is the job information,
+   and then you have a shell prompt.
+
+   bash assigns a _job number_ to each command line you run from the
+   shell. This allows you to refer to the process easily. In this case,
+   man cp is job number 1, displayed as [1]. The + means that this is
+   the last job you had in the foreground. bash also tells you the
+   current state of the job—Stopped—and the job’s command line.
+
+   There are many things you can do with jobs. With man cp still
+   suspended, try the following commands:
+
+   man ls
+
+   Starts a new job.
+
+   Ctrl-z
+
+   Suspends the man ls job; you should see its job information.
+
+   man mv
+
+   Starts yet another job.
+
+   Ctrl-z
+
+   Suspends it.
+
+   jobs
+
+   Asks bash for a display of current jobs. The result looks like this:
+
+   {$} jobs
+   [1] Stopped man cp
+   [2]- Stopped man ls
+   [3]+ Stopped man mv
+   {$}
+
+   Notice the - and +, denoting respectively the next to last and last
+   foreground jobs.
+
+   fg
+
+   Places the last foreground job (man mv, the one with the +) in the
+   foreground again. If you press the space bar, the man page will
+   continue scrolling.
+

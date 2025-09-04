@@ -1,0 +1,100 @@
+ login (username)
+   and directory. You’ll notice that it says “No plan.” A “plan” is
+   just some information you can make available to others. To create a
+   plan, you put whatever information you want people to see in a file
+   called .plan. To do this you’ll use a text editor; see section 8.2
+   on page [*]. Then finger yourself to see your plan. Others can
+   finger you to see your plan and to check whether you’ve received new
+   mail or read your mail.
+
+   Note that this finger information is available to the entire
+   Internet by default. If you don’t want this, read about configuring
+   inetd and the file
+   /etc/services. Eventually the installation manual will describe this
+   configuration, but for now you might try the man pages or just put
+   nonsense in for your finger information.
+
+
+
+
+6. Using the Shell
+
+
+   As you have been reading this book, you’ve been interacting with the
+   shell already. The shell is the program that reads your commands and
+   then does what you ask it to. In this chapter, you explore the shell
+   in greater detail, with a special eye towards customizing the shell
+   to work as you want it to.
+
+
+6.1 Environment Variables
+
+   Every process has an _environment_ associated with it. An
+   environment is a collection of _environment variables_. A variable
+   is a changeable value with a fixed name. For example, the name EMAIL
+   could refer to the value joe@nowhere.com. The value can vary; EMAIL
+   could also refer to jane@somewhere.com.
+
+   Because your shell is a process like any other, it has an
+   environment. You can view your shell’s environment by entering the
+   printenv command. Figure 6.1 has some sample output from printenv.
+   On your system, the output will be different but similar.
+
+[Illustration: Figure 6.1: Sample printenv output]
+
+   Environment variables are one way to configure the system. For
+   example, the EDITOR variable lets you select your preferred editor
+   for posting news, writing e-mail, and so on.
+
+   Setting environment variables is simple. For practice, try
+   customizing your shell’s prompt and your text file viewer with
+   environment variables. First, let’s get a bit of background
+   information.
+
+   man less
+
+   This command lets you view the online manual for the less command.
+   In order to show you the text one screenful at a time, man invokes a
+   pager that shows you a new page of text each time you press the
+   space bar. By default, it uses the pager called more.
+
+   Go ahead and glance over the man page for less, which is an enhanced
+   pager. Scroll to a new page by pressing space; press q to quit. more
+   will also quit automatically when you reach the end of the man page.
+
+   export PAGER=less
+
+   After reading about the advantages of less, you might want to use it
+   to read man pages. To do this, you set the environment variable
+   PAGER.
+
+   The command to set an environment variable within bash always has
+   this format:
+
+Illustration: Figure 6.2: Changing the prompt
+
+   export NAME=value
+
+   export means to move the variable from the shell into the
+   environment. This means that programs other than the shell (for
+   instance, a file viewer) will be able to access it.
+
+   echo $PAGER
+
+   This is the easiest way to see the value of a variable. $PAGER tells
+   the shell to insert the value of the PAGER variable _before_
+   invoking the command. echo echoes back its argument: in this case,
+   it echoes the current PAGER value, less.
+
+   man more
+
+   Displays the more manual. This time, man should have invoked the
+   less pager.
+
+   less has lots of features that more lacks. For example, you can
+   scroll backward with the b key. You can also move up and down (even
+   sideways) with the arrow keys. less won’t exit when it reaches the
+   end of the man page; it will wait for you to press q.
+
+   You can try out some less-specific commands, like b, to verify that
+   they don’t work with more and that you are indeed

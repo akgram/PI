@@ -1,0 +1,98 @@
+ are used to display the file’s mode. The
+   basic 9 bits (read, write, and execute for user, group, and other)
+   are displayed as three blocks of rwx.
+
+   So if all permissions are turned on and this is a regular file, the
+   mode will look like this: -rwxrwxrwx. If it was a directory with all
+   permissions turned off for others and full permissions for user and
+   group, it would be drwxrwx--.
+
+Table 7.1: Permissions in Linux
++------------------------------------------------------------------------------+
+| Code |  Name   | Allows for Files         | Allows for Directories           |
+|------+---------+--------------------------+----------------------------------|
+|  r   |  read   | Examine contents of file | List contents of directory       |
+|------+---------+--------------------------+----------------------------------|
+|  w   |  write  | Modify file              | Add or remove files in directory |
+|------+---------+--------------------------+----------------------------------|
+|  x   | execute | Run as a command         | Access files in directory        |
++------------------------------------------------------------------------------+
+
+   Table 7.1 describes the meaning of the read, write, and execute
+   permissions for both files and directories.
+
+   Directory modes can be a little confusing, so here are some examples
+   of the effects of various combinations:
+
+   r-
+
+   The user, group, or other with these permissions may list the
+   contents of the directory, but can do nothing else. The files in the
+   directory can’t be read, changed, deleted, or manipulated in any
+   way. The only permitted action is reading the directory itself, that
+   is, seeing what files it contains.
+
+   rw-
+
+   Write permission has no effect in the absence of execute permission,
+   so this mode behaves just like the above mode.
+
+   r-x
+
+   This mode permits the files in a directory to be listed and permits
+   access to those files. However, files can’t be created or deleted.
+   Access means that you can view, change, or execute the files as
+   permitted by the files’ own permissions.
+
+   -x
+
+   Files in this directory can be accessed, but the contents of the
+   directory can’t be listed, so you have to know what filename you’re
+   looking for in advance (unless you’re exceptionally good at
+   guessing). Files can’t be created or deleted.
+
+   rwx
+
+   You can do anything you want with the files in this directory, as
+   long as it’s permitted by the permissions on the files themselves.
+
+   Directory write permission determines whether you can delete files
+   in a directory. A read-only file can be deleted if you have
+   permission to write to the directory containing it. You can’t delete
+   a file from a read-only directory even if you’re allowed to make
+   changes to the file.
+
+   This also means that if you own a directory you can always delete
+   files from it, even if those files belong to root.
+
+   Directory execute permission determines whether you have access to
+   files - and thus whether file permissions come into play. If you
+   have execute permissions to a directory, file permissions for that
+   directory become relevant. Otherwise, file permissions just don’t
+   matter; you can’t access the files anyway.
+
+
+7.1.3 Permissions in Practice
+
+   This section goes through a short example session to demonstrate how
+   permissions are used. To change permissions, we’ll use the chmod
+   command.
+
+   cd; touch myfile
+
+   There are a couple of new tricks here. First, you can use ; to put
+   two commands on one line. You can type the above as:
+
+   $ cd
+   $ touch myfile
+
+   or as:
+
+   $ cd; touch myfile
+
+   Either way the same thing will end up happening.
+
+   Recall that cd by itself returns you to your home directory. touch
+   is normally used to change the modification time of the file to the
+   current time. But it has another interesting feature: If the file
+   doesn’t exist, touch creates the file. So yo

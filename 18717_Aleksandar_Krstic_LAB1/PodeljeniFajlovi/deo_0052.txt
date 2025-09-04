@@ -1,0 +1,103 @@
+ems are
+   cheap because they have very little functionality, and they require
+   the computer to make up for their shortcomings. Unfortunately, this
+   means they are complex to program, and manufacturers generally do
+   not make the specifications available for developers.
+
+   If you have a modem with its own on-board circuitry or an external
+   modem, you should have no trouble at all.
+
+   On GNU/Linux systems, the serial ports are referred to as
+   /dev/ttyS0,
+   /dev/ttyS1, and so on. Your modem is almost certainly connected to
+   /either
+   port 0 or port 1, equivalent to COM1: and COM2: under Windows. If
+   you don’t know which your modem is connected to, run the program
+   wvdialconf to try to detect it (see below); otherwise, just try both
+   and see which works.
+
+   If you want to talk to your modem or dial your ISP without using
+   PPP, you can use the minicom program. You may need to install the
+   minicom package to make the program available.
+
+
+11.1.3 The Easy Way: wvdial
+
+   The simplest way to get PPP running is with the wvdial program. It
+   makes some reasonable guesses and tries to set things up for you. If
+   it works, you’re in luck. If it guesses wrong, you’ll have to do
+   things manually.
+
+   Be sure you have the following packages installed:
+
+     ◼ ppp
+     ◼ ppp-pam
+     ◼ wvdial
+
+   When you install the wvdial package, you may be given the
+   opportunity to configure it. Otherwise, to set up wvdial, follow
+   these simple steps:
+
+   Log in as root, using su (as described in an earlier chapter).
+
+   touch /etc/wvdial.conf
+
+   touch will create the following file if the file doesn’t exist; the
+   configuration program requires an existing file.
+
+   wvdialconf /etc/wvdial.conf
+
+   This means you’re creating a configuration file, /etc/wvdial.conf.
+
+   Answer any questions that appear on the screen. wvdialconf will also
+   scan for your modem and tell you which serial port it’s on; you may
+   want to make a note of this for future reference.
+
+
+11.2 Ethernet
+
+   Another popular way to connect to the Internet is via a LAN that
+   uses Ethernet. This gives you a high-speed local network in addition
+   to Internet access. Fortunately, though, you should have already
+   configured Ethernet networking during installation so there isn’t
+   much you need to do now. If you ever need to modify your
+   configuration, here are the files that you will be interested in:
+
+     ◼ /etc/init.d/network has things such as your IP address, netmask,
+     and default route.
+     ◼ /etc/hostname records your hostname.
+     ◼ /etc/hosts also records your hostname and IP address.
+
+
+
+
+12. Removing and Installing Software
+
+
+   This chapter describes ways of installing and removing software
+   packages. There are several ways of doing both. Here we discuss
+   installation and removal of pre-built software, such as Debian
+   packages, and installation of source that must be built by you.
+
+
+12.1 What a Package Maintenance Utility Does
+
+   An application or utility program usually involves quite a few
+   files. It might include libraries, data files like game scenarios or
+   icons, configuration files, manual pages, and documentation. When
+   you install the program, you want to make sure you have all the
+   files you need in the right places.
+
+   You’d also like to be able to uninstall the program. When you
+   uninstall, you want to be sure all the associated files are deleted.
+   However, if a program you still have on the system needs those
+   files, you want to be sure you keep them.
+
+   Finally, you’d like to be able to upgrade a program. When you
+   upgrade, you want to delete obsolete files and add new ones, without
+   breaking any part of the system.
+
+   The Debian package system solves these problems. It allows you to
+   install, remove, and upgrade software _packages_, which are neat
+   little bundles containing the program files and information that
+   helps the computer manage them prop

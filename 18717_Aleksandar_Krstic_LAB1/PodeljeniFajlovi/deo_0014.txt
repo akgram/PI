@@ -1,0 +1,89 @@
+character-based application. It is very easy
+   to use; generally, it will guide you through each step of the
+   installation process in a linear fashion. You can also go back and
+   repeat steps if you made a mistake. Navigation within dbootstrap is
+   accomplished with the arrow keys, Enter, and Tab.
+
+
+3.1 Select Color or Monochrome Display
+
+   Once the system has finished booting, dbootstrap is invoked. The
+   first thing that dbootstrap asks about is your display. You should
+   see the “Select Color or Monochrome display” dialog box. If your
+   monitor is capable of displaying color, press Enter. The display
+   should change from black-and-white to color. Then press Enter again,
+   on the “Next” item, to continue with the installation.
+
+   If your monitor can display only black and white, use the arrow keys
+   to move the cursor to the “Next” menu item, and then press Enter to
+   continue with the installation.
+
+
+3.2 Debian GNU/Linux Installation Main Menu
+
+   You may see a dialog box that says “The installation program is
+   determining the current state of your system and the next
+   installation step that should be performed.” This is a phase in
+   which the installation program automatically figures out what you
+   probably need to do next. In some cases, you may not even see this
+   box.
+
+   During the entire installation process, you will be presented with
+   the main menu, titled “Debian GNU/Linux Installation Main Menu.” The
+   choices at the top of the menu will change to indicate your progress
+   in installing the system. Phil Hughes wrote in the _Linux
+   Journal_[1] that you could teach a chicken to install Debian! He
+   meant that the installation process was mostly just _pecking_ at the
+   _Enter key_. The first choice on the installation menu is the next
+   action that you should perform according to what the system detects
+   you have already done. It should say “Next,” and at this point the
+   next step in installing the system will be taken.
+
+ [1] http://www.linuxjournal.com
+
+
+3.3 Configure the Keyboard
+
+   Make sure the highlight is on the “Next” item and press Enter to go
+   to the keyboard configuration menu.
+
+   Move the highlight to the keyboard selection you desire and press
+   Enter. Use the arrow keys to move the highlight. In most cases, you
+   can just use the default U.S. layout.
+
+
+3.4 Last Chance to Back Up!
+
+   Did we tell you to back up your disks? Here’s your first chance to
+   wipe out all of the data on your disks and your last chance to save
+   your old system. If you haven’t backed up all of your disks, remove
+   the floppy from the drive, reset the system, and run backups.
+
+
+3.5 Partition a Hard Disk
+
+   Whatever the “Next” menu selection is, you can use the down-arrow
+   key to select “Partition a Hard Disk.” Go ahead and do this now,
+   then press Enter.
+
+   The “Partition a Hard Disk” menu item presents you with a list of
+   disk drives you can partition and runs a partitioning application
+   called cfdisk. You must create at least one “Linux native” (type 83)
+   disk partition, and you probably want at least one “Linux swap”
+   (type 82) partition, as explained in later in this section.
+
+   You will now create the partitions that you need to install Debian.
+   For this example, the assumption is that you are partitioning an
+   empty hard disk.
+
+   The boot partition must reside within the first 1,024 of cylinders
+   of your hard disk (see section 2.3.3 on page [*]). Keeping that in
+   mind, use the right-arrow key to highlight the “New” menu selection,
+   and then press Enter. You will be presented with the choice of
+   creating a _primary_ partition or a _logical_ partition. To help
+   ensure that the partition containing the boot information is within
+   the first 1,024 cylinders, create a primary partition first. This
+   primary partition will be your “Linux native” partition.
+
+   Highlight the “Primary” menu selection and press Enter. Next you
+   will ne

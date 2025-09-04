@@ -1,0 +1,102 @@
+ you mount often. These filesystems
+   can then be mounted with a shorter command, such as mount /cdrom.
+   You can also configure filesystems to mount automatically when the
+   system boots. You’ll probably want to mount all of your hard disk
+   filesystems when you boot, so Debian automatically adds entries to
+   fstab to do this for you.
+
+   Look at this file now by typing more /etc/fstab. It will have two or
+   more entries that were configured automatically when you installed
+   the system. It probably looks something like this:
+
+   # /etc/fstab: static file system information.
+   # /
+   # /   #
+   # /   #
+   # <file system> <mount point> <type> <options> #<dump > <pass>
+   # 
+   /dev/hda1 / ext2 defaults 0 1
+   /
+   /dev/hda3 none swap sw 0 0
+   /
+   proc /proc proc defaults 0 0
+   /dev/hda5 /tmp ext2 defaults 0 2
+   /
+   /dev/hda6 /home ext2 defaults 0 2
+   /
+   /dev/hda7 /usr ext2 defaults 0 2
+   /
+   /dev/hdc /cdrom iso9660 ro,noauto 0 0
+   /
+   /dev/fd0 /floppy auto noauto,sync 0 0
+   /
+   /
+   /
+   /
+   /
+   The first column lists the device the filesystem resides on. The
+   second lists the mount point, the third indicates the filesystem
+   type. The line beginning by proc is a special filesystem. Notice
+   that the swap partition (/dev/hda3 in the example) has no mount
+   point, so the mount point column contains none.
+
+   The last three columns may require some explanation.
+
+   The fifth column is used by the dump utility to decide when to back
+   up the filesystem. In most cases, you can put 0 here.
+
+   The sixth column is used by fsck to decide in what order to check
+   filesystems when you boot the system. The root filesystem should
+   have a 1 in this field, filesystems that don’t need to be checked
+   (such as the swap partition) should have a 0, and all other
+   filesystems should have a 2. It’s worth noting that the swap
+   partition isn’t exactly a filesystem in the sense that it does not
+   contain files and directories but is just used by the Linux kernel
+   as secondary memory. However, for historical reasons, the swap
+   partitions are still listed in the same file as the filesystems.
+
+   Column four contains one or more options to use when mounting the
+   filesystem. You can check the mount manpage for a summary; see
+   section 5.1 on page [*].
+
+
+10.2.4 Removable Disks (Floppies, Zip Disks, Etc.)
+
+   Add the following lines to your /etc/fstab file:
+
+   /dev/sda1 /mnt/zip ext2 noauto,user 0 0
+   /
+   /dev/sda4 /mnt/dos msdos noauto,user 0 0
+   /
+   /
+   /
+   /
+   From now on, you’ll be able to mount the DOS-formatted Zip disks
+   with the command mount /mnt/dos, and you be able to mount
+   Linux-formatted Zip disks with the command mount /mnt/zip.
+
+   If you have SCSI hard disks in your system, you’ll have to change
+   sda to sdb or sdc in the example above.
+
+
+10.3 Backup Tools
+
+   Backups are important under any operating system. Debian GNU/Linux
+   provides several different utilities that you might want to use.
+   Additionally, while many of these utilities were aimed at tape
+   backups originally, you’ll find that they are now being used for
+   other things. For instance, tar is being used for distributing
+   programs over the Internet. Some of the utilities that you’ll find
+   include the following:
+
+     ◼ Taper is a menu-driven, easy-to-learn backup program that can
+     back up to a variety of media. Its limitation is that it doesn’t
+     handle large (4GB or larger) backups.
+     ◼ dump is designed specifically for tapes; its main strengths are
+     its interface for file restores, low-level filesystem backups, and
+     incremental backup scheduling. Its limitations include the
+     inability to back up NFS or other non-ext2 filesystems and some
+     rather arcane defaults.
+     ◼ GNU tar (short for Tape ARchiver) is an implementation of what
+     is probably the most widely used backup or archiving utility in
+     Linux today. It makes a good general purp

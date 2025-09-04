@@ -1,0 +1,85 @@
+t characters,
+   and it should contain both uppercase and lowercase characters, as
+   well as punctuation characters. Take extra care when setting your
+   root password, since it is such a powerful account. Avoid dictionary
+   words or use of any personal information that could be guessed.
+
+   If anyone ever tells you he needs your root password, be extremely
+   wary. You should normally never give out your root account, unless
+   you are administering a machine with more than one system
+   administrator.
+
+
+3.16 Create an Ordinary User
+
+   The system will ask you to create an ordinary user account. This
+   account should be your main personal login. You should _not_ use the
+   root account for daily use or as your personal login.
+
+   Why not? It’s a lot harder to do damage to the system as an ordinary
+   user than as root; system files are protected. Another reason is
+   that you might be tricked into running a _Trojan horse_ program—that
+   is, a program that takes advantage of your superuser powers to
+   compromise the security of your system behind your back. Any good
+   book on Unix system administration will cover this topic in more
+   detail. Consider reading one if this topic is new to you.
+
+   Name the user account anything you like. If your name is John Smith,
+   you might use “smith,” “john,” “jsmith,” or “js.”
+
+
+3.17 Shadow Password Support
+
+   Next, the system will ask whether you want to enable shadow
+   passwords. This is an authentication system that makes your Linux
+   system a bit more secure. Therefore, we recommend that you enable
+   shadow passwords. Reconfiguration of the shadow password system can
+   also be done later with the shadowconfig program.
+
+
+3.18 Remove PCMCIA
+
+   If you have no use for PCMCIA, you can choose to remove it at this
+   point. This will make your startup cleaner; also, it will make it
+   easier to replace your kernel (PCMCIA requires a lot of correlation
+   between the version of the PCMCIA drivers, the kernel modules, and
+   the kernel itself). In general, you will not need PCMCIA unless
+   you’re using a laptop.
+
+
+3.19 Select and Install Profiles
+
+   The system will now ask you if you want to use the pre-rolled
+   software configurations offered by Debian. You can always choose
+   package-by-package what you want to install on your new machine.
+   This is the purpose of the dselect program, described below. But
+   this can be a long task with the thousands of packages available in
+   Debian!
+
+   So, you have the ability to choose _tasks_ or _profiles_ instead. A
+   _task_ is work you will do with the machine, such as “Perl
+   programming” or “HTML authoring” or “Chinese word processing.” You
+   can choose several tasks. A _profile_ is a category your machine
+   will be a member of, such as “Network server” or “Personal
+   workstation.” Unlike with tasks, you can choose only one profile.
+
+   To summarize, if you are in a hurry, choose one profile. If you have
+   more time, choose the Custom profile and select a set of tasks. If
+   you have plenty of time and want very precise control on what is or
+   is not installed, skip this step and use the full power of dselect.
+
+   Soon, you will enter into dselect. If you selected tasks or
+   profiles, remember to skip the “Select” step of dselect, because the
+   selections have already been made.
+
+   A word of warning about the size of the tasks as they are displayed:
+   The size shown for each task is the sum of the sizes of its
+   packages. If you choose two tasks that share some packages, the
+   actual disk requirement will be less than the sum of the sizes for
+   the two tasks.
+
+   Once you’ve added both logins (root and personal), you’ll be dropped
+   into the dselect program. dselect allows you to select _packages_ to
+   be installed on your system. If you have a CD-ROM or hard disk
+   containing the additional Debian packages that you want to install
+   on your system, or if you are connected to the Internet, this

@@ -1,0 +1,101 @@
+u’re using it to create
+   a file to practice with. Use ls -l to confirm that the file has been
+   created and notice the permissions mode:
+
+   $ ls -l
+
+   -rw-r-r- 1 user user 0 Nov 18 22:04 myfile
+
+   Obviously the time and user/group names will be different when you
+   try it. The size of the file is 0, because touch creates an empty
+   file. -rw-r-r- is the default permissions mode on Debian.
+
+   chmod u+x myfile
+
+   This command means to add (+) execute (x) permissions for the user
+   (u) who owns the file. Use ls -l to see the effects.
+
+   chmod go-r myfile
+
+   Here you’ve subtracted (-) read permission (r) from the group (g)
+   owning the file and from everyone else (others, o). Again, use ls -l
+   to verify the effects.
+
+   chmod ugo=rx myfile
+
+   Here you’ve set (=) user, group, and other permissions to read and
+   execute. This sets permissions to _exactly_ what you’ve specified
+   and unsets any other permissions. So all rx should be set, and all w
+   should be unset. Now, no one can write to the file.
+
+   chmod a-x myfile
+
+   a is a shortcut for ugo, or “all.” So all the x permissions should
+   now be unset.
+
+   rm myfile
+
+   With this command, you’re removing the file, but without write
+   permissions. rm will ask if you’re sure by displaying the following
+   message:
+
+   rm: remove ‘myfile’, overriding mode 0444?
+
+   You should respond by typing y and pressing Enter. This is a feature
+   of rm, not a fact of permissions. Permission to delete a file comes
+   from the directory permissions, and you have write permission in the
+   directory. However, rm tries to be helpful, figuring that if you
+   didn’t want to change the file (and thus remove write permission),
+   you don’t want to delete it either, so it asks you.
+
+   What was that 0444 business in the question from rm? The permissions
+   mode is a twelve-digit binary number, like this: 000100100100. 0444
+   is this binary number represented as an octal (base 8) number, which
+   is the conventional way to write a mode. So you can type chmod 444
+   myfile instead of chmod ugo=r myfile.
+
+
+7.2 Files Present and Their Locations
+
+   Now that you can navigate the directory tree, let’s take a guided
+   tour of the files and directories you created when you installed
+   Debian. If you’re curious, cd to each directory and type ls to see
+   its contents. If the listing doesn’t fit on the screen, try ls |
+   less, where | is the “pipe” character, generally found on the same
+   key with backslash.
+
+   / As already mentioned, this is the root directory, which contains
+   / every
+   other directory.
+
+   /root
+           But don’t get /confused with /root! /root is the home
+           directory of the root user, or superuser. It’s a directory
+           called /root, but it isn’t _the_ root directory /.
+
+   /home This is where all normal users—that is, all users except
+   root—have their home directories. Each home directory is named after
+   the user who owns it, for example, /home/jane. If you’re using a
+   large system at a school or business, your system administrator may
+   create additional directories to contain home directories: /home1
+   and /home2 for example. On some other systems, you’ll see an
+   additional level of subdirectories: /home/students/username,
+   /home/staff/username, etc.
+
+           Your home directory is where you put all your personal work,
+           e-mail and other documents, and personal configuration
+           preferences. It’s your home on the system.
+
+   /bin
+           This directory contains “binaries,” executable files that
+           are essential to the operation of the system. Examples are
+           the shell (bash) and file commands such as cp.
+
+   /sbin
+           This directory contains “system binaries,” utilities that
+           the root user or system administrator might want to use, but
+           that you probably won’t want to use in your day-to-day
+           activities.
+
+   /usr
+        

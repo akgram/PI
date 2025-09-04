@@ -1,0 +1,109 @@
+e printer device
+   /dev/lp0 or send modem commands to the device file for the
+   appropriate serial port.
+
+    /dev/null
+    /
+    /
+    /
+   /dev/null is a special device file that discards anything you write
+   /to it.
+   If you don’t want something, throw it in /dev/null. It’s essentially
+   a bottomless pit. If you read /dev/null, you’ll get an end-of-file
+   (EOF) character immediately. /dev/zero is similar, except that you
+   read from it you get the \0 character (not the same as the number
+   zero).
+
+  Named Pipes (FIFOs)
+
+   A named pipe is a file that acts like a pipe. You put something into
+   the file, and it comes out the other end. Thus it’s called a FIFO,
+   or First-In-First-Out, because the first thing you put in the pipe
+   is the first thing to come out the other end.
+
+   If you write to a named pipe, the process that is writing to the
+   pipe doesn’t terminate until the information being written is read
+   from the pipe. If you read from a named pipe, the reading process
+   waits until there’s something to read before terminating. The size
+   of the pipe is always zero: It doesn’t store data, it just links two
+   processes like the shell |. However, because this pipe has a name,
+   the two processes don’t have to be on the same command line or even
+   be run by the same user.
+
+   You can try it by doing the following:
+
+   cd; mkfifo mypipe
+
+   Makes the pipe.
+
+           echo "hello" > mypipe &
+
+   Puts a process in the background that tries to write “hello” to the
+   pipe. Notice that the process doesn’t return from the background; it
+   is waiting for someone to read from the pipe.
+
+   cat mypipe
+
+   At this point, the echo process should return, because cat read from
+   the pipe, and the cat process will print hello.
+
+   rm mypipe
+
+   You can delete pipes just like any other file.
+
+  Sockets
+
+   Sockets are similar to pipes, only they work over the network. This
+   is how your computer does networking. You may have heard of
+   “WinSock,” which is sockets for Windows.
+
+   We won’t go into these further because you probably won’t have
+   occasion to use them unless you’re programming. However, if you see
+   a file marked with type son your computer, you know what it is.
+
+
+13.2.3 The proc Filesystem
+
+   The Linux kernel makes a special filesystem available, which is
+   mounted under /proc on Debian systems. This is a “pseudo-filesystem”
+   because it doesn’t really exist on any of your physical devices.
+
+   The proc filesystem contains information about the system and
+   running processes. Some of the “files” in /proc are reasonably
+   understandable to humans (try typing cat /proc/meminfo or cat
+   /proc/cpuinfo); others are arcane collections of numbers. Often,
+   system utilities use these to gather information and present it to
+   you in a more understandable way.
+
+   People frequently panic when they notice one file in particular—
+   /proc/kcore —which is generally huge. This is (more or less) a copy
+   /of
+   the contents of your computer’s memory. It’s used to debug the
+   kernel. It doesn’t actually exist anywhere, so don’t worry about its
+   size.
+
+   If you want to know about all the things in /proc, type man 5 proc.
+
+
+13.2.4 Large-Scale Copying
+
+   Sometimes you may want to copy one directory to another location.
+   Maybe you’re adding a new hard disk and you want to copy /usr/local
+   to it. There are several ways you can do this.
+
+   The first is to use cp. The command cp -a will tell cp to do a copy
+   preserving all the information it can. So, you might use
+
+   cp -a /usr/local /destination
+
+   However, there are some things that cp -a won’t catch[1]. So, the
+   best way to do a large copy job is to chain two tar commands
+   together, like so:
+
+ [1] Sparse files and hard links are two examples.
+
+   tar -cSpf - /usr/local | tar -xvSpf -
+   -C /destination
+
+   The first tar command will archive the existing directory and pipe
+   it to the second. The 

@@ -1,0 +1,102 @@
+
+   Ctrl-z
+
+   Re-suspends man mv.
+
+   fg %1
+
+   You can refer to any job by placing a % in front of its number. If
+   you use fg without specifying a job, the last active one is assumed.
+
+   Ctrl-z
+
+   Re-suspends man cp.
+
+   kill %1
+
+   Kills off job 1. bash will report the job information, which will
+   look like this:
+
+   $ kill %1
+   [1]- Terminated man cp
+           $
+
+   bash is only asking the job to quit, and sometimes a job will not
+   want to do so. If the job doesn’t terminate, you can add the
+   -KILL[1] option to kill to stop asking and start demanding. For
+   example:
+
+ [1] Many people use the signal number -9 instead of the signal name
+ -KILL. However, it’s technically more portable to use the signal name.
+
+   $ kill -KILL %1
+   [1]- Killed man mv
+   $
+
+   The -KILL option forcibly and unconditionally kills off the job.
+
+   In technical terms, kill simply sends a signal. By default, it sends
+   a signal that requests termination (TERM, or signal 15) but you can
+   also specify a signal, and signal 9 (KILL) is the signal that forces
+   termination. The command name kill is not necessarily appropriate to
+   the signal sent; for example, sending the TSTP (terminal stop)
+   signal suspends the process but allows it to be continued later.
+
+   top
+
+   This brings the top display back up. Give the u command in top to
+   see only your processes. Look in the right-hand column for the man
+   ls and man mv commands. man cp won’t be there because you killed it.
+   top is showing you the system processes corresponding to your jobs;
+   notice that the PID on the left of the screen does not correspond to
+   the job number.
+
+   You may not be able to find your processes because they’re off the
+   bottom of the screen; if you’re using X (see Chapter 9 on page [*]),
+   you can resize the xterm to solve this problem.
+
+   Even these simple jobs actually consist of multiple processes,
+   including the man process and the pager more, which handles
+   scrolling one page at a time. You may notice the more processes are
+   also visible in top.
+
+   You can probably figure out how to clean up the remaining two jobs.
+   You can either kill them (with the kill command) or foreground each
+   one (with fg) and exit it. Remember that the jobs command gives you
+   a list of existing jobs and their status.
+
+   One final note: The documentation for bash is quite good, but it is
+   found in the Info help system rather than the man pages. To read it,
+   type info bash. See section A.1.1 for instructions on using the info
+   program. bash also contains a very good summary of its commands
+   accessible by the help command. help displays a list of available
+   topics; more information about each of them is accessible with the
+   command help topic name. Try typing help cd, for example. This will
+   give you details on the -P and -L arguments recognized by cd.
+
+
+5.6 A Few bash Features
+
+   This section mentions just a few of the most commonly used Bash
+   features; for a more complete discussion see Chapter 6.
+
+
+5.6.1 Tab Completion
+
+   The bash shell can guess what filename or command you are trying to
+   type and automatically finish typing it for you. Just type the
+   beginning of a command or filename and press Tab. If bash finds a
+   single unique completion, it will finish the word and put a space
+   after it. If it finds multiple possible completions, it will fill
+   out the part all completions have in common and beep. You can then
+   enter enough of the word to make it unique and press Tab again. If
+   it finds no completions, it will simply beep.
+
+
+5.7 Managing Your Identity
+
+   Unix-like systems are multiuser, and so you have your own electronic
+   identity as a user on the system. Type finger _yourusername_ to look
+   at some of the information about you that’s publically available. To
+   change the name and shell listed there, you can use the commands
+   chfn and chsh. Only the superuser can change your

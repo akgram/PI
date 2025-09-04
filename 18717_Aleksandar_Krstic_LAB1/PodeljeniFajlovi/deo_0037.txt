@@ -1,0 +1,95 @@
+11/XF86Config,
+   /etc/lynx.cfg, and /etc/ppp/options. In fact, nearly all the files
+   /in /etc
+   are configuration files.
+
+   _User configuration_ affects only a single user. Dotfiles are used
+   for user configuration. For example, the file ~/.newsrc stores a
+   list of which USENET (discussion group) articles you have read and
+   which groups you subscribe to. This allows news readers such as trn
+   or GNUS to display unread articles in the groups you’re interested
+   in. This information will be different for every user on the system,
+   so each user has his own .newsrc file in his home directory.
+
+
+6.4 Aliases
+
+   If you use the same command often, you might get tired of typing it.
+   bash lets you write shorter _aliases_ for your commands.
+
+   Say you always use the -almost-all and -color=auto options to ls.
+   You quickly get tired of typing ls -almost-all -color=auto. So you
+   make an alias:
+
+   alias myls=’ls -almost-all -color=auto’
+
+   Now you can type myls instead of the full command. To see what myls
+   really is, run the command type myls. To see a list of aliases
+   you’ve defined, simply type alias on a line by itself.
+
+[Illustration: Figure 6.3: Redirecting output]
+
+
+6.5 Controlling Input and Output
+
+   Throughout your experiences with Linux, you will most likely find
+   that manipulating application input and output can be a very
+   powerful thing to do. This section describes some of the things that
+   controlling input and output can do for you.
+
+
+6.5.1 stdin, stdout, Pipelines, and Redirection
+
+   Every process has at least three connections to the outside world.
+   The _standard input_ is one source of the process’s data; the
+   _standard output_ is one place the process sends data; and the
+   _standard error_ is a place the process can send error messages.
+   (These are often abbreviated stdin, stdout, and stderr.)
+
+   The words “source” and “place” are intentionally vague. These
+   standard input and output locations can be changed by the user; they
+   could be the screen, the keyboard, a file, even a network
+   connection. You can specify which locations to use.
+
+   When you run a program from the shell, usually standard input comes
+   from your keyboard, and standard output and error both go to your
+   screen. However, you can ask the shell to change these defaults.
+
+   For example, the echo command sends it output to standard output,
+   normally the screen. But you can send it to a file instead with the
+   _output redirection operator_, >. For example, to put the word
+   “Hello” in the file myfile, use this command:
+
+   echo Hello > myfile
+
+   Use cat or your text file pager (more or less) to view myfile’s
+   contents; see Figure 6.3.
+
+   You can change the standard input of a command with the _input
+   redirection operator_, <. For example, cat < myfile will display the
+   contents of myfile. This is not useful in practice; for convenience,
+   the cat command accepts a filename argument. So you can simply say
+   cat myfile, and the effect will be the same. redirection operators
+
+   Under the hood, cat < myfile means that the shell opens myfile and
+   then feeds its contents to the standard input of cat. cat myfile,
+   without the redirection operator, means that the cat command
+   receives one argument (myfile) opens the file itself, and then
+   displays the file.
+
+   There’s a reason for the double functionality, however. For example,
+   you can connect the standard output of one command to the standard
+   input of another. This is called a _pipeline_, and it uses the _pipe
+   operator_[1], |.
+
+ [1] Depending on your keyboard, this may either appear as a vertical
+ bar or a broken vertical bar, but it can almost always be found above
+ the backslash (\).
+
+   Perhaps you want to see the GNU General Public License in reverse.
+   To do this, you use the tac command (it’s cat, only backward). Try
+   it out:
+
+   tac /usr/doc/copyright/GPL
+
+   Unfortunately, it goes by too 

@@ -1,0 +1,131 @@
+﻿The Project Gutenberg eBook of Debian GNU/Linux : Guide to Installation and Usage
+    
+This ebook is for the use of anyone anywhere in the United States and
+most other parts of the world at no cost and with almost no restrictions
+whatsoever. You may copy it, give it away or re-use it under the terms
+of the Project Gutenberg License included with this ebook or online
+at www.gutenberg.org. If you are not located in the United States,
+you will have to check the laws of the country where you are located
+before using this eBook.
+
+*** This is a COPYRIGHTED Project Gutenberg eBook. Details Below. ***
+***     Please follow the copyright guidelines in this file.      ***
+
+
+Title: Debian GNU/Linux : Guide to Installation and Usage
+
+Author: John Goerzen
+        Ossama Othman
+
+Release date: September 1, 2004 [eBook #6527]
+                Most recently updated: July 14, 2020
+
+Language: English
+
+
+
+*** START OF THE PROJECT GUTENBERG EBOOK DEBIAN GNU/LINUX : GUIDE TO INSTALLATION AND USAGE ***
+
+
+
+
+Debian GNU/Linux: Guide to Installation and Usage
+
+by John Goerzen and Ossama Othman
+
+April 23, 2001
+
+   (c) 1998, 1999 Software in the Public Interest, Inc.
+
+   Permission is granted to make and distribute verbatim copies of this
+   manual provided the copyright notice and this permission notice are
+   preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+   this manual under the conditions for verbatim copying, provided also
+   that the sections that reprint “The GNU General Public License” and
+   other clearly marked sections held under separate copyright are
+   reproduced under the conditions given within them, and provided that
+   the entire resulting derived work is distributed under the terms of
+   a permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+   manual into another language under the conditions for modified
+   versions. “The GNU General Public License” may be included in a
+   translation approved by the Free Software Foundation instead of in
+   the original English.
+
+   At your option, you may distribute verbatim and modified versions of
+   this document under the terms of the GNU General Public License,
+   excepting the clearly marked sections held under separate copyright.
+
+
+
+
+Contents
+
+ List of Figures
+ List of Tables
+ Acknowledgments
+ Preface
+
+ I. Guide
+ 1. Introduction
+ 1.1 What Is Debian?
+ 1.2 A Multiuser, Multitasking Operating System
+ 1.3 What Is Free Software?
+ 1.4 About This Book
+
+ 2. Getting Started
+ 2.1 Supported Hardware
+ 2.2 Before You Start
+ 2.3 Partitioning Your Hard Drive
+ 2.4 Choosing Your Installation Media
+ 2.5 Booting the Installation System
+
+ 3. Step-by-Step Installation
+ 3.1 Select Color or Monochrome Display
+ 3.2 Debian GNU/Linux Installation Main Menu
+ 3.3 Configure the Keyboard
+ 3.4 Last Chance to Back Up!
+ 3.5 Partition a Hard Disk
+ 3.6 Initialize and Activate a Swap Partition
+ 3.7 Initialize a Linux Partition
+ 3.8 Install Operating System Kernel and Modules
+ 3.9 Configure PCMCIA Support
+ 3.10 Configure Device Driver Modules
+ 3.11 Configure the Network
+ 3.12 Install the Base System
+ 3.13 Make a Boot Floppy
+ 3.14 The Moment of Truth
+ 3.15 Set the Root Password
+ 3.16 Create an Ordinary User
+ 3.17 Shadow Password Support
+ 3,18 Remove PCMCIA
+ 3.19 Select and Install Profiles
+ 3.20 Package Installation with dselect
+ 3.21 Glossary
+
+ 4. Logging In
+ 4.1 First Steps
+ 4.2 Command History and Editing the Command Line
+ 4.3 Working as Root
+ 4.4 Virtual Consoles
+ 4.5 Shutting Down
+
+ 5. The Basics
+ 5.1 The Command Line and Man Pages
+ 5.2 Files and Directories
+ 5.3 Processes
+ 5.4 The Shell
+ 5.5 Managing Processes with bash
+ 5.6 A Few bash Features
+ 5.7 Managing Your Identity
+
+ 6. Using the Shell
+ 6.1 Environment Variables
+ 6.2 Where Commands Reside: The PATH Variable
+ 6.3 Configuration Files
+ 6.4 Aliases
+ 6.5 Controlling Input and Output
+ 6.6 Filename Expansi

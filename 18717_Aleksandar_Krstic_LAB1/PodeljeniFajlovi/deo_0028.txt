@@ -1,0 +1,90 @@
+ptions change the behavior of a command, switching on particular
+   features or functionality. They usually have a - before them. The
+   GNU utilities also have “long forms” for the options; the long form
+   of -k is -apropos. You can enter man -h or man -help to get a full
+   list of options for the man command. Every command will have its own
+   set of options, though most have -help and -version options. Some
+   commands, such as tar, do not require the “-” before their options
+   for historical reasons.
+
+   Anything that isn’t an option and isn’t the command name is an
+   _argument_ (in this case, PostScript). Arguments can serve many
+   purposes; most commonly, they are filenames that the command should
+   operate on. In this case, PostScript is the word you want man to
+   search for. In the case of man whoami, the argument was the command
+   you wanted information about.
+
+   Here’s a breakdown of the man -k PostScript command line:
+
+   man. The command name, tells the computer to look at the manual
+   pages. These provide documentation for commands. For example, man
+   whoami will give you documentation on the whoami command.
+
+   -k. The option, changes the behavior of man. Normally man expects a
+   command name, such as whoami, for an argument and looks for
+   documentation of that command. But with the -k or -apropos option,
+   it expects the argument to be a keyword. It then gives a list of all
+   manual pages with that keyword in their description.
+
+   PostScript. is the argument; because we used the -k option, it’s the
+   keyword to search for.
+
+   -k and PostScript are both parameters.
+
+   Go ahead and type man -k PostScript, and you will see a list of all
+   the manual pages on your system that have something to do with
+   PostScript. If you haven’t installed much software, you might see
+   the message PostScript: nothing appropriate instead.
+
+
+5.1.1 Describing the Command Line
+
+   Note: You can skip this section if you want to move on.
+
+   There’s a traditional, concise way of describing command _syntax.
+   Syntax_ means the correct ways to combine various options and
+   arguments. For example, if you type man man to get the manual page
+   about man, you’ll see several syntax descriptions beginning with the
+   command name man. One of them will look like this: man -k [-M path]
+   keyword ...
+
+   Anything in brackets ([]) is an optional unit. In this case you
+   don’t have to use the -M option, but if you do, you must use a path
+   argument. You must use the -k option and the keyword argument. The
+   ... means that you could have more of whatever came before it, so
+   you could look up several keywords.
+
+   Let’s look at one of the more complex descriptions from the man
+   manual page:
+
+   man [-c|-w|-tZT device] [-adhu7V]
+   [-m system[,...]] [-L locale] [-p string]
+   [-M path] [-P pager] [-r prompt] [-S list]
+   [-e extension] [[section] page ...] ...
+
+   There’s no need to go through all of this (and don’t worry about
+   what it all means), but do pay attention to the organization of the
+   description.
+
+   First, clusters of options usually mean you can use one or more of
+   them in different combinations, so -adhu7V means you can also use
+   -h. However, you can’t always use all combinations; this description
+   doesn’t make that clear. For example, -h is incompatible with other
+   options, but you could do man -du. Unfortunately, the description’s
+   format does not make this clear.
+
+   Second, the | symbol means “or.” So you can use the -c, the -w, _or_
+   the -tZT option, followed by a device argument.
+
+   Third, notice that you can nest the brackets, because they indicate
+   optional _units_. So if you have a section, you must also have a
+   page, because e page is not optional within the [[section] page]
+   unit.
+
+   There’s no need to memorize any of this, just refer to this section
+   as you read documentation.
+
+
+5.2 Files and Directories
+
+   _Files_ are a facility for storing

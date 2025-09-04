@@ -1,0 +1,110 @@
+Changes the directory to practice.
+
+   mkdir mysubdirectory
+
+   Creates a subdirectory of practice.
+
+   cp /etc/profile .
+
+   cp is short for “copy.” /etc/profile is just a random file on your
+   system, don’t worry about what it is for now. We’ve copied it to .
+   (recall that . just means “the directory I’m in now,” or the current
+   working directory). So this creates a copy of /etc/profile and puts
+   it in your practice directory. Try typing ls to verify that there’s
+   indeed a file called profile in your working directory, alongside
+   the new mysubdirectory.
+
+   more profile
+
+   This lets you view the contents of the file profile. more is used to
+   view the contents of text files. It’s called more because it shows
+   one screenful of the file at a time, and you press the space bar to
+   see more. more will exit when you get to the end of the file, or
+   when you press q (quit).
+
+   more /etc/profile
+
+   Verifies that the original looks just like the copy you made.
+
+   mv profile mysubdirectory
+
+   mv stands for “move.” You’ve moved the file profile from the current
+   directory into the subdirectory you created earlier.
+
+   ls
+
+   Verifies that profile is no longer in the current directory.
+
+   ls mysubdirectory
+
+   Verifies that profile has moved to mysubdirectory.
+
+   cd mysubdirectory
+
+   Changes to the subdirectory.
+
+   mv profile myprofile
+
+   Note that unlike some operating systems, there is no difference
+   between moving a file and renaming it. Thus there’s no separate
+   rename command. Note that the second argument to mv can be a
+   directory to move the file or directory into, or it can be a new
+   filename. cp works the same way.
+
+   As usual, you can type ls to see the result of mv.
+
+   mv myprofile ..
+
+   Just as . means “the directory I’m in now,” .. means “parent of the
+   current directory,” in this case the practice directory you created
+   earlier. Use ls to verify that that’s where myprofile is now.
+
+   cd ..
+
+   Changes directories to the parent directory—in this case practice,
+   where you just put myprofile.
+
+   rm myprofile
+
+   rm means “remove,” so this deletes myprofile. Be careful! Deleting a
+   file on a GNU/Linux system is _permanent_—there is no undelete. If
+   you rm it, it’s _gone, forever_. Be careful! To repeat, deleting a
+   file on a GNU/Linux system is _permanent_—there is no undelete. If
+   you rm it, it’s _gone, forever_.
+
+   rmdir mysubdirectory
+
+   rmdir is just like rm, only it’s for directories. Notice that rmdir
+   only works on empty directories. If the directory contains files,
+   you must delete those files first, or alternatively you can use rm
+   -r in place of rmdir.
+
+   cd ..
+
+   This moves out of the current directory, and into its parent
+   directory. Now you can type the following:
+
+   rmdir practice
+
+   This will delete the last remnants of your practice session.
+
+   So now you know how to create, copy, move, rename, and delete files
+   and directories. You also learned some shortcuts, like typing simply
+   cd to jump to your home directory, and how . and .. refer to the
+   current directory and its parent, respectively. You should also
+   remember the concept of the _root directory_, or /, and the alias ~
+   for your home directory.
+
+
+5.2.2 Dot Files and ls -a
+
+   When you type ls, files beginning with a dot are not listed.
+   Traditionally, files that contain configuration information, user
+   preferences, and so on begin with a dot; these are hidden and out of
+   your way while you do your day-to-day work. Sample dot files are
+   ~/.emacs, ~/.newsrc, ~/.bashrc, ~/.xsession, and ~/.fvwmrc. These
+   are used by Emacs, news readers, the Bash shell, the X Window
+   system, and the fvwm window manager, respectively. It is
+   conventional to end the dot filename with rc, but some programs
+   don’t. There are also directories beginning with a dot, such as
+   ~/.gimp and ~/.netscape, which store preferences for the Gimp and

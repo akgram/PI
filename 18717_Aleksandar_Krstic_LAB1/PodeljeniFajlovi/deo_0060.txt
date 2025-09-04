@@ -1,0 +1,92 @@
+ook for help. We
+   probably don’t know the answer to your specific problem anyway; if
+   you mail debian-user, you will get higher-quality responses, and
+   more quickly.
+
+   Always be polite and make an effort to help yourself by reading the
+   documentation. Remember, Debian is a volunteer effort and people are
+   doing you a favor by giving their time to help you. Many of them
+   charge hundreds of dollars for the same services during the day.
+
+  Tips for asking questions
+
+     ◼ Read the obvious documentation first. Things like command
+     options and what a command does will be covered there. This
+     includes manpages and info documentation.
+     ◼ Check the HOWTO documents if your question is about setting up
+     something such as PPP or Ethernet.
+     ◼ Try to be sure the answer isn’t in this book.
+     ◼ Don’t be afraid to ask, after you’ve made a basic effort to look
+     it up.
+     ◼ Don’t be afraid to ask for conceptual explanations, advice, and
+     other things not often found in the documentation.
+     ◼ Include any information that seems relevant. You’ll almost
+     always want to mention the version of Debian you’re using. You may
+     also want to mention the version of any pertinent packages: The
+     command dpkg -l _packagename_ will tell you this. It’s also useful
+     to say what you’ve tried so far and what happened. Please include
+     the exact error messages, if any.
+     ◼ Don’t apologize for being new to Linux. There’s no reason
+     everyone should be a GNU/Linux expert to use it, any more than
+     everyone should be a mechanic to use a car.
+     ◼ Don’t post or mail in HTML. Some versions of Netscape and
+     Internet Explorer will post in HTML rather than plain text. Most
+     people will not even read these posts because the posts are
+     difficult to read in most mail programs. There should be a setting
+     somewhere in the preferences to disable HTML.
+     ◼ Be polite. Remember that Debian is an all-volunteer effort, and
+     anyone who helps you is doing so on his or her time out of
+     kindness.
+     ◼ Re-mail your question to the list if you’ve gotten no responses
+     after several days. Perhaps there were lots of messages and it was
+     overlooked. Or perhaps no one knows the answer—if no one answers
+     the second time, this is a good bet. You might want to try
+     including more information the second time.
+     ◼ Answer questions yourself when you know the answer. Debian
+     depends on everyone doing his or her part. If you ask a question,
+     and later on someone else asks the same question, you’ll know how
+     to answer it. Do so!
+
+
+A.1.4 Getting Information from the System
+
+   When diagnosing problems or asking for help, you’ll need to get
+   information about your system. Here are some ways to do so:
+
+     ◼ Examine the files in /var/log/.
+     ◼ Examine the output of the dmesg command.
+     ◼ Run uname -a.
+
+
+
+
+B. Troubleshooting
+
+
+   In Debian, as in life, things don’t always work as you might expect
+   or want them to. While Debian has a well-deserved reputation for
+   being rock-solid and stable, sometimes its reaction to your commands
+   may be unexpected. Here, we try to shed some light on the most
+   common problems that people encounter.
+
+
+B.1 Common Difficulties
+
+   This section provides some tips for handling some of the most
+   frequently experienced difficulties users have encountered.
+
+
+B.1.1 Working with Strangely-Named Files
+
+   Occasionally, you may find that you have accidentally created a file
+   that contains a character not normally found in a filename. Examples
+   of this could include a space, a leading hyphen, or maybe a
+   quotation mark. You may find that accessing, removing, or renaming
+   these files can be difficult.
+
+   Here are some tips to help you:
+
+     ◼ Try enclosing the filename in single quotation marks, like this:
+       less ’File With Spaces.txt’
+     ◼ Insert a ./ before the filename:
+       less ’./

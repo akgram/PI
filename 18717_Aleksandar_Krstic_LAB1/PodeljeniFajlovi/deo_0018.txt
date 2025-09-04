@@ -1,0 +1,83 @@
+continent). That will change the
+   available time zones, so go ahead and select your geographic
+   locality (i.e., country, province, state, or city) in the
+   “Timezones:” pane.
+
+   Next, you’ll be asked if your system clock is to be set to GMT or
+   local time. Select GMT (i.e., “Yes”) if you will only be running
+   Linux on your computer; select local time (i.e., “No”) if you will
+   be running another operating system as well as Debian. Unix (and
+   Linux is no exception) generally keeps GMT time on the system clock
+   and converts visible time to the local time zone. This allows the
+   system to keep track of daylight savings time and leap years, and
+   even allows a user who is logged in from another time zone to
+   individually set the time zone used on his or her terminal.
+
+
+3.12.2 Make Linux Bootable Directly from the Hard Disk
+
+   If you elect to make the hard disk boot directly to Linux, you will
+   be asked to install a master boot record. If you aren’t using a boot
+   manager (and this is probably the case if you don’t know what a boot
+   manager is) and you don’t have another different operating system on
+   the same machine, answer “Yes” to this question. Note that if you
+   answer “Yes,” you won’t be able to boot into DOS normally on your
+   machine, for instance. Be careful. If you answer “Yes,” the next
+   question will be whether you want to boot Linux automatically from
+   the hard disk when you turn on your system. This sets Linux to be
+   the _bootable partition_—the one that will be loaded from the hard
+   disk.
+
+   Note that multiple operating system booting on a single machine is
+   still something of a black art. This book does not even attempt to
+   document the various boot managers, which vary by architecture and
+   even by sub-architecture. You should see your boot manager’s
+   documentation for more information. Remember: When working with the
+   boot manager, you can never be too careful.
+
+   The standard i386 boot loader is called “LILO.” It is a complex
+   program that offers lots of functionality, including DOS, NT, and
+   OS/2 boot management. To find out more about this functionality, you
+   can read the documentation in /usr/doc/lilo after your system is set
+   up.
+
+
+3.13 Make a Boot Floppy
+
+   You should make a boot floppy even if you intend to boot the system
+   from the hard disk. The reason is that it’s possible for the hard
+   disk bootstrap to be mis-installed, but a boot floppy will almost
+   always work. Select “Make a Boot Floppy” from the menu and feed the
+   system a blank floppy as directed. Make sure the floppy isn’t
+   write-protected, because the software will format and write it. Mark
+   this the “Custom Boot” floppy and write-protect it once it has been
+   written.
+
+
+3.14 The Moment of Truth
+
+   You system’s first boot on its own power is what electrical
+   engineers call the “smoke test.” If you have any floppies in your
+   floppy drive, remove them. Select the “Reboot the System” menu item.
+
+   If are booting directly into Debian and the system doesn’t start up,
+   either use your original installation boot media (for instance, the
+   Rescue Floppy) or insert the Custom Boot floppy if you created one,
+   and then reset your system. If you are _not_ using the Custom Boot
+   floppy, you will probably need to add some boot arguments. If
+   booting with the Rescue Floppy or similar technique, you need to
+   specify rescue root=rootfs, where rootfs is your root partition,
+   such as /dev/sda1.
+
+   Debian should boot, and you should see the same messages as when you
+   first booted the installation system, followed by some new messages.
+
+
+3.15 Set the Root Password
+
+   The _root_ account is also called the _superuser;_ it is a login
+   that bypasses all security protection on your system. The root
+   account should be used only to perform system administration and for
+   as short a time as possible.
+
+   Any password you create should contain from six to eigh

@@ -1,0 +1,103 @@
+ch all paths begin
+     with a device name such as C:\. The directory tree is meant to be
+     an abstraction of the physical hardware, so you can use the system
+     without knowing what the hardware is. All your files could be on
+     one disk—or you could have 20 disks, some of them connected to a
+     different computer elsewhere on the network. You can’t tell just
+     by looking at the directory tree, and nearly all commands work
+     just the same way no matter what physical device(s) your files are
+     really on.
+
+   Don’t worry if all this isn’t completely clear yet. There are many
+   examples to come.
+
+
+5.2.1 Using Files: A Tutorial
+
+   To use your system, you’ll have to know how to create, move, rename,
+   and delete files and directories. This section describes how to do
+   so with the standard Debian commands.
+
+   The best way to learn is to try things. As long as you aren’t root
+   (and haven’t yet created any important personal files), you cannot
+   mess up too seriously. Jump in—type each of these commands at the
+   prompt and press Enter.
+
+   pwd
+
+   One directory is always considered the _current working directory_
+   for the shell you’re using. You can view this directory with the pwd
+   command, which stands for Print Working Directory. pwd prints the
+   name of the directory you’re working in—probably /home/yourname.
+
+   ls
+
+   ls stands for “list,” as in “list files.” When you type ls, the
+   system displays a list of all the files in your current working
+   directory. If you’ve just installed Debian, your home directory may
+   well be empty. If your working directory is empty, ls produces no
+   output, because there are no files to list.
+
+   cd /
+
+   cd means “change directory.” In this case, you’ve asked to change to
+   the root directory.
+
+   pwd
+
+   This verifies that you’re working in the root directory.
+
+   ls
+
+   Lets you see what’s in /.
+
+   cd
+
+   Typing cd with no arguments selects your home directory— /home/
+   yourname —as the current working directory. Try pwd to verify this.
+
+   Before continuing, you should know that there are actually two
+   different kinds of filenames. Some of them begin with /, the root
+   directory, such as
+   /etc/profile. These are called _absolute_ filenames because they
+   /refer
+   to the same file no matter what your current directory is. The other
+   kind of filename is _relative_.
+
+   Two directory names are used _only_ in relative filenames: . and ...
+   The directory . refers to the current directory, and .. is the
+   parent directory. These are “shortcut” directories. They exist in
+   _every_ directory. Even the root directory has a parent
+   directory—it’s its own parent!
+
+   So filenames that include . or .. are _relative_, because their
+   meaning depends on the current directory. If I’m in /usr/bin and
+   type ../etc, I’m referring to /usr/etc. If I’m in /var and type
+   ../etc, I’m referring to /etc. Note that a filename without the root
+   directory at the front implicitly has ./ at the front. So you can
+   type local/bin, or ./local/bin and it means the same thing.
+
+   A final handy tip: The tilde ~ is equivalent to your home directory.
+   So typing cd ~ is the same as typing cd with no arguments. Also, you
+   can type things like cd ~/practice/mysubdirectory to change to the
+   directory
+   /home/yourname/practice/mysubdirectory. In a similar way, ~myuser is
+   equivalent to the home directory of the user “myuser,” which is
+   probably something like /home/myuser; so ~myuser/docs/debian.ps is
+   equivalent to
+   /home/myuser/doc/debian.ps.
+   /
+   /
+   /
+   Here are some more file commands to try out, now that you know about
+   relative filenames. cd to your home directory before you begin.
+
+   mkdir practice
+
+   In your home directory, make a directory called practice. You’ll use
+   this directory to try out some other commands. You might type ls to
+   verify that your new directory exists.
+
+   cd practice
+
+   

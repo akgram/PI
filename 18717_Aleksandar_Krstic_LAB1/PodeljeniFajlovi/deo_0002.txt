@@ -1,0 +1,134 @@
+on
+
+ 7. More on Files
+ 7.1 Permissions
+ 7.2 Files Present and Their Locations
+ 7.3 File Compression with gzip
+ 7.4 Finding Files
+ 7.5 Determining a File’s Contents
+ 7.6 Using a File Manager
+
+ 8. Working with Text Files
+ 8.1 Viewing Text Files
+ 8.2 Text Editors
+ 8.3 Using ae
+
+ 9. The X Window System
+ 9.1 Introduction to X
+ 9.2 Starting the X Environment
+ 9.3 Basic X Operations
+ 9.4 Customizing Your X Startup
+
+ 10. Filesystems
+ 10.1 Concepts
+ 10.2 mount and /etc/fstab
+ 10.3 Backup Tools
+
+ 11 Networking
+ 11.1 PPP
+ 11.2 Ethernet
+
+ 12 Removing and Installing Software
+ 12.1 What a Package Maintenance Utility Does
+ 12.2 dpkg
+ 12.3 dselect
+ 12.4 Compiling Software
+
+ 13 Advanced Topics
+ 13.1 Regular Expressions
+ 13.2 Advanced Files
+ 13.3 Security
+ 13.4 Software Development with Debian
+
+ II. Reference
+ A Reading Documentation and Getting Help
+ A.1 Kinds of Documentation
+
+ B Troubleshooting
+ B.1 Common Difficulties
+ B.2 Troubleshooting the Boot Process
+
+ C Booting the System
+
+ D The GNU General Public License
+
+
+List of Figures
+
+ 1. cfdisk screenshot
+ 2. dselect Access screen
+ 3. Sample session with su
+ 4. Sample printenv output
+ 5. Changing the prompt
+ 6. Redirecting output
+
+
+List of Tables
+
+ 1. Linux Device Names
+ 2. Special dselect keys
+ 3. dselect Package States
+ 4. Expected Package Category States
+ 5. Permissions in Linux
+
+
+
+
+Acknowledgments
+
+
+   Many people have helped with this manual. We’d like to thank
+   everyone involved, and we try to do that here.
+
+   Thanks to Havoc Pennington, Ardo van Rangelrooij, Larry Greenfield,
+   Thalia Hooker, Day Irmiter, James Treacy, Craig Sawyer, Oliver
+   Elphick, Ivan E. Moore II, Eric Fischer, Mike Touloumtzis, and the
+   Linux Documentation Project for their work on what became the Debian
+   Tutorial document.
+
+   Thanks to Richard Stallman of the Free Software Foundation for
+   advice and editing.
+
+   Thanks to Bruce Perens, Sven Rudolph, Igor Grobman, James Treacy,
+   Adam Di Carlo, Tapio Lehtonen, and Stephane Bortzmeyer for their
+   work on what became a collection of installation documents.
+
+   Of course, it’s impossible to thank the hundreds of Debian
+   developers and thousands of free software authors who gave us
+   something to write about and use.
+
+
+
+
+Preface
+
+
+_“Freedom is still the most radical idea of all.”_
+
+   This quote, penned by Nathaniel Branden, seems fitting nowhere
+   moreso than with the freewheeling computing industry. In the space
+   of just a few decades, lives the world over have been changed by
+   computing technology. We, the people behind the Free Software
+   movement, are seeking to continue this trend by truly opening up
+   software to everyone—not just the few people working for the
+   companies that write it—but everyone. As part of this goal, this
+   book and CD contain a treasure chest of Free Software. Over one
+   thousand packages, including things such as the world’s most popular
+   web server, can be found here. You can use this software for
+   everything from graphic design to SQL databases.
+
+   The Free Software revolution has taken the industry by storm. Linux,
+   started from scratch not even 10 years ago, has been the favorite
+   kernel of the Free Software world. The ideas and experience gained
+   from Free Software have truly sent Linux and the Free Software
+   Foundation’s GNU tools all over the world. Free systems such as
+   Debian GNU/Linux ship with literally thousands of applications, and
+   they have more power and stability, and outperform some of the
+   industry’s traditional best-selling proprietary operating systems.
+
+   Today, GNU/Linux plays a dominant role in Internet servers and among
+   ISPs, in academia, among computer hobbyists, and in computer science
+   research. Debian GNU/Linux has brought the power of Free Software to
+   everything from laptops to flights aboard the Space Shuttle. As I
+   write this, companies the world over are experiencing the joy and
+   

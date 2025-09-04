@@ -1,0 +1,93 @@
+   /usr contains most of the files you’ll be interested in. It
+           /has
+           many subdirectories. /usr/bin and /usr/sbin are pretty much
+           like
+           /bin and /sbin, except that the directories in /usr are not
+           considered “essential to the operation of the system.”
+
+           While not essential to getting the computer working, /usr
+           does contain the applications you’ll use to get real work
+           done. Also in
+           /usr, you’ll find the /usr/man, /usr/info, and /usr/doc
+           directories. These contain manual pages, info pages, and
+           other documentation, respectively. And don’t forget
+           /usr/games!
+
+   /usr/local
+           The Debian system doesn’t install anything in this
+           directory. You should use it if you want to install software
+           that you compile yourself or any software not contained in a
+           Debian package. You can also install software in your home
+           directory if you’ll be the only one using it.
+
+   /etc
+           /etc contains all the system-wide configuration files.
+           /Whenever
+           you want to change something that affects all users of your
+           computer—such as how you connect to the Internet or what
+           kind of video card you have—you’ll probably have to log on
+           as root and change a file in /etc.
+
+   /tmp
+           Here you’ll find temporary files, most of them created by
+           the system. This directory is generally erased on a regular
+           basis or every time you reboot the system. You can create
+           files here if you want, just be aware that they might get
+           deleted automatically.
+
+   /var
+           /var contains “variable” files that the system changes
+           automatically. For example, incoming mail is stored here.
+           The system keeps a log of its actions here. There are a
+           number of other automatically generated files here as well.
+           You’ll mostly be interested in the contents of /var/log,
+           where you can find error messages that can help you figure
+           out what you’re system’s up to if something goes wrong.
+
+   Clearly there are many more directories on the system—far too many
+   to describe every one.
+
+   For changing things, you’ll usually want to confine yourself to your
+   home directory and /etc. On a Debian system, there’s rarely an
+   occasion to change anything else, because everything else is
+   automatically installed for you.
+
+   /etc is used to configure the _system_ as a whole. You’ll use your
+   /own home
+   directory, a subdirectory of /home, for configuring your own
+   preferences and storing your personal data. The idea is that on a
+   day-to-day basis, you confine yourself to /home/_yourname_, so
+   there’s no way you can break anything. Occasionally you log in as
+   root to change something in a system-wide directory, but only when
+   it’s absolutely necessary. Of course, if you’re using Debian at a
+   school or business and someone else is the system administrator, you
+   won’t have root access and will be able to change only your home
+   directory and any other directory that you own. This limits what you
+   can do with the system.
+
+
+7.3 File Compression with gzip
+
+   Often it would be nice to make a file smaller—say, to download it
+   faster, or so it takes up less space on your disk. The program to do
+   this is called gzip (GNU zip). Here’s how it works:
+
+   $ cd; cp /etc/profile ./mysamplefile
+
+   This switches to your home directory and copies an arbitrarily
+   chosen file (/etc/profile) to your current directory, in the process
+   renaming it mysamplefile. This gives you a file to play with when
+   using gzip.
+
+   $ ls -l
+
+   Lists the contents of the current directory. Note the size of
+   mysamplefile.
+
+   $ gzip mysamplefile
+
+   Compresses mysamplefile.
+
+   $ ls -l
+
+   Observe the results of this command: mysamplefile is 

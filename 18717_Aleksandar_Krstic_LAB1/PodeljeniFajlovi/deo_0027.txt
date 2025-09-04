@@ -1,0 +1,85 @@
+h from
+   the X virtual console to one of the first six, you’ll have to add
+   Ctrl to the key sequence. So that’s Ctrl-Alt-F1 to get to VC 1. But
+   you can go from a text VC to the X virtual console using only Alt.
+   If you never leave X, you won’t have to worry about this; X
+   automatically switches you to its virtual console when it starts up.
+
+   Once you get used to them, virtual consoles will probably become an
+   indispensable tool for getting many things done at once. (The X
+   Window system serves much the same purpose, providing multiple
+   windows rather than multiple consoles.) You can run a different
+   program on each VC or log on as root on one VC and as yourself on
+   another. Or everyone in the family can use his or her own VC; this
+   is especially handy if you use X, in which case you can run several
+   X sessions at once on different virtual consoles.
+
+
+4.5 Shutting Down
+
+   _Do not just turn off the computer! You risk losing valuable data!_
+
+   If you are the only user of your computer, you might want to turn
+   the computer off when you’re done with it.
+
+   To avoid possibly weakening some hardware components, only turn off
+   the computer when you’re done for the day. Power up and power down
+   are the two greatest contributors to wear and tear on computer
+   components. Turning the computer on and off once a day is probably
+   the best compromise between your electric bill and your computer’s
+   lifespan.
+
+   It’s a bad thing to just press the power switch when you’re done
+   using the computer. It is also bad to reboot the machine (with the
+   Reset button) without first taking proper precautions. The Linux
+   kernel, in order to improve performance, has a disk cache. This
+   means it temporarily stores information meant for permanent storage
+   in RAM. Because memory is thousands of times faster than a disk,
+   this makes many file operations move more quickly. Periodically, the
+   information Linux has in memory is actually written to the disk.
+   This is called _syncing_. In order to turn off or reboot the
+   computer safely, you’ll have to tell the computer to clear
+   everything out of memory and put it in permanent storage.
+
+   To reboot, just type reboot or press Ctrl-Alt-Del (that’s Ctrl, Alt,
+   and Delete).
+
+   To shut down, you’ll have to log in as root. As root, just type the
+   command shutdown -h now. The sytem will go through the entire
+   shutdown procedure, including the sync command, which clears the
+   disk cache as described above. When you see System halted, it’s safe
+   to turn off the computer. If you have Advanced Power Management
+   (APM) support in your kernel and BIOS, the computer might shut
+   itself off and save you the trouble. APM is common in laptops and is
+   also found in certain desktop mainboards.
+
+
+
+
+5. The Basics
+
+
+   It’s now time to explore the system in more detail. You’ve seen how
+   to log in and shut down the system. In this chapter, we explore the
+   Linux comand line, how Linux deals with files and directories, and
+   some basics on identifying yourself to others.
+
+
+5.1 The Command Line and Man Pages
+
+   We’ve already discussed the command line—that is, commands you type
+   after the shell prompt. This section describes the structure of more
+   complicated command lines.
+
+   A minimal command line contains just a command name, such as whoami.
+   But other things are possible. For example, you might type: man
+   whoami. This command requests the online manual for the whoami
+   program (you may have to press the space bar to scroll through the
+   documentation or press q to quit). A more complicated example is man
+   -k PostScript. This command line has three parts. It begins with the
+   command name, man. Then it has an _option_ or _switch_, -k, followed
+   by an _argument_, PostScript. Some people refer to everything except
+   the command name as the _parameters_ of the command. So, options and
+   arguments are both parameters.
+
+   O

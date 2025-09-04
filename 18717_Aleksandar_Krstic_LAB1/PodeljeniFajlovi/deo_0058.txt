@@ -1,0 +1,109 @@
+second command will unpack the archive into
+   the location you specify with -C.
+
+
+13.3 Security
+
+   Back in section 7.1 on page [*], we discussed file permissions in
+   Linux. This is a fundamental way to keep your system secure. If you
+   are running a multi-user system or a server, it is important to make
+   sure that permissions are correct. A good rule of thumb is to set
+   files to have the minimum permissions necessary for use.
+
+   If you are running a network server, there are some other things to
+   be aware of as well. First, you ought to uninstall or turn off any
+   network services you’re not using. A good place to start is the file
+   /etc/inetd.conf; you can probably disable some of these. For most
+   /network
+   services, it’s also possible to control who has access to them; the
+   /etc/hosts.allow and /etc/hosts.deny files (documented in
+   man 5 hosts_access) can control who has access to which services.
+   You also ought to keep up-to-date with patches or updates to Debian;
+   these can be found on your nearest Debian FTP mirror.
+
+   Some other commonsense rules apply:
+
+     ◼ Never tell anyone your password.
+     ◼ Never send your password in cleartext across the Internet by
+     using something like telnet or FTP. Instead, use encrypted
+     protocols or avoid logging in remotely.
+     ◼ Avoid using root as much as possible.
+     ◼ Don’t install untrusted software, and don’t install it as root.
+     ◼ Avoid making things world-writable whenever possible. /tmp is
+     one exception to this rule.
+
+   While this is probably not of as much use to somebody not running a
+   server, it is still pays to know a bit about security. Debian’s
+   security mechanism is what protects your system from many viruses.
+
+
+13.4 Software Development with Debian
+
+   Debian makes a great platform for software development and
+   programming. Among the languages and near-languages it supports are:
+   C, C++, Objective-C, Perl, Python, m4, Ada, Pascal, Java, awk,
+   Tcl/Tk, SQL, assembler, Bourne shell, csh, and more. Writing
+   programs is beyond the scope of this book, but here are some of the
+   more popular development programs in Debian:
+
+   gcc The GNU C Compiler, a modern optimizing C compiler.
+
+   g++ The C++ compiler from the gcc line.
+
+   cpp The C preprocessor from gcc.
+
+   perl The Perl interpreter. Perl is a great “glue” language.
+
+   gdb GNU Debugger, used to debug programs in many different
+   languages.
+
+   gprof Used for profiling, this program helps you to find ways to
+   improve the performance of your programs.
+
+   emacs GNU Emacs is a programmers’ editor and IDE.
+
+   as The GNU Assembler.
+
+
+
+
+II. Reference
+
+
+A. Reading Documentation and Getting Help
+
+A.1 Kinds of Documentation
+
+   On Debian systems, you can find documentation in at least the
+   following places:
+
+     ◼ man pages, read with the man command.
+     ◼ info pages, read with the info command.
+     ◼ The /usr/doc/_package_ directories, where package is the name of
+     the Debian package.
+
+         Tip:
+         zless is useful for reading the files in /usr/doc; see section
+         8.1 on page [*] for details.
+
+     ◼ /usr/doc/HOWTO/contains the Linux Documentation Project’s HOWTO
+     documents, if you’ve installed the Debian packages containing
+     them.
+     ◼ Many commands have an -h or -help option. Type the command name
+     followed by one of these options to try it.
+     ◼ The Debian Documentation Project[1] has written some manuals.
+     ◼ The Debian support page[2] has a FAQ and other resources. You
+     can also try the Linux web site[3].
+
+ [1] http://www.debian.org/~elphick/ddp/
+
+ [2] http://www.debian.org/support/
+
+ [3] http://www.linux.org
+
+   The confusing variety of documentation sources exists for many
+   reasons. For example, info is supposed to replace man, but man
+   hasn’t disappeared yet. However, it’s nice to know that so much
+   documentation exists!
+
+   So where to look for help? Here

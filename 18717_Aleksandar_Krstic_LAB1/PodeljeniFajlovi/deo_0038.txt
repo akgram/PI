@@ -1,0 +1,119 @@
+quickly to read. So you only get to
+   see a couple of paragraphs. The solution is a pipeline:
+
+   tac /usr/doc/copyright/GPL | less
+
+   This takes the standard output of tac, which is the GPL in reverse,
+   and sends it to the standard input of less.
+
+   You can chain as many commands together as you like. Say you have an
+   inexplicable desire to replace every G with Q. For this you use the
+   command tr G Q, like this:
+
+   tac /usr/doc/copyright/GPL | tr G Q | less
+
+   You could get the same effect using temporary files and redirection,
+   for example:
+
+   tac /usr/doc/copyright/GPL > tmpfile
+           tr G Q < tmpfile > tmpfile2
+           less < tmpfile2
+           rm tmpfile tmpfile2
+
+   Clearly a pipeline is more convenient.
+
+
+6.6 Filename Expansion
+
+   Often you want a command to work with a group of files. _Wildcards_
+   are used to create a _filename expansion pattern:_ a series of
+   characters and wildcards that expands to a list of filenames. For
+   example, the pattern
+   /etc/* expands to a list of all[2]
+   the files in /etc.
+
+ [2] Actually, files beginning with . are not included in the expansion
+ of *.
+
+   * is a wildcard that can stand for any series of characters, so the
+   pattern /etc/* will expand to a list of all the filenames beginning
+   with
+   /etc/.
+   /
+   /
+   /
+   This filename list is most useful as a set of arguments for a
+   command. For example, the /etc directory contains a series of
+   subdirectories called rc0.d, rc1.d, etc. Normally to view the
+   contents of these, you would type the following:
+
+   ls /etc/rc0.d /etc/rc1.d /etc/rc2.d /etc/rc3.d
+   ls /etc/rc4.d /etc/rc5.d /etc/rc6.d /etc/rcS.d
+
+   This is tedious. Instead, you can use the ? wildcard as shown here:
+
+   ls /etc/rc?.d
+
+   /etc/rc?.d expands to a list of filenames that begin with rc,
+   /followed by
+   any single character, followed by .d.
+
+   Available wildcards include the following:
+
+   * Matches any group of 0 or more characters.
+
+   ? Matches exactly one character.
+
+   [...] If you enclose some characters in brackets, the result is a
+   wildcard that matches those characters. For example, [abc] matches
+   either a, or b, or c. If you add a ^ after the first bracket, the
+   sense is reversed; so [^abc] matches any character that is not a, b,
+   or c. You can include a range, such as [a-j], which matches anything
+   between a and j. The match is case sensitive, so to allow any
+   letter, you must use [a-zA-Z].
+
+   Expansion patterns are simple once you see some concrete examples:
+
+   *.txt This will give you a list of all filenames that end in .txt,
+   since the * matches anything at all.
+
+   *.[hc] This gives a list of filenames that end in either .h or .c.
+
+   a?? This gives you all three-letter filenames that begin with a.
+
+   [^a]?? This gives you all three-letter filenames that do not begin
+   with a.
+
+   a* This gives you every filename that starts with a, regardless of
+   how many letters it has.
+
+
+
+
+7. More on Files
+
+
+   In section 5.2 on page [*], we covered moving and renaming files
+   with mv, copying them with cp, removing them with rm, removing
+   directories with rmdir, and creating directories with mkdir. This
+   chapter will cover some more aspects of working with files.
+
+Permissions
+
+   GNU and Unix systems are set up to allow many people to use the same
+   computer, while keeping certain files private or keeping certain
+   people from modifying certain files. You can verify this for
+   yourself. Log in as yourself, i.e. _NOT_ as root.
+
+   whoami
+
+   This verifies that you are not root. Then enter the following
+   command:
+
+   rm /etc/resolv.conf
+
+   You should be told Permission denied. /etc/resolv.conf is an
+   essential system configuration file; you aren’t allowed to change or
+   remove it unless you’re root. This keeps you from accidentally
+   messing up the system, and if the computer is a public one (such as
+   at an office or school), it keep

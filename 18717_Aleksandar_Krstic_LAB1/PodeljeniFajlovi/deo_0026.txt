@@ -1,0 +1,79 @@
+ system files; for
+   example, you might want to install new software or configure your
+   network connection. To do so, you have to have greater powers than a
+   normal user; you must become the _root user_ (also called the
+   _superuser_).
+
+   To become root, just log on with the username root and the root
+   password; this was set during installation, as described in section
+   3.15 on page [*].
+
+   At many sites, only the system administrator has the root password,
+   and only the system administrator can do the things that one must be
+   root to do. If you’re using your own personal computer, _you_ are
+   the system administrator, of course. If you don’t have root
+   privileges, you will have to rely on your system administrator to
+   perform any tasks that require root privileges.
+
+   Sometimes you’ll have the root password even on a shared corporate
+   or educational server, because the system administrator trusts you
+   to use it properly. In that case, you’ll be able to help administer
+   the system and customize it for your needs. But you should be sure
+   to use the password responsibly, respecting other users at all
+   times.
+
+   If you have the password, try logging on as root now. Enter the
+   whoami command to verify your identity. Then _log out immediately_.
+   When you’re root, the kernel will not protect you from yourself,
+   because root has permission to do anything at all to the system.
+   Don’t experiment while you’re root. In fact, don’t do anything as
+   root unless absolutely necessary. This isn’t a matter of security,
+   but rather of stability. Your system will run much better if it can
+   keep you from making mistakes.
+
+   You may find the su command more convenient than logging in as root.
+   su allows you to assume the identity of another user, usually root
+   unless you specify someone else. (You can remember that su stands
+   for Super User, though some say it stands for Set UserID.)
+
+   Here’s something to try. Log on as yourself—that is, not as root.
+   Then your session will look something like the one in Figure 4.1.
+
+[Illustration: Figure 4.1: Sample session with su]
+
+   When you’re doing system administration tasks, you should do as much
+   as possible as yourself. Then use su, do the part that requires root
+   privileges, and use the exit command to turn off privileges so you
+   can no longer harm anything.
+
+   You can use su to assume the identity of any user on the system, not
+   just root. To do this, type su _user_ where _user_ is the user you
+   want to become. You’ll have to know the user’s password, of course,
+   unless you’re root at the time or the user has no password.
+
+
+4.4 Virtual Consoles
+
+   The Linux kernel supports _virtual consoles_. These provide a way of
+   making your single screen and keyboard seem like multiple terminals
+   that are connected to the same system. Thankfully, using virtual
+   consoles is one of the simplest things about Debian: There are “hot
+   keys” for switching among the consoles quickly. To try it, log in to
+   your system and press Alt-F2 (simultaneously press the left Alt key,
+   and F2, that is, function key number 2).
+
+   You should find yourself at another login prompt. Don’t panic: You
+   are now on virtual console (VC) number 2! Log in here and do some
+   things—more whoami commands or whatever—to confirm that this is a
+   real login shell. Now you can return to virtual console number 1 by
+   pressing Alt-F1. Or you can move on to a _third_ virtual console, in
+   the obvious way (Alt-F3).
+
+   Debian comes with six virtual consoles enabled by default, which you
+   access with the Alt key and function keys F1 through F6.
+   (Technically, there are more virtual consoles enabled, but only six
+   of them allow you to log in. The others are used for the X Window
+   system or other special purposes.)
+
+   If you’re using the X Window system, it will generally start up on
+   the first unused virtual console—probably VC 7. Also, to switc

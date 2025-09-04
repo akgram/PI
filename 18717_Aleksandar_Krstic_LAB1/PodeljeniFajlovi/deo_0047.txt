@@ -1,0 +1,88 @@
+s that start your
+   window manager and other X clients. By default, a window manager, an
+   xconsole, and an xterm are started for you.
+
+   To customize your X startup, the file /etc/X11/config must contain
+   the line allow-user-xsession. If it does not, log in as root and add
+   the line now. Then log back in as yourself and continue the
+   tutorial.
+
+   You can see how Debian’s X startup works in the file /etc/X11/
+   Xsession. Note that you can change the behavior of /etc/X11/Xsession
+   by modifying the file /etc/X11/config, which specifies a few
+   system-wide preferences.
+
+   To run the clients of your choice when X starts, you create an
+   executable shell script called .xsession in your home directory.
+
+   $ touch ~/.xsession
+
+   This creates the file.
+
+   $ chmod u+x ~/.xsession
+
+   This makes the file executable.
+
+   Once .xsession is created, you need to edit it to do something
+   useful with your favorite text editor. You can do anything you want
+   to in this script. However, when the script’s process terminates, X
+   also terminates.
+
+   In practical terms, this means that you often end the script with a
+   call to exec. Whatever program you exec will replace the script
+   process with itself, so commands found after the exec line will be
+   ignored. The program you exec will become the new owner of the
+   script process, which means that X will terminate when this new
+   program’s process terminates.
+
+   Say you end your .xsession with the line exec fvwm. This means that
+   the fvwm window manager will be run when X starts. When you quit the
+   fvwm window manager, your X session will end, and all other clients
+   will be shut down. You do not have to use a window manager here; you
+   could exec xterm, in which case typing exit in that particular xterm
+   would cause the entire X session to end.
+
+   If you want to run other clients before you use exec, you will need
+   to run them in the background. Otherwise .xsession will pause until
+   each client exits and then continue to the next line. See the
+   previous section on running jobs in the background (basically you
+   want to put an ampersand at the end, as in xterm &).
+
+   You can take advantage of this behavior, though. If you want to run
+   commands at the end of your X session, you can have your .xsession
+   run a window manager or the like and wait for it to finish. That is,
+   leave off the exec and the &; just enter fvwm by itself. Then put
+   the commands of your choice after fvwm.
+
+   It would probably help to look at a few sample .xsession files. In
+   all the examples, replace fvwm with the window manager of your
+   choice.
+
+   The simplest .xsession just runs a window manager:
+
+   exec fvwm
+
+   This will run fvwm, and the X session will end when fvwm exits. If
+   you do it without the exec, everything will appear to behave the
+   same way, but behind the scenes .xsession will hang around waiting
+   for fvwm, and .xsession will exit after fvwm does. Using exec is
+   slightly better because fvwm replaces .xsession instead of leaving
+   it waiting. You can use the ps or top command to verify this.
+
+   A more useful .xsession runs a few clients before starting the
+   window manager. For example, you might want some xterms and an
+   xclock whenever you start X. No problem; just enter xterm & xterm &
+   xclock & exec fvwm. Two xterms and an xclock start up in the
+   background, and then the window manager is launched. When you quit
+   the window manager, you’ll also quit X.
+
+   You might try it without the backgrounding just to see what happens.
+   Enter this command: xterm xclock exec fvwm. xterm will start, and
+   wait for you to exit it. Then xclock will start; you’ll have to exit
+   xclock before fvwm will start. The commands are run in sequence,
+   since the script waits for each one to exit.
+
+   You can use sequential execution to your advantage. Perhaps you want
+   to keep track of when you stop working every day:
+
+   xter

@@ -1,0 +1,85 @@
+ like.
+
+   When you start Debian, you’ll see a _prompt:_ a request from the
+   computer for some information. In this case, the prompt is login:.
+
+   You should type your username and, when requested, your password.
+   The password does not appear on the screen as you type it. Press
+   Enter after both the username and the password. If you type your
+   username or password incorrectly, you’ll have to start over.
+
+   If you do it correctly, you’ll see a brief message and then a $
+   prompt. The $ is printed by a special program called the _shell_ and
+   is thus called a _shell prompt_. This is where you give commands to
+   the system.
+
+   Try entering the command whoami now. There is a _cursor_ to the
+   right of the shell prompt. Your cursor is a small underscore or
+   rectangle that indicates where you’re typing; it should move as you
+   type. Always press Enter when you’re done typing a shell command.
+
+   whoami tells your username. You’ll then get a new shell prompt.
+
+   For the rest of the book, when we say to enter a command, you should
+   type it at the shell prompt and press the Enter key.
+
+   When you’re done working, you may want to log out of the system. To
+   exit the shell, enter the exit command. Keep in mind that if you
+   remain logged in, someone could come along and use your account.
+   Hopefully you can trust those in your office or home not to do this;
+   but if you do not trust your environment, you should be certain to
+   log out when you leave.
+
+
+4.2 Command History and Editing the Command Line
+
+   Whatever you type after the shell prompt and before pressing Enter
+   is called a _command line_. It’s a line of text that commands the
+   computer to do something. The Debian default shell offers several
+   features to make entering command lines easy.
+
+   You can scroll up to previous commands to run them again, or you can
+   modify them slightly and _then_ run them again. Try this: Enter any
+   command, such as whoami; then press the Up Arrow key. The whoami
+   command will reappear at the prompt. You can then press Enter to run
+   whoami a second time.
+
+   If you’ve entered several commands, you can keep pressing the Up
+   Arrow key to go back through them. This feature is handy if you’re
+   doing the same thing several times, or if you type a command
+   incorrectly and want to go back to fix it. You can press the Down
+   Arrow key to move in the other direction, toward your more recent
+   commands. If there are no more commands to move to, the computer
+   will beep.
+
+   You can also move around on the command line to make changes. The
+   easiest way is with the Left and Right Arrow keys. Try typing
+   whoasmi instead of whoami, and then use the Left Arrow key to move
+   back to the s. You can erase the s with the Backspace or Delete
+   keys.
+
+   There are more advanced features as well (no need to memorize them
+   all now, though). Try pressing Ctrl-a. This moves you to the
+   beginning of the line. Ctrl-k (the k stands for “kill”) deletes all
+   characters until the end of the line; try it from the middle of the
+   command line. Using Ctrl-a followed by Ctrl-k, you can delete the
+   entire command line. Ctrl-y pastes the last thing you killed,
+   reinserting it at the current cursor position (y stands for “yank,”
+   as in “yank it back”). Ctrl-e will move the cursor to the end of the
+   command line.
+
+   Go ahead and play around with command-line editing to get a feel for
+   it. Experiment.
+
+
+4.3 Working as Root
+
+   Because Debian is a multiuser system, it’s designed to keep any one
+   user or program from breaking the entire system. The kernel will not
+   allow normal users to change important system files. This means that
+   things stay the way they’re supposed to, safe from accidents,
+   viruses, and even malicious pranks. Unlike other operating systems,
+   Debian is safe from these threats. You won’t need an anti-virus
+   program.
+
+   However, sometimes you need to change important

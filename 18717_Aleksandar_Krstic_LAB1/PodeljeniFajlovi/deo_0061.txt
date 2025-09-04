@@ -1,0 +1,101 @@
+-a strange file.txt’
+     ◼ Use wildcards:
+       less File?With?Spaces.txt
+     ◼  Use a backslash before each unusual character:
+       less File\ With\ Spaces.txt
+
+
+B.1.2 Printing
+
+   One common source of trouble is the printing system in Debian.
+   Traditionally, printing has been a powerful but complex aspect of
+   Unix. However, Debian makes it easier. An easy way to print is with
+   the package called magicfilter. magicfilter will ask you a few
+   questions about your printer and then configure it for you. If you
+   are having troubles printing, give magicfilter a try.
+
+
+B.1.3 X Problems
+
+   Many questions revolve around X. Here are some general tips for
+   things to try if you are having difficulties setting up the X Window
+   system:
+
+     ◼ For mouse problems, run XF86Setup and try the PS/2, Microsoft,
+     MouseSystems, and Logitech options. Most mice will fit under one
+     of these. Also, the device for your mouse is /dev/psaux for PS/2
+     mice and a serial port such as /dev/ttyS0 for serial mice.
+     ◼ If you don’t know what video chipset you have, try running
+     SuperProbe; it can often figure this out for you.
+     ◼ If your screen doesn’t have a lot of color, try selecting a
+     different video card or tell X how much video RAM you have.
+     ◼ If your screen goes blank or has unreadable text when you start
+     X, you probably selected an incorrect refresh rate. Go back to
+     XF86Setup or xf86config and double-check those settings.
+     ◼ xvidtune can help if the image on the screen is shifted too far
+     to the left or right, is too high or low, or is too narrow or
+     wide.
+     ◼ xdpyinfo can give information about a running X session.
+     ◼ XF86Setup can set your default color depth.
+     ◼ You can select your default window manager by editing
+       /etc/X11/window-managers.
+       /
+     ◼ /var/log/xdm-errors can contain useful information if you are
+     having trouble getting xdm to start properly.
+
+   As a final reminder, try the XF86Setup or xf86config tools for
+   configuring or reconfiguring X for your hardware.
+
+
+B.2 Troubleshooting the Boot Process
+
+   If you have problems during the boot process, such as the kernel
+   hangs during the boot process, the kernel doesn’t recognize
+   peripherals you actually have, or drives are not recognized
+   properly, the first things to check are the boot parameters. They
+   can be found by pressing F1 when booting from the rescue disk.
+
+   Often, problems can be solved by removing add-ons and peripherals
+   and then booting again. Internal modems, sound cards, and
+   Plug-n-Play devices are especially problematic.
+
+   Tecras and other notebooks, and some non-portables fail to flush the
+   cache when switching on the A20 gate, which is provoked by bzImage
+   kernels but not by zImage kernels. If your computer suffers from
+   this problem, you’ll see a message during boot saying A20 gating
+   failed. In this case, you’ll have to use the ‘tecra’ boot images.
+
+   If you still have problems, please submit a bug report. Send an
+   email to submit@bugs.debian.org. You _must_ include the following as
+   the first lines of the email:
+
+   Package: boot-floppies
+   Version: _version_
+
+   Make sure you fill in version with the version of the boot-floppies
+   set that you used. If you don’t know the version, use the date you
+   downloaded the floppies, and include the distribution you got them
+   from (e.g., “stable” or “frozen”).
+
+   You should also include the following information in your bug
+   report:
+
+   architecture i386
+
+   model your general hardware vendor and model
+
+   memory amount of RAM
+
+   scsi SCSI host adapter, if any
+
+   cd-rom CD-ROM model and interface type, i.e., ATAPI
+
+   network card network interface card, if any
+
+   pcmcia details of any PCMCIA devices
+
+   Depending on the nature of the bug, it also might be useful to
+   report the disk model, the disk capacity, and the model of video
+   card.
+
+   In 

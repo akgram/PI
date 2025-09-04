@@ -1,0 +1,104 @@
+ of a floppy
+   disk in _raw_ form. Disk images, such as resc1440.bin, cannot simply
+   be copied to floppy drives. A special program is used to write the
+   image files to floppy disk in _raw_ mode.
+
+   First, you need to get to a DOS prompt. In Windows 95 and above, you
+   can do this by double-clicking on an MS-DOS icon or by going to
+   Start\( \rightarrow \)Programs\( \rightarrow \)MS-DOS prompt. Then,
+   insert your Debian GNU/Linux CD-ROM into your CD-ROM drive. First,
+   you change to your CD-ROM drive. In most cases, this is D:.
+
+   C:\WINDOWS>D:
+
+   Now, change to the directory containing the disk images.
+
+   D:\>CD
+   \DISTS\SLINK\MAIN\DISKS-I386\2.1.8-1999-02-22
+
+   If you get an error, double-check what you’re typing. If the error
+   persists, manually issue CD \DISTS\SLINK\MAIN\DISKS-I386, then run
+   DIR, and then CD into the directory indicated. Note that the above
+   commands, and some other examples below, may appear as a single line
+   on your display even if they are wrapped here.
+
+   Now, you’re ready to create the first of two disks. Start the
+   program to write them out, rawrite2:
+
+   D:\DISTS\SLINK\MAIN\DISKS-I386\
+   2.1.8-1999-02-22>rawrite2
+   RaWrite 2.0 - Write disk file to
+   raw floppy diskette
+
+   Rawrite2 starts and displays its welcome message. Next, it asks for
+   the filename and diskette drive. You tell it to write resc1440.bin
+   to a:
+
+   Enter disk image source file name: resc1440.bin
+   Enter target diskette drive: a:
+
+   Rawrite2 now asks you to insert a disk into the floppy drive. Do so
+   and press Enter.
+
+   Plese insert a formatted diskette into
+   drive A: and press -ENTER- :
+
+   At this point, rawrite2 will create the first of the two disks. Now,
+   you need to repeat the process for the second disk:
+
+   D:\DISTS\SLINK\MAIN\DISKS-I386\
+   2.1.8-1999-02-22>rawrite2
+   RaWrite 2.0 - Write disk file to
+   raw floppy diskette
+   Enter disk image source file name: drv1440.bin
+   Enter target diskette drive: a:
+   Please insert a formatted diskette into
+   drive A: and press -ENTER- :
+
+   By now, your disks are created. You can now use the first one to
+   boot.
+
+  Booting Debian
+
+   You are now ready to boot into Debian! Shut down your existing
+   operating system, turn off your computer, and place the
+   Install/Rescue Disk into the floppy drive. Now turn your computer
+   back on. You should get a Welcome screen with a boot prompt at the
+   bottom.
+
+
+2.5 Booting the Installation System
+
+   You should now have the boot prompt. Simply press Enter at this
+   point.
+
+   Once you press Enter, you should see the message Loading..., and
+   then Uncompressing Linux..., and then a screenful or so of
+   information about the hardware in your system. In general, you can
+   ignore these messages. Linux will look for various hardware devices
+   and will tell you what it finds and doesn’t find. Don’t worry about
+   messages at this point. Just wait until you see the Color Selection
+   screen. If you have trouble, see section B.2 on page [*].
+
+
+
+
+3. Step-by-Step Installation
+
+
+   dbootstrap is the name of the program that is run after you have
+   booted into the installation system. It is responsible for initial
+   system configuration and the installation of the “base system.”
+
+   The main job of dbootstrap and the main purpose of your initial
+   system configuration is to configure certain core elements of your
+   system. For instance, this includes your IP address, host name, and
+   other aspects of your networking setup, if any. This also includes
+   the configuration of “kernel modules,” which are drivers that are
+   loaded into the kernel. These modules include storage hardware
+   drivers, network drivers, special language support, and support for
+   other peripherals. Configuring these fundamental things is done
+   first, because it is often necessary for the system to function
+   properly for the next steps of installation.
+
+   dbootstrap is a simple, 

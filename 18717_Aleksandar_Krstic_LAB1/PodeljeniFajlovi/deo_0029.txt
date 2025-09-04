@@ -1,0 +1,75 @@
+ and organizing information,
+   analogous to paper documents. They’re organized into _directories_,
+   which are called _folders_ on some other systems. Let’s look at the
+   organization of files on a Debian system:
+
+   /.
+           A simple / represents the root directory. All other files
+           and directories are contained in the root directory. If you
+           are coming from the DOS/Windows world, / is very similar to
+           what C:is for DOS, that is the root of the filesystem. A
+           notable difference between DOS and Linux however, is that
+           DOS keeps several filesystems: C: (first hard disk), A:
+           (first floppy disk), and D: (either CD-ROM or second hard
+           disk), whereas Linux has all its files organized above the
+           same / root.
+
+   /home/janeq.
+           This is the home directory of user “janeq.” Reading left to
+           right, to get to this directory you start in the root
+           directory, enter directory home, and then enter directory
+           janeq.
+
+   /etc/X11/XF86Config.
+           This is the configuration file for the X Window system. It
+           resides in the X11 subdirectory of the /etc directory. /etc
+           is in turn a subdirectory of the root directory, /.
+
+   Things to note:
+
+     ◼ Filenames are case-sensitive. That is, MYFILE and MyFile are
+     _different_ files.
+     ◼ The root directory is referred to as simply /. Don’t confuse
+     this “root” with the root user, the user on your system with
+     “super powers.”
+     ◼ Every directory has a name, which can contain any letters or
+     symbols _except_ /. The root directory is an exception; its name
+     is / (pronounced “slash” or “the root directory”), and it cannot
+     be renamed.
+     ◼ While you can use almost any letters or symbols in a filename,
+     in practice it’s a bad idea. It is better to avoid characters that
+     often have special meanings on the command line, including: { } (
+     ) [ ] ’ ‘ " \/ > < | ; ! # & ^ * %
+     ◼ Also avoid putting spaces in filenames. If you want to separate
+     words in a name, good choices are the period, hyphen, and
+     underscore. You could also capitalize each word, LikeThis.
+     ◼ Each file or directory is designated by a _fully-qualified
+     filename, absolute filename_, or _path_, giving the sequence of
+     directories which must be passed through to reach it. The three
+     terms are synonymous. All absolute filenames begin with the /
+     directory, and there’s a / before each directory or file in the
+     filename. The first / is the name of a directory, but the others
+     are simply separators to distinguish the parts of the filename.
+     ◼ The words used here can be confusing. Take the following
+     example:
+       /usr/share/keytables/us.map.gz. This is a fully-qualified
+       /filename;
+       some people call it a _path_. However, people will also refer to
+       us.map.gz alone as a filename.
+     ◼ There is also another use for the word “path.” The intended
+     meaning is usually clear from the context.
+     ◼ Directories are arranged in a tree structure. All absolute
+     filenames start with the root directory. The root directory has a
+     number of branches, such as /etc and /usr. These subdirectories in
+     turn branch into still more subdirectories, such as /etc/init.d
+     and /usr/local. The whole thing together is called the “directory
+     tree.”
+     ◼ You can think of an absolute filename as a route from the base
+     of the tree (/) to the end of some branch (a file). You’ll also
+     hear people talk about the directory tree as if it were a _family_
+     tree: Thus subdirectories have “parent,” and a path shows the
+     complete ancestry of a file.
+     ◼ There are also relative paths that begin somewhere other than
+     the root directory. More on this later.
+     ◼ No directory corresponds to a physical device, such as your hard
+     disk. This differs from DOS and Windows, in whi

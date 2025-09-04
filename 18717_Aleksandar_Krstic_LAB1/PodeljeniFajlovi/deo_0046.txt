@@ -1,0 +1,94 @@
+uld on a text VC. So you can follow all
+   the examples in this book using xterm; the only difference between
+   an xterm and the text console is that you don’t have to log on to
+   the xterm because you already logged on to X.
+
+   There are also a lot of things you can do only in X, which are
+   covered in this chapter.
+
+   One note: The default xterm window has a smallish font. If you have
+   a small monitor or very high resolution or bad eyesight, you may
+   want to fix this. Follow these steps:
+
+    1. Move the mouse pointer into the center of the xterm window.
+    2. Hold down the Control key and the _right_ mouse button
+    simultaneously. This will give you a font menu.
+    3. Point to the font you want and release the mouse button.
+
+
+9.3 Basic X Operations
+
+   There are certain commonly used operations in X that you should
+   familiarize yourself with. This section describes some of the basic
+   operations that you may find useful.
+
+
+9.3.1 The Mouse
+
+   The mouse in X works pretty much the same as the mouse on other
+   systems, except that it has three buttons. If your mouse has only
+   two, you can simulate the middle button by clicking both buttons
+   simultaneously. This is kind of tricky and annoying, so investing in
+   a $15 three-button mouse probably isn’t a bad idea. These are
+   available from most computer retailers.
+
+   The buttons are numbered from left to right assuming you have a
+   right-handed mouse. So button one is on the left, two is in the
+   middle, and three is on the right. You may see either the numbers or
+   the locations in documentation.
+
+   X has a simple built-in copy-and-paste facility. To select text to
+   copy, you click and drag with the left mouse button. This should
+   select the text to copy, assuming the application you’re using has
+   copy-and-paste support. To paste the text, you click the middle
+   mouse button in a different X application. For example, if you
+   receive an e-mail containing an URL, you can select the URL with the
+   left button and then click in your web browser’s “Location” field
+   with the middle button to paste it in.
+
+
+9.3.2 X Clients
+
+   Programs that communicate with the X server are called X clients.
+   Most of these programs will ask the X server to display windows on
+   the screen.
+
+   You start an X client the same way you start any other Debian
+   program. Simply type the name of the client on the command line. Try
+   typing xterm into an existing xterm window, and a new xterm client
+   will appear on the screen.
+
+   You may notice that the original xterm is now useless, because your
+   shell is waiting for the second xterm to finish. To avoid this
+   problem, you can run the X client in the backgroundby adding a &
+   after the command name like this: xterm &. If you forget, you can
+   place a running process in the background. First suspend the process
+   with CTRL-z, and then place it in the background with the bg
+   command.
+
+   If you use a program often, your window manager will generally
+   provide a way to put that program on a convenient graphical menu.
+
+
+9.3.3 Troubleshooting
+
+   Sometimes when you launch an X client from a graphical menu, you
+   won’t be able to see any error messages if it fails. You can find
+   any error messages in the file ~/.xsession-errors.
+
+
+9.3.4 Leaving the X Environment
+
+   To leave X, you need to use a menu. Unfortunately for beginners,
+   this is different for every window manager, and for most window
+   managers, it can be configured in many ways. If there’s an obvious
+   menu, look for an entry like “Exit” or “Close Window Manager.” If
+   you don’t see a menu, try clicking each of the mouse buttons on the
+   background of the screen. If all else fails, you can forcibly kill
+   the X server by pressing CTRL-ALT-Backspace. Forcibly killing the
+   server destroys any unsaved data in open applications.
+
+
+9.4 Customizing Your X Startup
+
+   When you start X, Debian runs some shell script

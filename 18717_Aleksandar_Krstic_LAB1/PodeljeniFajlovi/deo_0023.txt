@@ -1,0 +1,87 @@
+ng point.
+
+   EIOM Pri Section  Package      Description
+   __ Opt admin    boot-floppie Scripts to create the Debian
+   __ Opt devel    newt0.25-dev Developer’s toolkit for newt
+   __ Opt devel    slang1-dev   The S-Lang programming library
+   __ Opt devel    slang1-pic   The S-Lang programming library
+
+   If you decide now that you don’t want boot-floppies, just press
+   Enter.
+
+   Pressing the D key puts things the way I selected them in the first
+   place:
+
+   EIOM Pri Section  Package      Description
+   _* Opt admin    boot-floppie Scripts to create the Debian
+
+   __ Opt devel    newt0.25-dev Developer’s toolkit for newt
+   __ Opt devel    slang1-dev   The S-Lang programming library
+   __ Opt devel    slang1-pic   The S-Lang programming library
+
+   Pressing the U key restores dselect’s selections:
+
+           EIOM Pri Section  Package      Description
+   _* Opt admin    boot-floppie Scripts to create the Debian
+   installation
+   _* Opt devel    newt0.25-dev Developer’s toolkit for newt
+   _* Opt devel    slang1-dev   The S-Lang programming library
+   _* Opt devel    slang1-pic   The S-Lang programming library
+
+   I suggest running with the defaults for now; you will have ample
+   opportunities to add more later.
+
+   Whatever you decide, press Enter to accept and return to the main
+   screen. If this results in unresolved problems, you will be bounced
+   right back to another problem resolution screen.
+
+   The R, U, and D keys are very useful in “what if” situations. You
+   can experiment at will and then restore everything and start again.
+   _Don’t_ look on them as being in a glass box labeled “Break in Case
+   of Emergency.”
+
+   After making your selections in the Select screen, press I to give
+   you a big window, press t to take you to the beginning, and then use
+   the Page Down key to look quickly through the settings. This way you
+   can check the results of your work and spot glaring errors. Some
+   people have deselected whole groups of packages by mistake and not
+   noticed the error until too late. dselect is a _very_ powerful tool;
+   don’t misuse it.
+
+   You should now have the situation shown in Table 3.3.
+
+Table 3.3: Expected Package Category States
+                    +--------------------------------------+
+                    | Package category |      Status       |
+                    |------------------+-------------------|
+                    |     Required     |   all selected    |
+                    |------------------+-------------------|
+                    |    Important     |   all selected    |
+                    |------------------+-------------------|
+                    |     Standard     |  mostly selected  |
+                    |------------------+-------------------|
+                    |     Optional     | mostly deselected |
+                    |------------------+-------------------|
+                    |      Extra       | mostly deselected |
+                    +--------------------------------------+
+
+   Happy? Press Enter to exit the Select process. You can come back and
+   run Select again if you wish.
+
+  Install
+
+   dselect runs through the entire set of packages and installs those
+   selected. Expect to be asked to make decisions as you go. It is
+   often useful to switch to a different shell to compare, say, an old
+   configuration with a new one. If the old file is conf.modules, the
+   new one will be conf.modules.dpkg-dist.
+
+   The screen scrolls past fairly quickly on a fast machine. You can
+   stop and start it with Ctrl-s and Ctrl-q, respectively, and at the
+   end of the run, you will get a list of any uninstalled packages.
+
+   It can happen that a package does not get installed because it
+   depends on some other package that is listed for installation but is
+   not yet installed. The answer here is to run Install again. Cases
+   have been reported where it was necessary to run it four times
+   before everything slipped into place. This will var

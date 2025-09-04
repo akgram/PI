@@ -1,0 +1,120 @@
+ose tool and can deal
+     with the widest variety of target media. Additionally, many
+     different systems can read tar files, making them highly portable.
+     tar’s weaknesses include a weaker incremental backup system than
+     dump and no interactive restore selection screen.
+
+
+10.3.1 tar
+
+   Because tar is used so much, and for quite a bit in addition to
+   backups, it is being described here. For more details, see the tar
+   manual page; instructions for viewing manual pages can be found in
+   section 5.1 on page [*].
+
+   tar is an _archiver_. This means that tar can take many files and
+   combine them all into one large file or write them out to a backup
+   device such as a tape drive. Once you have this one large file, you
+   will often want to compress it; the -z option is great for this.
+   Hence, tar offers a great way to distribute programs and data on the
+   Internet, and you’ll find that it is used extensively for this
+   purpose.
+
+   Here’s a sample tar command line:
+
+   tar -zcvf myfiles.tar.gz /usr/local/bin
+
+   Let’s take a look at how this command can be broken down:
+
+   tar
+
+Name of the command.—Tells tar that options will follow.
+
+   z
+
+Tells tar to use gzip compression automatically; if you use this, it’s
+good to add a .gz extension as well.
+
+   c
+
+Tells tar to create a new archive.
+
+   v
+
+This says to be verbose; that is, it tells tar to let you know what
+it’s doing while it creates the archive.
+
+   f
+
+This indicates that the next thing on the command line is the name of
+the file to be created or the device to be used. If I used /dev/st0
+here, for instance, it would write the backup to the tape drive.
+
+   myfiles.tar.gz This is the name of the file to be created.
+
+   /usr/local/bi
+   /
+   /
+   /
+   /
+   This is the name of the file or directory to store in the archive.
+   It’s also possible to specify several items here.
+
+   You may often find tar.gz files (or simply tgz files) on the
+   Internet. You can unpack these with a command like:
+
+   tar -zxvf filename.tar.gz
+
+
+
+
+11. Networking
+
+
+   One of the key benefits of GNU/Linux over other systems lies in its
+   networking support. Few systems can rival the networking features
+   present in GNU/Linux. In this chapter, we tell you how to configure
+   your network devices.
+
+
+11.1 PPP
+
+   This section is a quick-start guide to setting up PPP on Debian. If
+   it turns out that you need more details, see the excellent |PPP
+   HOWTO| from the Linux Documentation Project. The HOWTO goes into
+   much more detail if you’re interested or have unique needs.
+
+
+11.1.1 Introduction
+
+   If you connect to the Internet over a phone line, you’ll want to use
+   PPP (Point-to-Point Protocol). This is the standard connection
+   method offered by ISPs (Internet service providers). In addition to
+   using PPP to dial your ISP, you can have your computer listen for
+   incoming connections - this lets you dial your computer from a
+   remote location.
+
+
+11.1.2 Preparation
+
+   Configuring PPP on Debian GNU/Linux is straightforward once you have
+   all the information you’ll need. Debian makes things even easier
+   with its simple configuration tools.
+
+   Before you start, be sure you have all the information provided by
+   your ISP. This might include:
+
+     ◼ Username or login
+     ◼ Password
+     ◼ Your static IP (Internet Protocol) address, if any (these look
+     like 209.81.8.242). This information isn’t needed for most ISPs.
+     ◼ Bitmask (this will look something like 255.255.255.248). This
+     information isn’t needed for most ISPs.
+     ◼ The IP addresses of your ISP’s name servers (or DNS).
+     ◼ Any special login procedure required by the ISP.
+
+   Next, you’ll want to investigate your hardware setup: whether your
+   modem works with GNU/Linux and which serial port it’s connected to.
+
+   A simple rule determines whether your modem will work. If it’s a
+   “winmodem” or “host-based modem,” it won’t work. These mod

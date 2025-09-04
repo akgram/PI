@@ -1,0 +1,86 @@
+stroy any data previously on the partition. If all is well, select
+   “Yes.” The screen will flash as the initialization program runs.
+
+
+3.7 Initialize a Linux Partition
+
+   At this point, the next menu item presented should be “Initialize a
+   Linux Partition.” If it isn’t, either you haven’t completed the disk
+   partitioning process, or you haven’t made one of the menu choices
+   dealing with your swap partition.
+
+   You can initialize a Linux partition, or alternately you can mount a
+   previously initialized one. Note that dbootstrap will _not_ upgrade
+   an old system without destroying it. If you’re upgrading, Debian can
+   usually upgrade itself, and you won’t need to use dbootstrap. The
+   Debian 2.1 release notes contain upgrade instructions[2].
+
+ [2]
+ http://www.debian.org/releases/slink/i386/release-notes/ch-upgrading-
+ req.en.html
+
+   If you are using old disk partitions that are not empty, i.e., if
+   you want to just throw away what is on them, you should initialize
+   them (which erases all files). Moreover, you must initialize any
+   partitions that you created in the disk partitioning step. About the
+   only reason to mount a partition without initializing it at this
+   point would be to mount a partition upon which you have already
+   performed some part of the installation process using this same set
+   of installation floppies.
+
+   Select the “Next” menu item to initialize and mount the / disk
+   partition. The first partition that you mount or initialize will be
+   the one mounted as / (pronounced “root”). You will be offered the
+   choice to scan the disk partition for bad blocks, as you were when
+   you initialized the swap partition. It never hurts to scan for bad
+   blocks, but it could take 10 minutes or more to do so if you have a
+   large disk.
+
+   Once you’ve mounted the / partition, the “Next” menu item will be
+   “Install Operating System Kernel and Modules” unless you’ve already
+   performed some of the installation steps. You can use the arrow keys
+   to select the menu items to initialize or to mount disk partitions
+   if you have any more partitions to set up. If you have created
+   separate partitions for /var, /usr, or other filesystems, you should
+   initialize or mount them now.
+
+
+3.7.1 Mount a Previously-Initialized Partition
+
+   An alternative to the “Initialize a Partition” step is the “Mount a
+   Previously-Initialized Partition” step. Use this if you are resuming
+   an installation that was interrupted or if you want to mount
+   partitions that have already been initialized.
+
+
+3.8 Install Operating System Kernel and Modules
+
+   This should be the next menu step after you’ve mounted your root
+   partition, unless you’ve already performed this step in a previous
+   run of dbootstrap. First, you will be asked to confirm that the
+   device you have mounted on root is the proper one. Next, you will be
+   offered a menu of devices from which you can install the kernel.
+   Choose the appropriate device from which to install the kernel and
+   modules; this will either be a CD-ROM device or the first floppy
+   device.
+
+   If you’re installing from floppies, you’ll need to feed in the
+   Rescue Floppy (which is probably already in the drive), followed by
+   the Drivers Floppy.
+
+
+3.9 Configure PCMCIA Support
+
+   There is an alternate step, _before_ the “Configure Device Driver
+   Modules” menu selection, called “Configure PCMCIA Support.” This
+   menu is used to enable PCMCIA support.
+
+   If you do have PCMCIA but are not installing your Debian system
+   using it (i.e., installation with a PCMCIA Ethernet card), you need
+   not configure PCMCIA at this point. You can easily configure and
+   enable PCMCIA at a later point, after installation is complete.
+   However, if you are installing by way of a PCMCIA network device,
+   this alternate must be selected, and PCMCIA support must be
+   configured prior to configuring the network.
+
+   If you need to install PCMCIA, select t

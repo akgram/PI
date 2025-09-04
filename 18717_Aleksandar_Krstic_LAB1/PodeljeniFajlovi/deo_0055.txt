@@ -1,0 +1,109 @@
+ link. What this means is
+   that multiple filenames refer to the same file (that is, they are
+   associated with the same inode number). However, you can’t make hard
+   links across filesystems: All hard references to a particular file
+   (inode) must be on the same filesystem. This is because each
+   filesystem has its own set of inodes, and there can be duplicate
+   inode numbers on different filesystems.
+
+   Because all hard links to a given inode refer to _the same file_,
+   you can make changes to the file, referring to it by one name, and
+   then see those changes when referring to it by a different name. Try
+   this:
+
+   cd; echo "hello" > firstlink
+
+   cd to your home directory and create a file called firstlink
+   containing the word “hello.” What you’ve actually done is redirect
+   the output of echo (echo just echoes back what you give to it),
+   placing the output in firstlink. See the chapter on shells for a
+   full explanation.
+
+   cat firstlink
+
+   Confirms the contents of firstlink.
+
+   ln firstlink secondlink
+
+   Creates a hard link: secondlink now points to the same inode as
+   firstlink.
+
+   cat secondlink
+
+   Confirms that secondlink is the same as firstlink.
+
+   ls -l
+
+   Notice that the number of hard links listed for firstlink and
+   secondlinkfiles!inodes is 2.
+
+   echo "change" >> secondlink
+
+   This is another shell redirection trick (don’t worry about the
+   details). You’ve appended the word “change” to secondlink. Confirm
+   this with cat secondlink.
+
+   cat firstlink
+
+   firstlink also has the word “change” appended! That’s because
+   firstlink and secondlink refer to _the same file_. It doesn’t matter
+   what you call it when you change it.
+
+   chmod a+rwx firstlink
+
+   Changes permissions on firstlink. Enter the command ls -l to confirm
+   that permissions on secondlink were also changed. This means that
+   permissions information is stored in the inode, not in links.
+
+   rm firstlink
+
+   Deletes this link. This is a subtlety of rm. It really removes
+   links, not files. Now type ls -l and notice that secondlink is still
+   there. Also notice that the number of hard links for secondlink has
+   been reduced to one.
+
+   rm secondlink
+
+   Deletes the other link. When there are no more links to a file,
+   Linux deletes the file itself, that is, its inode.
+
+   All files work like this—even special types of files such as devices
+   (e.g. /dev/hda).
+
+   A directory is simply a list of filenames and inode numbers, that
+   is, a list of hard links. When you create a hard link, you’re just
+   adding a name-number pair to a directory. When you delete a file,
+   you’re just removing a hard link from a directory.
+
+
+13.2.2 Types of Files
+
+   One detail we’ve been concealing up to now is that the Linux kernel
+   considers nearly everything to be a file. That includes directories
+   and devices: They’re just special kinds of files.
+
+   As you may remember, the first character of an ls -l display
+   represents the type of the file. For an ordinary file, this will be
+   simply -. Other possibilities include the following:
+
+   ddirectory
+   lsymbolic link
+   bblock device
+   ccharacter device
+   pnamed pipe
+   ssocket
+
+  Symbolic Links
+
+   Symbolic links (also called “symlinks” or “soft links”) are the
+   other kind of link besides hard links. A symlink is a special file
+   that “points to” a hard link on any mounted filesystem. When you try
+   to read the contents of a symlink, it gives the contents of the file
+   it’s pointing to rather than the contents of the symlink itself.
+   Because directories, devices, and other symlinks are types of files,
+   you can point a symlink at any of those things.
+
+   So a hard link is a filename and an inode number. A file is really
+   an inode: a location on disk, file type, permissions mode, etc. A
+   symlink is an inode that contains the name of a hard link. A symlink
+   pairs one filename with a second filename, whereas a hard li

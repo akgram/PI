@@ -1,0 +1,98 @@
+ using more.
+
+   unset PAGER
+
+   If you don’t want to specify a pager anymore, you can unset the
+   variable. man will then use more by default, just as it did before
+   you set the variable.
+
+   echo $PAGER
+
+   Because PAGER has been unset, echo won’t print anything.
+
+   PS1=hello:
+
+   Just for fun, change your shell prompt. $ should now change; see
+   Figure 6.2 for details.
+
+   export is not necessary, because you’re changing the shell’s own
+   behavior. There’s no reason to export the variable into the
+   environment for other programs to see. Technically, PS1 is a _shell
+   variable_ rather than an environment variable.
+
+   If you wanted to, you could export the shell variable, transforming
+   it into an environment variable. If you do this, programs you run
+   from the shell can see it.
+
+
+6.2 Where Commands Reside: The PATH Variable
+
+   When you type a command into the shell, it has to find the program
+   on your hard disk before executing it. If the shell had to look all
+   over the disk, it would be very slow; instead, it looks in a list of
+   directories contained in the PATH environment variable. This list of
+   directories makes up the shell’s _search path;_ when you enter a
+   command, it goes through each one in turn looking for the program
+   you asked to run.
+
+   You may need to change the PATH variable if you install programs
+   yourself in a non-standard location. The value of PATH is a
+   colon-separated list of directories. The default value on Debian
+   systems is as follows:
+
+   /usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games
+   /
+   /
+   /
+   /
+   This value is defined in the file /etc/profile and applies to all
+   users. You can easily change the value, just as you can change any
+   environment variable. If you type the command ls, the shell will
+   first look in
+   /usr/local/bin; ls isn’t there, so it will try /usr/bin; when that
+   /fails,
+   it will check /bin. There it will discover /bin/ls, stop its search,
+   and execute the program /bin/ls. If /usr/bin/X11/ls existed (it
+   doesn’t, but pretend), it would be ignored.
+
+   You can see which ls the shell is going to use with the type
+   command. type ls will give you the answer /bin/ls. Try it yourself.
+
+   Try asking where type itself resides:
+
+   $ type type
+   type is a shell builtin
+
+   type isn’t actually a program; it’s a function provided by the
+   shell. However, you use it just like an external program.
+
+   There are a number of commands like this; type man builtins to read
+   the man page describing them. In general, you don’t need to know
+   whether a command is a builtin or a real program; however, builtins
+   will not show up in the output of ps or top because they aren’t
+   separate processes. They’re just part of the shell.
+
+
+6.3 Configuration Files
+
+   Many applications on Linux systems allow you to alter how they
+   behave at certain times by altering files containing configuration
+   information. These configuration files may contain application
+   start-up information, run-time settings and application shutdown
+   settings. In general, a configuration filename is based on the name
+   of the application for which it contains settings. Such a naming
+   convention allows you to more readily determine which configuration
+   file contains settings for a given application.
+
+
+6.3.1 System-Wide Versus User-Specific Configuration
+
+   It’s important to remember that there are two different kinds of
+   configurations on a Debian system. _System-wide configuration_
+   affects all users. System-wide settings are made in the /etc
+   directory, so you generally must be root in order to change
+   system-wide settings. You might configure the way the system
+   connects to the Internet, for example, or have web browsers on the
+   system always start on the company home page. Since you want these
+   settings to apply to all users, you make the changes in /etc. Sample
+   configuration files in /etc include /etc/X

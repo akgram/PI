@@ -1,0 +1,95 @@
+s users from messing up the system
+   on purpose.
+
+   Now type ls -l /etc/resolv.conf.
+
+   This will give you output that looks something like this:
+
+   -rw-r-r- 1 root root 119 Feb 23 1997 /etc/resolv.conf
+
+   The -l option to ls requests all that additional information. The
+   info on the right is easy: The size of the file is 119 bytes; the
+   date the file was last changed is February 23, 1997; and the file’s
+   name is
+   /etc/resolv.conf. On the left side of the screen, things are a
+   /little more
+   complicated.
+
+   First, the brief, technical explanation: The -rw-r-r- is the _mode_
+   of the file, the 1 is the number of hard links to this file (or the
+   number of files in a directory), and the two roots are the user and
+   group owning the file, respectively.
+
+   So that was cryptic. Let’s go through it slowly.
+
+
+7.1.1 File Ownership
+
+   Every file has two owners: a user and a group. The above case is a
+   little confusing because there’s a group called root in addition to
+   the root user. Groups are just collections of users who are
+   collectively permitted access to some part of the system. A good
+   example is a games group. Just to be mean, you might create a group
+   called games on your computer and then set up your system so that
+   only people in a games group are allowed to play games.
+
+   Here’s a more practical example. Consider a case in which you’re
+   setting up a computer for a school. You might want certain files to
+   be accessible only to teachers, not students, so you put all the
+   teachers in a single group. Then you can tell the system that
+   certain files belong to members of the group teachers, and that no
+   one else can access those files.
+
+   Let’s explore groups on the system. First, you can use the groups
+   command at the shell prompt. This will show you a list of the groups
+   to which you belong. Here’s an example:
+
+   $ groups
+   system-wide configuration!permissions!file
+   ownershipusername dialout cdrom floppy audio
+
+   It’s likely that you’re a member of only one group, which is
+   identical to your username. However, root can add you to other
+   groups. The above example shows a person that is a member of five
+   groups.
+
+   less /etc/group
+
+   This file lists the groups that exist on your system. Notice the
+   root group (the only member of this group is the root user), and the
+   group that corresponds to your username. There are also groups like
+   dialout (users who are allowed to dial out on the modem) and floppy
+   (users who can use the floppy drive). However, your system is
+   probably not configured to make use of these groups. It’s likely
+   that only root can use the floppy or the modem right now. For
+   details about this file, try reading man group.
+
+   ls -l /home
+
+   This command shows you that every user’s directory is owned by that
+   user and that user’s personal group.
+
+     Tip: If you just installed Debian, you may be the only user. You
+     can use the adduser command to add more users to the system.
+
+
+7.1.2 Mode
+
+   In addition to being owned by one user and one group, every file and
+   directory also has a mode, which determines who’s allowed to read,
+   write, and execute the file (and run it, if it’s a program). There
+   are a few other things also determined by the mode, but they’re
+   advanced topics so we’ll skip them for now.
+
+   The mode looks like this in the ls output: -rw-r-r-. For now, we’ll
+   consider nine of these parts: those that control _read, write_, and
+   _execute_ permissions for the _user_ owning the file, the _group_
+   owning the file, and _others_ (everyone on the system, sometimes
+   called _world_).
+
+   In the mode line, the first “element” gives the file type. The - in
+   this case means it’s a regular file. If it was d, we’d be looking at
+   a directory. There are also other possibilities too complex to go
+   into here; for details, see section 13.2.2 on page [*].
+
+   The remaining nine elements

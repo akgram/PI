@@ -1,0 +1,93 @@
+ will
+   be useful to you right away. Otherwise, you may want to quit dselect
+   and start it later after you have transported the Debian package
+   files to your system. You must be the superuser (root) when you run
+   dselect. Information on how to use dselect is given in section 3.20.
+
+
+3.20 Package Installation with dselect
+
+   It is now time to install the software packages of your choice on
+   your Debian system. This is done using Debian’s package management
+   tool, dselect.
+
+
+3.20.1 Introduction
+
+   This section documents dselect for first-time users. It makes no
+   attempt to explain everything, so when you first meet dselect, work
+   through the help screens.
+
+   dselect is used to select which packages you wish to install (there
+   are currently about 2,250 packages in Debian 2.1). It will be run
+   for you during the installation. It is a very powerful and somewhat
+   complex tool. As such, having some knowledge of it beforehand is
+   highly recommended. Careless use of dselect can wreak havoc on your
+   system.
+
+   dselect will step you through the package installation process
+   outlined here:
+
+    1. Choose the access method to use.
+    2. Update list of available packages, if possible.
+    3. Select the packages you want on your system.
+    4. Install and upgrade wanted packages.
+    5. Configure any packages that are unconfigured.
+    6. Remove unwanted software.
+
+   As each step is completed successfully, dselect will lead you on to
+   the next. Go through them in order without skipping any steps.
+
+   Here and there in this document we talk of starting another shell.
+   Linux has six console sessions or shells available at any one time.
+   You switch between them by pressing Left Alt-F1 through Left Alt-F6,
+   after which you log in on your new shell and go ahead. The console
+   used by the install process is the first one, a.k.a. tty1, so press
+   Left Alt-F1 when you want to return to that process.
+
+
+3.20.2 Once dselect Is Launched
+
+   Once in dselect, you will get this screen:
+
+   Debian Linux ‘dselect’ package handling frontend.
+   0.  [A]ccess  Choose the access method to use.
+   1.  [U]pdate  Update list of available packages, if possible.
+   2.  [S]elect  Request which packages you want on your system.
+   3.  [I]nstall Install and upgrade wanted packages.
+   4.  [C]onfig  Configure any packages that are unconfigured.
+   5.  [R]emove  Remove unwanted software.
+   6.  [Q]uit    Quit dselect.
+
+   Let’s look at these one by one.
+
+Access
+
+[Illustration: Figure 3.2: dselect Access screen]
+
+   Here we tell dselect where our packages are. Ignore the order that
+   these appear in. It is very important that you select the proper
+   method for installation. You may have a few more methods listed, or
+   a few less, or you may see them listed in a different order; just
+   don’t worry about it. In the following list, we describe the
+   different methods.
+
+   multi_cd. Quite large and powerful, this complex method is the
+   recommended way of installing a recent version of Debian from a set
+   of multiple binary CDs. Each of these CDs should contain information
+   about the packages in itself and all prior CDs (in the file
+   Packages.cd). When you first select this method, be sure the CD-ROM
+   you will be using is not mounted. Place the last binary disk of the
+   set (we don’t need the source CDs) in the drive and answer the
+   questions you are asked:
+
+   CD-ROM drive location
+   Confirmation that you are using a multi-cd set
+   The location of the Debian distribution on the disk(s)
+   [ Possibly ] the location(s) of the Packages file(s)
+
+   Once you have updated the available list and selected the packages
+   to be installed, the multi_cd method diverges from normal procedure.
+   You will need to run an “install” step for each of the CDs you have,
+   in turn. Unfortunately, due to the limitations of dselect, it will
+   not be able to prompt you for a new disk at each stage; the way to

@@ -1,0 +1,96 @@
+              text files
+                             viewing
+                                     Viewing Text Files
+   file systems
+           Partitioning Your Hard Drive | Background | Background
+   filename expansion pattern
+           Filename Expansion
+   filename expansion patterns
+           Filename Expansion
+   files
+           no title | Files and Directories | Files and Directories | Files
+           and Directories
+                /etc/X11/Xsession
+                             modifying
+                                     Customizing Your X Startup
+                access
+                        Mode
+                binary
+                        Working with Text Files
+                             viewing
+                                     Viewing Text Files
+                compressing
+                        File Compression with gzip | File Compression with
+                        gzip
+                configuration files
+                        Configuration Files
+                contents
+                             displaying
+                                     Determining a File’s Contents
+                current working directory
+                        Using Files: A Tutorial
+                deleting
+                        Using Files: A Tutorial
+                device files
+                        Device Files | /dev/null
+                disk images
+                        Creating Floppies from Disk | Creating Floppies from
+                        Disk
+                dotfiles
+                        Dot Files and ls -a | System-Wide Versus
+                        User-Specific Configuration
+                Editors
+                        no title
+                hard links
+                        The Real Nature of | The Real Nature of
+                inodes
+                        The Real Nature of
+                large-scale copying
+                        Large-Scale Copying | Large-Scale Copying
+                locating
+                        Finding Files | Finding Files
+                moving
+                        Using Files: A Tutorial
+                named pipes
+                        Named Pipes (FIFOs)
+                naming conventions
+                             troubleshooting
+                                     Working with Strangely-Named Files
+                permissions
+                        Permissions | Permissions | Security
+                             example sessions
+                                     Permissions in Practice | Permissions in
+                                     Practice | Permissions in Practice
+                             mode
+                                     Mode | Mode | Mode
+                             ownership
+                                     File Ownership | File Ownership
+                plans
+                             creating
+                                     Managing Your Identity | Managing Your
+                                     Identity
+                regular expressions
+                        Regular Expressions | Regular Expressions | Regular
+                        Expressions
+                sockets
+                        Sockets
+                symlinks
+                        Symbolic Links
+                             removing
+                                     Symbolic Links | Symbolic Links
+                temporary
+                        Files Present and Their
+                Text
+                        no title
+                             editing
+                                     Text Editors | Text Editors | Using ae
+                             viewing
+                                     Viewing Text Files
+                text files
+                        Working with Text Files
+                uncompressing
+                        File Compression with gzip
+   filesystems
+           Filesystems
+                automatic mounting
+                        /etc/

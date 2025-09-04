@@ -1,0 +1,116 @@
+ are some suggestions:
+
+     ◼ Use the man pages and the -help or -h option to get a quick
+     summary of a command’s syntax and options. Also use man if a
+     program doesn’t yet have an info page.
+     ◼ Use info if a program has info documentation.
+     ◼ If neither of those works, look in /usr/doc/_packagename_.
+     ◼ /usr/doc/_packagename_ often has Debian-specific information,
+     even if there’s a man page or info page.
+     ◼ Use the HOWTOs for instructions on how to set up a particular
+     thing or for information on your particular hardware. For example,
+     the Ethernet HOWTO has a wealth of information on Ethernet cards,
+     and the PPP HOWTO explains in detail how to set up PPP.
+     ◼ Use the Debian Documentation Project manuals for conceptual
+     explanations and Debian-specific information.
+     ◼ If all else fails, ask someone. See section A.1.3 on page [*].
+     Using man pages is discussed above in section 5.1 on page [*].
+     It’s very simple: press the space bar to go to the next page, and
+     press q to quit reading. Using info, viewing files in /usr/doc,
+     and asking for help from a person are all discussed in the
+     remainder of this chapter.
+
+
+A.1.1 Using info
+
+   info is the GNU documentation viewer. Some programs provide
+   documentationin info format, and you can use info to view that
+   documentation. You can start up the viewer by simply typing info, or
+   by supplying a topic as well:
+
+   info emacs
+
+   You can also bring up the information on info itself, which includes
+   a tutorial, like so:
+
+   info info
+
+   Now, you may navigate with these keys:
+
+   arrows
+
+   Move the cursor around the document
+
+   m RET
+
+   Select the menu item that’s at the cursor
+
+   u
+
+   Move “up” in the document
+
+   n
+
+   Move to the next page
+
+   p
+
+   Move to the previous page
+
+   s
+
+   Search for something
+
+   g
+
+   Go to a specific page
+
+   q
+
+   Quit info
+
+   You might notice that the top line of the screen indicates the next,
+   previous, and “up” pages, corresponding nicely to the actions for
+   the n, p, and u keys.
+
+
+A.1.2 HOWTOs
+
+   In addition to their books, the Linux Documentation Project has made
+   a series of short documents describing how to set up particular
+   aspects of GNU/Linux. For instance, the SCSI-HOWTO describes some of
+   the complications of using SCSI—a standard way of talking to
+   devices—with GNU/Linux. In general, the HOWTOs have more specific
+   information about particular hardware configurations and will be
+   more up to date than this manual.
+
+   There are Debian packages for the HOWTOs. doc-linux-text contains
+   the various HOWTOs in text form; the doc-linux-html package contains
+   the HOWTOs in (surprise!) browsable HTML format. Note also that
+   Debian has packaged translations of the HOWTOs in various languages
+   that you may prefer if English is not your native language. Debian
+   has packages for the German, French, Spanish, Italian, Japanese,
+   Korean, Polish, Swedish and Chinese versions of the HOWTOs. These
+   are usually available in the package doc-linux-_languagecode_, where
+   _languagecode_ is fr for French, es for Spanish, etc. If you’ve
+   installed one of these, you should have them in
+   /usr/doc/HOWTO. However, you may be able to find more recent
+   /versions on
+   the Net at the LDP homepage[4].
+
+ [4] http://www.metalab.unc.edu/LDP/
+
+
+A.1.3 Personal Help
+
+   The correct place to ask for help with Debian is the debian-user
+   mailing list at debian-user@lists.debian.org. If you know how to use
+   IRC (Internet Relay Chat), you can use the #debian channel on
+   irc.debian.org. You can find general GNU/Linux help on the
+   comp.os.linux.* USENET hierarchy. It is also possible to hire paid
+   consultants to provide guaranteed support services. The Debian
+   website[5] has more information on many of these resources.
+
+ [5] http://www.debian.org/
+
+   Again, please _do not_ ask the authors of this b

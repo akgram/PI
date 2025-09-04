@@ -1,0 +1,95 @@
+         |
+            |------+-----------------------------------------------|
+            |  -   |               Remove a package.               |
+            |------+-----------------------------------------------|
+            |  _   | Remove a package and its configuration files. |
+            |------+-----------------------------------------------|
+            | i, I |      Toggle/cycle information displays.       |
+            |------+-----------------------------------------------|
+            | o, O |        Cycle through the sort options.        |
+            |------+-----------------------------------------------|
+            | v, V |            A terse/verbose toggle.            |
+            +------------------------------------------------------+
+
+   Table 3.2 lists the states that dselect uses to denote the status of
+   each package it is aware of.
+
+Table 3.2: dselect Package States
+               +-----------------------------------------------+
+               | Flag |     Meaning     |   Possible values    |
+               |------+-----------------+----------------------|
+               |  E   |      Error      |     Space, R, I      |
+               |------+-----------------+----------------------|
+               |  I   | Installed State | Space, *, -, U, C, I |
+               |------+-----------------+----------------------|
+               |  O   |    Old Mark     |    *, -, =, _, n     |
+               |------+-----------------+----------------------|
+               |  M   |      Mark       |    *, -, =, _, n     |
+               +-----------------------------------------------+
+
+   Rather than spell all this out here, I refer you to the Help screens
+   where all is revealed. One example, though.
+
+   You enter dselect and find a line like this:
+
+   EIOM Pri  Section  Package   Description
+   ** Opt  misc     loadlin   a loader (running under DOS) for LINUX
+
+   This is saying that loadlin was selected when you last ran dselect
+   and that it is still selected, but it is not installed. Why not? The
+   answer must be that the loadlin package is not physically available.
+   It is missing from your mirror.
+
+   The information that dselect uses to get all the right packages
+   installed is buried in the packages themselves. Nothing in this
+   world is perfect, and it does sometimes happen that the dependencies
+   built into a package are incorrect, which means that dselect simply
+   cannot resolve the situation. A way out is provided where the user
+   can regain control; it takes the form of the commands Q and X, which
+   are available in the Select screen.
+
+   Q An override. Forces dselect to ignore the built-in dependencies
+   and to do what you have specified. The results, of course, will be
+   on your own head.
+
+   X Use X if you get totally lost. It puts things back the way they
+   were and exits.
+
+   Select screen (dselect) Keys that help you not to get lost (!) are
+   R, U, and D.
+
+   R Cancels all selections at this level. Does not affect selections
+   made at the previous level.
+
+   U If dselect has proposed changes and you have made further changes
+   U will restore dselect’s selections.
+
+   D Removes the selections made by dselect, leaving only yours.
+
+   An example follows. The boot-floppies package (not an example for
+   beginners, I know, but it was chosen because it has a lot of
+   dependencies) depends on these packages:
+
+     ◼ libc6-pic
+     ◼ slang1-pic
+     ◼ sysutils
+     ◼ makedev
+     ◼ newt0.25
+     ◼ newt0.25-dev
+     ◼ popt
+     ◼ zlib1g
+     ◼ zlib1g-dev
+     ◼ recode
+
+   The person maintaining boot-floppies also thinks that the following
+   packages should be installed. These are not, however, essential:
+
+     ◼ lynx
+     ◼ debiandoc-sgml
+     ◼ unzip
+
+   When you select boot-floppies, dselect brings up the conflict
+   resolution screen. You’ll notice that all the required packages have
+   been selected.
+
+   Pressing the R key puts things back to the starti

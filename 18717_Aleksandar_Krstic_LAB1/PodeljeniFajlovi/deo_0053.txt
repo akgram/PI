@@ -1,0 +1,103 @@
+erly. Debian packages have
+   filenames ending in the extension .deb, and they’re available on the
+   FTP site or on your official Debian CD-ROM.
+
+
+12.2 dpkg
+
+   The simplest way to install a single package you’ve downloaded is
+   with the command dpkg -i (short for dpkg -install). Say you’ve
+   downloaded the package icewm_0.8.12-1.deb and you’d like to install
+   it. First log on as root, and then type dpkg -i icewm_0.8.12-1.deb,
+   and icewm version 0.8.12 will be installed. If you already had an
+   older version, dpkg will upgrade it rather than installing both
+   versions at once.
+
+   If you want to remove a package, you have two options. The first is
+   most intuitive: dpkg -r icewm. This will remove the icewm package
+   (-r is short for -remove). Note that you give only the icewm for
+   -remove, whereas -install requires the entire .deb filename.
+
+   -remove will leave configuration files for the package on your
+   system. A configuration file is defined as any file you might have
+   edited in order to customize the program for your system or your
+   preferences. This way, if you later reinstall the package, you won’t
+   have to set everything up a second time.
+
+   However, you might want to erase the configuration files too, so
+   dpkg also provides a -purge option. dpkg -purge icewm will
+   permanently delete every last file associated with the icewm
+   package.
+
+
+12.3 dselect
+
+   dselect is a great front-end for dpkg. dselect provides a menu
+   interface for dpkg, and can automatically fetch the appropriate
+   files from a CD-ROM or Internet FTP site. For details on using
+   dselect, see section 3.20 on page [*].
+
+
+12.4 Compiling Software
+
+   Many programs come in source format, often in tar.gz form. First,
+   you must unpack the tar.gz file; for details on doing this, see
+   section 10.3.1 on page [*]. Before you can compile the package,
+   you’ll need to have gcc, libc6-dev, and other relevant “-dev”
+   packages installed; most of these are listed in the devel area in
+   dselect.
+
+   With the appropriate packages installed, cd into the directory that
+   tar created for you. At this point, you’ll need to read the
+   installation instructions. Most programs provide an INSTALL or
+   README file that will tell you how to proceed.
+
+
+
+
+13. Advanced Topics
+
+
+   By now, you should have a strong base for which to build your
+   GNU/Linux skills on. In this chapter we cover some very useful
+   information regarding some advanced GNU/Linux features.
+
+
+13.1 Regular Expressions
+
+   A regular expression is a description of a set of characters. This
+   description can be used to search through a file by looking for text
+   that matches the regular expression. Regular expressions are
+   analogous to shell wildcards (see section 6.6 on page [*]), but they
+   are both more complicated and more powerful.
+
+   A regular expression is made up of text and _metacharacters_. A
+   metacharacter is just a character with a special meaning.
+   Metacharacters include the following: . * [] - \^ $.
+
+   If a regular expression contains only text (no metacharacters), it
+   matches that text. For example, the regular expression “my regular
+   expression” matches the text “my regular expression,” and nothing
+   else. Regular expressions are usually case sensitive.
+
+   You can use the egrep command to display all lines in a file that
+   contain a regular expression. Its syntax is as follows:
+
+   egrep ’regexp’ filename1 ...
+
+   The single quotation marks are not always needed, but they never
+   hurt.
+
+   For example, to find all lines in the GPL that contain the word GNU,
+   you type
+
+   egrep ’GNU’ /usr/doc/copyright/GPL
+
+   egrep will print the lines to standard output. If you want all lines
+   that contain freedom followed by some indeterminate text, followed
+   by GNU, you can do this:
+
+   egrep ’freedom.*GNU’ /usr/doc/copyright/GPL
+
+   The . means “any character,” and the * means “zero or more of the
+   preced

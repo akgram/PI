@@ -1,0 +1,97 @@
+of this book, but you
+   may want to try them out if the command line doesn’t meet your
+   needs.
+
+
+
+
+8. Working with Text Files
+
+
+   Text files are prevelant on a GNU/Linux system. They hold everything
+   from documentation to configuration files. Fortunately, it’s easy to
+   work with them.
+
+
+8.1 Viewing Text Files
+
+   A _text file_ is simply a normal file that happens to contain
+   human-readable text. There’s nothing special about it otherwise. The
+   other kind of file, a binary file, is meant to be interpreted by the
+   computer.
+
+   You can view either kind of file with the less file pager if you
+   have it installed (install it if you haven’t, it’s quite useful).
+   Type less
+   /etc/profile to view a sample text file. Notice that you can read
+   /the
+   characters even if their meaning is obscure. Type less /bin/ls to
+   view a binary file. As you can see, the ls program is not meant to
+   be read by humans.
+
+   Sometimes, you’ll find files that end with .gz. These files may be
+   viewed with zless; you can run it like so:
+
+   zless /usr/doc/ae/changelog.Debian.gz
+
+   Tip: zless is great for viewing documentation, which is often
+   shipped in .gz form.
+
+   The difference between the two kinds of files is purely a matter of
+   what they contain, unlike in some other systems (such as DOS and
+   MacOS), which actually treat the files differently.
+
+   Text files can contain shell scripts, documentation, copyright
+   notices, or any other human-readable text.
+
+   Incidentally, this illustrates the difference between _source code_
+   and _binary executables_. /bin/ls is a binary executable you can
+   download from Debian, but you can also download a text file that
+   tells the computer how to create /bin/ls. This text file is the
+   source code. Comparing /bin/ls to /etc/profile illustrates how
+   important source code is if someone wants to understand and modify a
+   piece of software. Free software provides you or your consultants
+   with this all-important source code.
+
+
+8.2 Text Editors
+
+   A _text editor_ is a program used to create and change the contents
+   of text files. Most operating systems have a text editor: DOS has
+   edit, Windows has Notepad, MacOS has SimpleText.
+
+   Debian provides a large variety of text editors. vi and Emacs are
+   the classic two, which are probably both the most powerful and the
+   most widely used. Both vi and Emacs are quite complex and require
+   some practice, but they can make editing text extremely efficient.
+   Emacs runs both in a terminal and under the X Window system; vi
+   normally runs in a terminal but the vim variant has a -g option that
+   allows it to work with X. text editors
+
+   Simpler editors include nedit, ae, jed, and xcoral. nedit and xcoral
+   provide easy-to-use X Window system graphical interfaces. There are
+   also several vi variants. Additionally, you can find and a GNU Emacs
+   variant called XEmacs.
+
+   This book does not cover the use of any particular editor in detail,
+   though we will briefly introduce ae since it is small, fast, and can
+   be found even on the Debian rescue disks, so it pays to know a bit
+   about it for usage in a pinch. When you need to do more serious
+   editing, check out vim or GNU Emacs. Emacs provides an excellent
+   interactive tutorial of its own; to read it, load Emacs with the
+   emacs command and type F1 t. Emacs is an excellent choice for new
+   users interested in a general-purpose or programming editor.
+
+
+8.3 Using ae
+
+   You can start ae by giving it the name of a file to edit, like so:
+
+   $ ae filename.txt
+
+   This will bring up an editor screen. The top part of this screen
+   provides some quick help; the bottom shows the file you’re editing.
+   Moving around in this editor is simple; just use the arrow keys. You
+   can save the file by pressing C-x C-s and then exit the editor by
+   pressing C-x C-c. Once you feel comfortable with the editor, you can
+   press C-x C-h to turn off the

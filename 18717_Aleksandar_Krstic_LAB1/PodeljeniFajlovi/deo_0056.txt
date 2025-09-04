@@ -1,0 +1,107 @@
+nk pairs
+   a filename with an inode number.
+
+   All hard links to the same file have equal status. That is, one is
+   as good as another; if you perform any operation on one, it’s just
+   the same as performing that operation on any of the others. This is
+   because the hard links all refer to the same inode. Operations on
+   symlinks, on the other hand, sometimes affect the symlink’s own
+   inode (the one containing the name of a hard link) and sometimes
+   affect the hard link being pointed to.
+
+   There are a number of important differences between symlinks and
+   hard links.
+
+   Symlinks can cross filesystems. This is because they contain
+   complete filenames, starting with the root directory, and all
+   complete filenames are unique. Because hard links point to inode
+   numbers, and inode numbers are unique only within a single
+   filesystem, they would be ambiguous if the filesystem wasn’t known.
+
+   You can make symlinks to directories, but you can’t make hard links
+   to them. Each directory has hard links—its listing in its parent
+   directory, its . entry, and the .. entry in each of its
+   subdirectories—but to impose order on the filesystem, no other hard
+   links to directories are allowed. Consequently, the number of files
+   in a directory is equal to the number of hard links to that
+   directory minus two (you subtract the directory’s name and the .
+   link). comparing!hard links and symlinks You can only make a hard
+   link to a file that exists, because there must be an inode number to
+   refer to. However, you can make a symlink to any filename, whether
+   or not there actually is such a filename.
+
+   Removing a symlink removes only the link. It has no effect on the
+   linked-to file. Removing the only hard link to a file removes the
+   file.
+
+   Try this:
+
+   cd; ln -s /tmp/me MyTmp
+
+   cd to your home directory. ln with the -s option makes a symbolic
+   link - in this case, one called MyTmp that points to the filename
+   /tmp/me.
+
+   ls -l MyTmp
+
+   Output should look like this:
+
+   lrwxrwxrwx 1 havoc havoc 7 Dec 6 12:50 MyTmp -> /tmp/me
+
+   The date and user/group names will be different for you, of course.
+   Notice that the file type is l, indicating that this is a symbolic
+   link. Also notice the permissions: Symbolic links always have these
+   permissions. If you attempt to chmod a symlink, you’ll actually
+   change the permissions on the file being pointed to.
+
+   chmod 700 MyTmp
+
+   You will get a No such file or directory error, because the file
+   /tmp/me doesn’t exist. Notice that you could create a symlink to it
+   anyway.
+
+   mkdir /tmp/me
+
+   Creates the directory /tmp/me.
+
+   chmod 700 MyTmp
+
+   Should work now.
+
+   touch MyTmp/myfile
+
+   Creates a file in MyTmp.
+
+   ls /tmp/me
+
+   The file is actually created in /tmp/me.
+
+   rm MyTmp
+
+   Removes the symbolic link. Notice that this removes the link, not
+   what it points to. Thus you use rm not rmdir.
+
+   rm /tmp/me/myfile; rmdir /tmp/me
+
+   Lets you clean up after yourself. symlinks!removing
+
+  Device Files
+
+   Device files refer to physical or virtual devices on your system,
+   such as your hard disk, video card, screen, and keyboard. An example
+   of a virtual device is the console, represented by /dev/console.
+
+   There are two kinds of devices:character and block. _Character
+   devices_ can be accessed one character at a time. Remember the
+   smallest unit of data that can be written to or read from the device
+   is a character (byte).
+
+   _Block devices_ must be accessed in larger units called blocks,
+   which contain a number of characters. Your hard disk is a block
+   device.
+
+   You can read and write device files just as you can from other kinds
+   of files, though the file may well contain some strange
+   incomprehensible-to-humans gibberish. Writing random data to these
+   files is probably a bad idea. Sometimes it’s useful, though. For
+   example, you can dump a postscript file into th

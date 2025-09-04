@@ -1,0 +1,77 @@
+could suddenly
+   find yourself out of disk space. This is not good since the
+   operating system needs to use real files (besides swap space) for
+   many things. It may not even be a problem of local origin. For
+   example, unsolicited e-mail (“spam”) can easily fill a partition. By
+   using more partitions, you protect the system from many of these
+   problems. Using e-mail as an example again, by putting the directory
+   /var/spool/mail on its own partition, the bulk of the system will
+   /work
+   even if unsolicited e-mail fills that partition.
+
+   Another reason applies only if you have a large IDE disk drive and
+   are using neither LBA addressing nor overlay drivers[5]. In this
+   case, you will have to put the root partition into the first 1,024
+   cylinders of your hard drive, usually around 524 megabytes. See
+   section 2.3.3 on page [*] for more information on this issue.
+
+ [5] See your hard drive manual for a description of these features.
+
+   Most people feel that a swap partition is also a necessity, although
+   this isn’t strictly true. “Swap” is scratch space for an operating
+   system, which allows the system to use disk storage as “virtual
+   memory” in addition to physical memory. Putting swap on a separate
+   partition allows Linux to make much more efficient use of it. It is
+   possible to force Linux to use a regular file as swap, but this is
+   not recommended.
+
+   The only real drawback to using more partitions is that it is often
+   difficult to know in advance what your needs will be. If you make a
+   partition too small, either you will have to reinstall the system,
+   or you will be constantly moving things around to make room in the
+   undersized partition. On the other hand, if you make the partition
+   too big, you may be wasting space that could be used elsewhere.
+
+
+2.3.2 Planning Use of the System
+
+   Disk space requirements and your partitioning scheme are influenced
+   by the type of installation you decide to create.
+
+   For your convenience, Debian offers a number of default “profiles”
+   some of which are listed later in this section. Profiles are simply
+   preselected sets of packages designed to provide certain desired
+   capabilities on your system. Installation is easier since packages
+   that fit your desired profile are automatically marked for
+   installation. Each given profile lists the size of the resulting
+   system after installation is complete. Even if you don’t use these
+   profiles, this discussion is important for planning, since it will
+   give you a sense of how large your partition or partitions need to
+   be. The following are some of the available profiles and their
+   sizes:
+
+   Server_std. This is a small server profile, useful for a
+   stripped-down server, that does not have a lot of niceties for shell
+   users. It basically has an FTP server, a web server, DNS, NIS, and
+   POP. It will take up around 50MB. Of course, this is just the size
+   of the software; any data you serve would be additional.
+
+   Dialup. This profile would be good for a standard desktop box,
+   including the X Window system, graphics applications, sound,
+   editors, etc. The size of the packages will be around 500MB.
+
+   Work_std. This profile is suitable for a stripped-down user machine
+   without the X Window system or X applications. It is also suitable
+   for a laptop or mobile computer. The size is around 140MB. It is
+   possible to have a simple laptop setup including X with less than
+   100MB.
+
+   Devel_comp. This is a desktop setup profile with all the popular
+   development packages, such as Perl, C, and C++. It requires around
+   475MB. Assuming you are adding X and some additional packages for
+   other uses, you should plan for approximately 800MB of disk space
+   for this type of installation.
+
+   Remember that these sizes don’t include all the other materials that
+   are normally found, such as user files, mail, and data. It is always
+   best to be generous when cons

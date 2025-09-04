@@ -1,0 +1,94 @@
+benefits that are Free Software. The unprecedented power, the
+   ability to speak directly to the people who write the software you
+   use, the capability to modify programs at will, and the phenomenal
+   expertise of the online support mechanism all combine to make Free
+   Software a vibrant and wonderful way to use your computing
+   resources.
+
+   Starting with a Free Software such as Debian GNU/Linux can be the
+   best thing you’ve done with your computer in a long time. It’s fast,
+   powerful, stable, versatile, and _fun_!
+
+   Welcome to the revolution!
+
+   — John Goerzen
+
+
+
+
+I. Guide
+
+1. Introduction
+
+
+   We’re glad to have this opportunity to introduce you to Debian! As
+   we begin our journey down the road of GNU/Linux, we’d like to first
+   talk a bit about what exactly Debian is—what it does, and how it
+   fits in with the vast world of Free Software. Then, we talk a bit
+   about the phenomenon that is Free Software and what it means for
+   Debian and you. Finally, we close the chapter with a bit of
+   information about this book itself.
+
+
+1.1 What Is Debian?
+
+   _Debian_ is a free operating system (OS) for your computer. An
+   operating system is the set of basic programs and utilities that
+   make your computer run. At the core of an operating system is the
+   _kernel_. The kernel is the most fundamental program on the
+   computer: It does all the basic housekeeping and lets you start
+   other programs. Debian uses the _Linux_ kernel, a completely free
+   piece of software started by Linus Torvalds and supported by
+   thousands of programmers worldwide. A large part of the basic tools
+   that fill out the operating system come from the GNU Project[1], and
+   these tools are also free.
+
+ [1] http://www.gnu.org/
+
+   Another facet of an operating system is application software:
+   programs that help get work done, from editing documents to running
+   a business to playing games to writing more software. Debian comes
+   with more than 1,500 _packages_ (precompiled software bundled up in
+   a nice format for easy installation on your machine)—all for free.
+
+   The Debian system is a bit like a pyramid. At the base is Linux. On
+   top of that are all the basic tools, mostly from GNU. Next is all
+   the application software that you run on the computer; many of these
+   are also from GNU. The Debian developers act as architects and
+   coordinators—carefully organizing the system and fitting everything
+   together into an integrated, stable operating system: Debian
+   GNU/Linux.
+
+   The design philosophy of GNU/Linux is to distribute its
+   functionality into small, multipurpose parts. That way, you can
+   easily achieve new functionality and new features by combining the
+   small parts (programs) in new ways. Debian is like an erector set:
+   You can build all sorts of things with it.
+
+   When you’re using an operating system, you want to minimize the
+   amount of work you put into getting your job done. Debian supplies
+   many tools that can help, but only if you know what these tools do.
+   Spending an hour trying to get something to work and then finally
+   giving up isn’t very productive. This guide will teach you about the
+   core tools that make up Debian: what tools to use in certain
+   situations and how to tie these various tools together.
+
+
+1.1.1 Who Creates Debian?
+
+   Debian is an all-volunteer Internet-based development project. There
+   are hundreds of volunteers working on it. Most are in charge of a
+   small number of software packages and are very familiar with the
+   software they package.
+
+   These volunteers work together by following a strict set of
+   guidelines governing how packages are assembled. These guidelines
+   are developed cooperatively in discussions on Internet mailing
+   lists.
+
+
+1.2 A Multiuser, Multitasking Operating System
+
+   As we mentioned earlier in section 1.1, the design of Debian
+   GNU/Linux comes from the Unix operating system. Unlike common
+   des

@@ -1,0 +1,99 @@
+ing thing,” in this case “zero or more of any character.” So
+   .* matches pretty much any text at all. egrep only matches on a
+   line-by-line basis, so freedom and GNU have to be on the same line.
+
+   Here’s a summary of regular expression metacharacters:
+
+   . Matches any single character except newline.
+
+   * Matches zero or more occurrences of the preceding thing. So the
+   expression a* matches zero or more lowercase a, and .* matches zero
+   or more characters.
+
+   [_characters_] The brackets must contain one or more characters; the
+   whole bracketed expression matches exactly one character out of the
+   set. So [abc]matches one a, one b, or one c; it does not match zero
+   characters, and it does not match a character other than these
+   three.
+
+   ^ Anchors your search at the beginning of the line. The expression
+   ^The matches The when it appears at the beginning of a line; there
+   can’t be spaces or other text before The. If you want to allow
+   spaces, you can permit 0 or more space characters like this: ^ *The.
+
+   $ Anchors at the end of the line. end$ requires the text end to be
+   at the end of the line, with no intervening spaces or text.
+
+   [^_characters_] This reverses the sense of a bracketed character
+   list. So [^abc] matches any single character, _except_ a, b, or c.
+
+   [_character-character_] You can include ranges in a bracketed
+   character list. To match any lowercase letter, use [a-z]. You can
+   have more than one range; so to match the first three or last three
+   letters of the alphabet, try [a-cx-z]. To get any letter, any case,
+   try [a-zA-Z]. You can mix ranges with single characters and with the
+   ^metacharacter; for example, [^a-zBZ]means “anything except a
+   lowercase letter, capital B, or capital Z.”
+
+   () You can use parentheses to group parts of the regular expression,
+   just as you do in a mathematical expression.
+
+   || means “or.” You can use it to provide a series of
+alternative expressions. Usually you want to put the alternatives in
+parentheses, like this: c(ad|ab|at)matches cad or cab or cat. Without
+the parentheses, it would match cad or ab or at instead
+
+   \ Escapes any special characters; if you want to find a literal *,
+   you type \*. The slash means to ignore *’s usual special meaning.
+
+   Here are some more examples to help you get a feel for things:
+
+   c.pe matches cope, cape, caper.
+
+   c\ .pe matches c.pe, c.per.
+
+   sto*p matches stp, stop, stoop.
+
+   car.*n matches carton, cartoon, carmen.
+
+   xyz.* matches xyz and anything after it; some tools, like egrep,
+   only match until the end of the line.
+
+   ^The matches The at the beginning of a line.
+
+   atime$ matches atime at the end of a line.
+
+   ^Only$ matches a line that consists solely of the word Only—no
+   spaces, no other characters, nothing. Only Only is allowed.
+
+   b[aou]rn matches barn, born, burn.
+
+   Ver[D-F] matches VerD, VerE, VerF.
+
+   Ver[^0-9] matches Ver followed by any non-digit.
+
+   the[ir][re] matches their, therr, there, theie.
+
+   [A-Za-z][A-Za-z]* matches any word which consists of only letters,
+   and at least one letter. It will not match numbers or spaces.
+
+
+13.2 Advanced Files
+
+   Now that you have a basic understanding of files, it is time to
+   learn more advanced things about them.
+
+
+13.2.1 The Real Nature of Files: Hard Links and Inodes
+
+   Each file on your system is represented by an _inode_ (for
+   Information Node; pronounced “eye-node”). An inode contains all the
+   information about the file. However, the inode is not directly
+   visible. Instead, each inode is linked into the filesystem by one or
+   more _hard links_. Hard links contain the name of the file and the
+   inode number. The inode contains the file itself, i.e., the location
+   of the information being stored on disk, its access permissions, the
+   file type, and so on. The system can find any inode if it has the
+   inode number.
+
+   A single file can have more than one hard

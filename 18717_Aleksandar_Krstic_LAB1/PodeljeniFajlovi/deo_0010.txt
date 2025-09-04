@@ -1,0 +1,64 @@
+------------------|
+| Entire Primary-Slave IDE hard disk or CD-ROM  |           /dev/hdb           |
+|-----------------------------------------------+------------------------------|
+| Entire Secondary-Master IDE hard disk or      |           /dev/hdc           |
+| CD-ROM                                        |                              |
+|-----------------------------------------------+------------------------------|
+| Entire Secondary-Slave IDE hard disk or       |           /dev/hdd           |
+| CD-ROM                                        |                              |
+|-----------------------------------------------+------------------------------|
+| First SCSI disk                               |           /dev/sda           |
+|-----------------------------------------------+------------------------------|
+| Second and remaining SCSI disks               |    /dev/sdb and so forth     |
+|-----------------------------------------------+------------------------------|
+| First serial port (COM1 in other OSs)         |          /dev/ttyS0          |
+|-----------------------------------------------+------------------------------|
+| Second, third, etc. serial ports              | /dev/ttyS1, /dev/ttyS2, etc. |
+|-----------------------------------------------+------------------------------|
+| SCSI tape units (automatic rewind)            |   /dev/st0, /dev/st1, etc.   |
+|-----------------------------------------------+------------------------------|
+| SCSI tape units (no automatic rewind)         |  /dev/nst0, /dev/nst1, etc.  |
+|-----------------------------------------------+------------------------------|
+| SCSI CD-ROMs                                  |  /dev/scd0, /dev/scd1, etc.  |
++------------------------------------------------------------------------------+
+
+   The partitions on each disk are represented by appending a number to
+   the disk name. For example, the names hda1 and hda2 represent the
+   first and second partitions of the first IDE disk drive in your
+   system. Linux represents the primary partitions with the drive name
+   plus the numbers 1 through 4. For example, the first primary
+   partition on the first IDE drive is /dev/hda1. The logical
+   partitions are numbered starting at 5, so the first logical
+   partition on that same drive is /dev/hda5. Remember that the
+   extended partition—that is, the primary partition holding the
+   logical partitions—is not usable by itself. This applies to SCSI
+   drives as well as IDE drives.
+
+   Let’s assume you have a system with two SCSI disks, one at SCSI
+   address 2 and the other at SCSI address 4. The first disk (at
+   address 2) is then named sda and the second sdb. If the sda drive
+   has three partitions on it, these will be named sda1, sda2, and
+   sda3. The same applies to the sdb disk and its partitions. Note that
+   if you have two SCSI host bus adapters (i.e., controllers), the
+   order of the drives can get confusing. The best solution in this
+   case is to watch the boot messages, assuming you know the drive
+   models.
+
+
+2.3.5 Recommended Partitioning Scheme
+
+   As described above, you should have a separate smaller root
+   partition and a larger /usr partition if you have the space. For
+   most users, the two partitions initially mentioned are sufficient.
+   This is especially appropriate when you have a single small disk,
+   because creating lots of partitions can waste space.
+
+   In some cases, you might need a separate /usr/local partition if you
+   plan to install many programs that are not part of the Debian
+   distribution. If your machine will be a mail server, you may need to
+   make /var/spool/mail a separate partition. Putting /tmp on its own
+   20 to 32MB partition, for instance, is a good idea. If you are
+   setting up a server with lots of user accounts, it’s generally good
+   to have a separate, large /home partition to store user home
+   directories. In general, the partitioning situation varies from
+   computer to computer dependi

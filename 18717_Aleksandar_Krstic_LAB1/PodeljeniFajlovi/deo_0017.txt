@@ -1,0 +1,90 @@
+he alternate below “Configure
+   Device Driver Modules.” You will be asked which PCMCIA controller
+   your system contains. In most cases, this will be i82365. In some
+   cases, it will be tcic; your laptop’s vendor-supplied specifications
+   should provide the information. You can generally leave the next few
+   sets of options blank. Again, certain hardware has special needs;
+   the Linux PCMCIA HOWTO[3] contains plenty of information in case the
+   default doesn’t work.
+
+ [3] http://metalab.unc.edu/LDP/HOWTO/PCMCIA-HOWTO.html
+
+   In some unusual cases, you may also need to modify the file
+   /etc/pcmcia/config.opts. You can open your second virtual terminal
+   (Left Alt-F2) and edit the file there and then reconfigure your
+   PCMCIA, or you can manually force a reload of the modules using
+   insmod and rmmod.
+
+   Once PCMCIA is properly configured and installed, you should
+   configure your device drivers as described in the next section.
+
+
+3.10 Configure Device Driver Modules
+
+   Select the “Configure Device Driver Modules” menu item and look for
+   devices that are on your system. Configure those device drivers, and
+   they will be loaded whenever your system boots.
+
+   You don’t have to configure all your devices at this point; what is
+   crucial is that any device configuration required for the
+   installation of the base system is done here.
+
+   At any point after the system is installed, you can reconfigure your
+   modules with the modconf program.
+
+
+3.11 Configure the Network
+
+   You’ll have to configure the network even if you don’t have a
+   network, but you’ll only have to answer the first two
+   questions—“Choose the Host name,” and “Is your system connected to a
+   network?”
+
+   If you are connected to a network, you’ll need the information you
+   collected from 2.2.1. However, if your primary connection to the
+   network will be PPP, you should choose _NOT_ to configure the
+   network.
+
+   dbootstrap will ask you a number of questions about your network;
+   fill in the answers from 2.2.1. The system will also summarize your
+   network information and ask you for confirmation. Next, you need to
+   specify the network device that your primary network connection
+   uses. Usually, this will be eth0 (the first Ethernet device). On a
+   laptop, it’s more likely that your primary network device is pcmcia.
+
+   Here are some technical details you may find handy: The program
+   assumes the network IP address is the bitwise AND of your system’s
+   IP address and your netmask. It will guess the broadcast address is
+   the bitwise OR of your system’s IP address with the bitwise negation
+   of the netmask. It will guess that your gateway system is also your
+   DNS server. If you can’t find any of these answers, use the system’s
+   guesses. You can change them once the system has been installed, if
+   necessary, by editing
+   /etc/init.d/network. (On a Debian system, daemons are started by
+   /scripts
+   in the directory /etc/init.d/.)
+
+
+3.12 Install the Base System
+
+   During the “Install the Base System” step, you’ll be offered a menu
+   of devices from which you may install the base system. Here, you
+   need to select your CD-ROM device.
+
+   You will be prompted to specify the path to the base2_1.tgz file. If
+   you have official Debian media, the default value should be correct.
+   Otherwise, enter the path where the base system can be found,
+   relative to the media’s mount point. As with the “Install Operating
+   System Kernel and Modules” step, you can either let dbootstrap find
+   the file itself or type in the path at the prompt.
+
+
+3.12.1 Configure the Base System
+
+   At this point you’ve read in all of the files that make up a minimal
+   Debian system, but you must perform some configuration before the
+   system will run.
+
+   You’ll be asked to select your time zone. There are many ways to
+   specify your time zone; we suggest you go to the “Directories:” pane
+   and select your country (or 

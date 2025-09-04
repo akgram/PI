@@ -1,0 +1,100 @@
+m &
+   xclock &
+   fvwm
+   date >> ~/logout-time
+
+   This will fork off an xterm and an xclock and then run fvwm and wait
+   for it to finish. When you exit fvwm, it will move on to the last
+   line, which appends the current date and time to the file
+   ~/logout-time.
+
+   Finally, you can have a program other than the window manager
+   determine when X exits:
+
+   xclock &
+   fvwm &
+   exec xterm
+
+   This script will run xclock and fvwm in the background and then
+   replace itself with xterm. When you exit the xterm, your X session
+   will end.
+
+   The best way to learn how to use .xsession is to try some of these
+   things out. Again, be sure you use chmod to make it executable;
+   failure to do so is a common error.
+
+
+
+
+10. Filesystems
+
+
+   A Debian system uses a filesystem to store and manage your data.
+   This chapter introduces you to the filesystem, describes how to add
+   and remove filesystems, and shows you how to back up your system.
+
+
+10.1 Concepts
+
+   It’s probably a good idea to explain a little theory before
+   discussing the mechanics of using disks. In particular, you must
+   understand the concept of a _filesystem_. This can be a bit
+   confusing because it has several meanings.
+
+   _The_ filesystem refers to the whole directory tree, starting with
+   the root directory /, as described in earlier chapters.
+
+   A filesystem in general means any organization of files and
+   directories on a particular physical device. “Organization” means
+   the hierarchical directory structure and any other information about
+   files one might want to keep track of: their size, who has
+   permission to change them, etc. So you might have one filesystem on
+   your hard disk, and another one on each floppy disk.
+
+   “Filesystem” is also used to mean a _type_ of filesystem. For
+   example, MS-DOS and Windows 3.1 organize files in a particular way,
+   with particular rules: Filenames can have only eight characters, for
+   example, and no permission information is stored. Linux calls this
+   the msdos filesystem. Linux also has its own filesystem, called the
+   ext2 filesystem (version two of the ext filesystem). You’ll use the
+   ext2 filesystem most of the time unless you’re accessing files from
+   another operating system or have other special needs.
+
+   Any physical device you wish to use for storing files must have at
+   least one filesystem on it. This means a filesystem in the second
+   sense—a hierarchy of files and directories, along with information
+   about them. Of course, any filesystem has a type, so the third sense
+   will come into play as well. If you have more than one filesystem on
+   a single device, each filesystem can have a different type—for
+   example, you might have both a DOS partition and a Linux partition
+   on your hard disk.
+
+
+10.2 mount and /etc/fstab
+
+   This section describes how to mount a floppy or Zip disk, discusses
+   the
+   /dev directory, and addresses distributing the directory tree over
+   multiple physical devices or partitions.
+
+
+10.2.1 Mounting a Filesystem
+
+   On a GNU/Linux system there’s no necessary correspondence between
+   directories and physical devices as there is in Windows, in which
+   each drive has its own directory tree beginning with a letter (such
+   as C:\).
+
+   Instead, each physical device such as a hard disk or floppy disk has
+   one or more filesystems on it. In order to make a filesystem
+   accessible, it’s assigned to a particular directory in another
+   filesystem. To avoid circularity, the root filesystem (which
+   contains the root directory /) is not stored within any other
+   filesystem. You have access to it automatically when you boot
+   Debian.
+
+   A directory in one filesystem that contains another filesystem is
+   known as a _mount point_. A mount point is a directory in a first
+   filesystem on one device (such as your hard disk) that “contains” a
+   second filesystem, perhaps on another device (such as a floppy
+   disk

@@ -1,0 +1,81 @@
+ng on its uses.
+
+   For very complex systems, you should see the Multi Disk HOWTO[8]. It
+   contains in-depth information, mostly of interest to people setting
+   up servers.
+
+ [8] http://metalab.unc.edu/LDP/HOWTO/Multi-Disk-HOWTO.html
+
+   Swap partition sizes should also be considered. There are many views
+   about swap partition sizes. One rule of thumb that works well is to
+   use as much swap as you have system memory, although there probably
+   isn’t much point in going over 64MB of swap for most users. It also
+   shouldn’t be smaller than 16MB, in most cases. Of course, there are
+   exceptions to these rules. If you are trying to solve 10,000
+   simultaneous equations on a machine with 256MB of memory, you may
+   need a gigabyte (or more) of swap space.
+
+   As an example, consider a machine that has 32MB of RAM and a 1.7GB
+   IDE drive on /dev/hda. There is a 500MB partition for another
+   operating system on /dev/hda1. A 32MB swap partition is used on
+   /dev/hda3 and the rest, about 1.2GB, on /dev/hda2 is the Linux
+   partition.
+
+
+2.3.6 Partitioning Prior to Installation
+
+   There are two different times that you can partition: prior to or
+   during the installation of Debian. If your computer will be solely
+   dedicated to Debian you should partition during installation as
+   described in section 3.5 on page [*]. If you have a machine with
+   more than one operating system on it, you should generally let the
+   other operating system create its own partitions.
+
+   The following sections contain information regarding partitioning in
+   your native operating system prior to Debian installation. Note that
+   you’ll have to map between how the other operating system names
+   partitions and how Linux names partitions; see Table 2.1 on page
+   [*].
+
+  Partitioning from DOS or Windows
+
+   If you are manipulating existing FAT or NTFS partitions, it is
+   recommended that you use either the scheme below or native Windows
+   or DOS tools. Otherwise, it is not really necessary to partition
+   from DOS or Windows; the Linux partitioning tools will generally do
+   a better job.
+
+  Lossless Repartitioning
+
+   One of the most common installations is onto a system that already
+   contains DOS (including Windows 3.1), Win32 (such as Windows 95, 98,
+   NT), or OS/2 and it is desired to put Debian onto the same disk
+   without destroying the previous system. As explained in section
+   2.3.1 on page [*], decreasing the size of an existing partition will
+   almost certainly damage the data on that partition unless certain
+   precautions are taken. The method described here, while not
+   guaranteed to protect your data, works extremely well in practice.
+   As a precaution, you should _make a backup_.
+
+   Before going any further, you should have decided how you will
+   divide up the disk. The method in this section will only split a
+   partition into two pieces. One will contain the original operating
+   system, and the other will be used for Debian. During the
+   installation of Debian, you will be given the opportunity to use the
+   Debian portion of the disk as you see fit, i.e., as swap or as a
+   filesystem.
+
+   The idea is to move all the data on the partition to the beginning
+   before changing the partition information, so that nothing will be
+   lost. It is important that you do as little as possible between the
+   data movement and repartitioning to minimize the chance of a file
+   being written near the end of the partition as this will decrease
+   the amount of space you can take from the partition.
+
+   The first thing you need is a copy of FIPS, which is available in
+   the tools directory on your Debian CD-ROM. This disk must be
+   bootable. Under DOS, a bootable floppy can be created using the
+   command sys a: for a previously formatted floppy or format a: /s for
+   an unformatted floppy. Unzip the archive and copy the files
+   RESTORRB.EXE, FIPS.EXE and ERRORS.TXT to the bootable floppy. FIPS
+   comes with 

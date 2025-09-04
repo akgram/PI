@@ -1,0 +1,106 @@
+y by your
+   acquisition method.
+
+  Configure
+
+   Most packages get configured in step 3, but anything left hanging
+   can be configured here.
+
+  Remove
+
+   Removes packages that are installed but no longer required.
+
+  Quit
+
+   I suggest running /etc/cron.daily/find at this point, because you
+   have a lot of new files on your system. Then you can use locate to
+   get the location of any given file.
+
+
+3.20.3 A Few Hints in Conclusion
+
+   When the install process runs dselect for you, you will doubtless be
+   eager to get Debian running as soon as possible. Well, please be
+   prepared to take an hour or so to learn your way around and then get
+   it right. When you enter the Select screen for the first time, don’t
+   make _any_ selections at all—just press Enter and see what
+   dependency problems there are. Try fixing them. If you find yourself
+   back at the main screen, run Select again.
+
+   You can get an idea of the size of a package by pressing i twice and
+   looking for the “Size” figure. This is the size of the compressed
+   package, so the uncompressed files will be a lot bigger (see
+   “Installed-Size,” which is in kilobytes, to know it).
+
+   Installing a new Debian system is a complex thing, but dselect can
+   do it for you as easy as can be. So take the time to learn how to
+   drive it. Read the help screens and experiment with i, I, o, and O.
+   Use the R key. It’s all there, but it’s up to you to use it
+   effectively.
+
+
+3.21 Glossary
+
+   The following terms will be useful to you throughout this book and
+   in general when you’re talking about Debian.
+
+   Package. A file that contains everything needed to install,
+   de-install, and run a particular program. The program that handles
+   packages is dpkg. dselect is a front-end to dpkg. Experienced users
+   often use dpkg to install or remove a package.
+
+   Package names. All package names have the form xxxxxxxxxxx.deb.
+   Sample package names include the following:
+
+     ◼ efax_08a-1.deb
+     ◼ lrzsz_0.12b-1.deb
+     ◼ mgetty_0.99.2-6.deb
+     ◼ minicom_1.75-1.deb
+     ◼ term_2.3.5-5.deb
+     ◼ uucp_1.06.1-2.deb
+     ◼ uutraf_1.1-1.deb
+     ◼ xringd_1.10-2.deb
+     ◼ xtel_3.1-2.deb
+
+
+
+
+4. Logging In
+
+
+   Your system is now installed! Pat yourself on the back for a job
+   well done! Now it’s time to start using the system. In this chapter,
+   we introduce you to the Debian command line, some security
+   principles, and how to exit the system. In later chapters, we’ll go
+   into more detail on these topics and introduce you to the Debian
+   graphical interface, X11.
+
+
+4.1 First Steps
+
+   After you quit dselect, you’ll be presented with the login: prompt.
+   You can now log in using the personal login and password you
+   selected; your system is now ready to use. Let’s examine what it
+   means to log in and how this process works.
+
+   To use Debian, you must identify yourself to the system. This is so
+   it knows who you are, what you have permission to do, and what your
+   preferences are.
+
+   To this end, you have a _username_ or _login_. If you installed
+   Debian yourself, you should have been asked to give such a name
+   during installation. If you are logging on to a system administered
+   by someone else, you’ll have to ask him for an account on the system
+   and a corresponding username.
+
+   You also have a password, so no one else can pretend to be you. If
+   you don’t have a password, anyone can log on to your computer from
+   the Internet and do bad things. If you’re worried about security,
+   you should have a password.
+
+   Many people prefer to trust others not to do anything malicious with
+   their account; hopefully your work environment doesn’t encourage
+   paranoia. This is a perfectly reasonable attitude; it depends on
+   your personal priorities and your environment. Obviously a home
+   system does not need to be as secure as a military installation.
+   Debian allows you to be as secure or as insecure as you

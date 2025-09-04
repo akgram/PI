@@ -1,0 +1,99 @@
+gram.
+
+
+1.4.2 Conventions
+
+   Before going on, it’s important to be familiar with the
+   typographical conventions used in this book.
+
+   When you should simultaneously hold down multiple keys, a notation
+   like CTRL-a will be used. This means “press the Ctrl key and press
+   lowercase letter a.” Some keyboards have both Alt and Meta; most
+   home computers have only Alt, but the Alt key behaves like a Meta
+   key. So if you have no Meta key, try the Alt key instead.
+
+   Keys like Alt and Meta are called _modifier_ keys because they
+   change the meaning of standard keys like the letter A. Sometimes you
+   need to hold down more than one modifier; for example, Meta-Ctrl-a
+   means to simultaneously press Meta, Ctrl, and lowercase a.
+
+   Some keys have a special notation—for example, Ret (Return/Enter),
+   Del (Delete or sometimes Backspace), Esc (Escape). These should be
+   fairly self-explanatory.
+
+   Spaces used instead of hyphens mean to press the keys in sequential
+   order. For example, CTRL-a x RET means to simultaneously type Ctrl
+   and lowercase a, followed by the letter x, followed by pressing
+   Return. (On some keyboards, this key is labeled Enter. Same key,
+   different name.)
+
+   In sample sessions, bold face text denotes characters typed by the
+   user, italicized text denotes comments about a given part of the
+   sample session, and all other text is output from entering a
+   command. For shorter commands, you’ll sometimes find that the
+   command can be found within other text, highlighed with a monospace
+   font.
+
+
+
+
+2. Getting Started
+
+
+     “_A journey of a thousand miles must begin with a single step._”
+     —Lao-Tsu
+
+   Now that you’ve read about the ideas and philosophy behind Linux and
+   Debian, it’s time to start putting it on your computer! We start by
+   talking about how to prepare for a Debian install, then about
+   partitioning your disk, and finally, how to start up the
+   installation system.
+
+
+2.1 Supported Hardware
+
+   Debian does not impose hardware requirements beyond the requirements
+   of the Linux kernel and the GNU tools.
+
+   Rather than attempting to describe all the different hardware
+   configurations that are supported for the PC platform, this section
+   contains general information and pointers to where additional
+   information can be found.
+
+   There are two excellent places to check for detailed information:
+   the Debian System Requirements[1] list and the Linux Documentation
+   Project Hardware Compatibility HOWTO[2]. For information on video
+   card support, you may also want to look at the XFree86[3] Project
+   web site.
+
+ [1] http://www.debian.org/releases/slink/i386/ch-hardware-req.en.html
+
+ [2] http://metalab.unc.edu/LDP/HOWTO/Hardware-HOWTO.html
+
+ [3] http://www.xfree86.org/
+
+
+2.1.1 Memory and Disk Space Requirements
+
+   You must have at least 4MB of memory and 35MB of available hard disk
+   space. If you want to install a reasonable amount of software,
+   including the X Window system, and some development programs and
+   libraries, you’ll need at least 300MB. For an essentially full
+   installation, you’ll need around 800MB. To install _everything_
+   available in Debian, you’ll probably need around 2GB. Actually,
+   installing everything doesn’t make sense because some packages
+   provide the same services.
+
+
+2.2 Before You Start
+
+   Before you start, make sure to back up every file that is now on
+   your system. The installation procedure can wipe out all of the data
+   on a hard disk! The programs used in installation are quite reliable
+   and most have seen years of use; still, a false move can cost you.
+   Even after backing up, be careful and think about your answers and
+   actions. Two minutes of thinking can save hours of unnecessary work.
+
+   Debian makes it possible to have both Debian GNU/Linux and another
+   operating system installed on the same system. If you plan to use
+   this option, make sure that you have on hand t

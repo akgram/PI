@@ -1,0 +1,81 @@
+he original CD-ROM or
+   floppies of the other installed operating systems. If you
+   repartition your boot drive, you may find that you have to reinstall
+   your existing operating system’s boot loader[4] or the entire
+   operating system itself.
+
+ [4] A boot loader is responsible starting an operating system’s boot
+ procedure.
+
+
+2.2.1 Information You Will Need
+
+   If your computer is connected to a network 24 hours a day (i.e., an
+   Ethernet or similar LAN connection—not a PPP connection), you should
+   ask your network’s system administrator for the following
+   information:
+
+     ◼ Your host name (you may be able to decide this on your own)
+     ◼ Your domain name
+     ◼ Your computer’s IP address
+     ◼ The IP address of your network
+     ◼ The netmask to use with your network
+     ◼ The broadcast address to use on your network
+     ◼ The IP address of the default gateway system you should route
+     to, if your network _has_ a gateway
+     ◼ The system on your network that you should use as a DNS server
+     ◼ Whether you connect to the network using Ethernet
+     ◼ Whether your Ethernet interface is a PCMCIA card, and if so, the
+     type of PCMCIA controller you have
+   If your only network connection is a telephone line using PPP or an
+   equivalent dialup connection, you don’t need to worry about getting
+   your network set up until your system is already installed. See
+   section 11.1 on page 99 for information on setting up PPP under
+   Debian.
+
+
+2.3 Partitioning Your Hard Drive
+
+   Before you install Debian on your computer, it is generally a good
+   idea to plan how the contents of your hard drive will be arranged.
+   One part of this process involves partitioning your hard drive.
+
+
+2.3.1 Background
+
+   Partitioning your disk simply refers to the act of breaking up your
+   disk into sections. Each section is then independent of the others.
+   It’s roughly equivalent to putting up walls in a house; after that,
+   adding furniture to one room doesn’t affect any other room.
+
+   If you already have an operating system on your system (Windows 95,
+   Windows NT, DOS, etc.) and you want to install Debian GNU/Linux on
+   the same disk, you will probably need to repartition the disk. In
+   general, changing a partition that already has a filesystem on it
+   will destroy any information in that filesystem. Therefore, you
+   should always make backups before doing any repartitioning. Using
+   the analogy of the house, you would probably want to move all the
+   furniture out of the way before moving a wall or you risk destroying
+   your furniture. Luckily, there is an alternative for some users; see
+   section 2.3.6 on page [*] for more information.
+
+   At a bare minimum, GNU/Linux needs one partition for itself. You can
+   have a single partition containing the entire operating system,
+   applications, and your personal files. Most people choose to give
+   GNU/Linux more than the minimum number of partitions, however. There
+   are two reasons you might want to break up the filesystem into a
+   number of smaller partitions. The first is for safety. If something
+   happens to corrupt the filesystem, generally only one partition is
+   affected. Thus, you only have to replace (from the backups you’ve
+   been carefully keeping) a portion of your system. At the very least,
+   you should consider creating what is commonly called a “root
+   partition.” This contains the most essential components of the
+   system. If any other partitions get corrupted, you can still boot
+   into GNU/Linux to fix the system. This can save you the trouble of
+   having to reinstall the system from scratch.
+
+   The second reason is generally more important in a business setting,
+   but it really depends on your use of the machine. Suppose something
+   runs out of control and starts eating disk space. If the process
+   causing the problem happens to have root privileges (the system
+   keeps a percentage of the disk away from users), you 

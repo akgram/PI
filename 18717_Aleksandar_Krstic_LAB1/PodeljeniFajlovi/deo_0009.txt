@@ -1,0 +1,75 @@
+idering the space for your own files
+   and data. Notably, the Debian /var directory contains a lot of state
+   information. The installed package management files can easily
+   consume 20MB of disk space. In general, you should allocate at least
+   50MB for the /var directory because system log files are also stored
+   there.
+
+
+2.3.3 PC Disk Limitations
+
+   A PC BIOS generally adds additional constraints for disk
+   partitioning. There is a limit to how many “primary” and “logical”
+   partitions a drive can contain. Additionally, there are limits to
+   where on the drive the BIOS looks for boot information. More
+   information can be found in the Linux Partition mini-HOWTO[6]. This
+   section will include a brief overview to help you plan most
+   situations.
+
+ [6] http://metalab.unc.edu/LDP/HOWTO/mini/Partition.html
+
+   “Primary” partitions are the original partitioning scheme for PC
+   hard disks. However, there can be only four of them. To get past
+   this limitation, “extended” or “logical” partitions were invented.
+   By setting one of your primary partitions as an extended partition,
+   you can subdivide all the space allocated to that partition into
+   logical partitions. The number of logical partitions you can create
+   is much less limited than the number of primary partitions you can
+   create; however, you can have only one extended partition per drive.
+
+   Linux limits the number of partitions per drive to 15 partitions for
+   SCSI drives (3 usable primary partitions, 12 logical partitions),
+   and 63 partitions for IDE drives (3 usable primary partitions, 60
+   logical partitions).
+
+   The last issue you need to know about a PC BIOS is that your boot
+   partition—that is, the partition containing your kernel image—needs
+   to be contained within the first 1,024 cylinders of the drive.
+   Because the root partition is usually your boot partition, you need
+   to make sure your root partition fits into the first 1,024
+   cylinders.
+
+   If you have a large disk, you may have to use cylinder translation
+   techniques, which you can set in your BIOS, such as LBA translation
+   mode. (More information about large disks can be found in the Large
+   Disk mini-HOWTO[7].) If you are using a cylinder translation scheme,
+   your boot partition must fit within the _translated_ representation
+   of cylinder 1,024.
+
+ [7] http://metalab.unc.edu/LDP/HOWTO/mini/Large-Disk.html
+
+
+2.3.4 Device Names in Linux
+
+   Linux disks and partition names may be different from those in other
+   operating systems. You should know the names that Linux uses when
+   you create and mount partitions. The basic scheme can be found in
+   Table 2.1 on page [*].
+
+ Table 2.1: Linux Device Names
++------------------------------------------------------------------------------+
+| Device                                        |          Linux Name          |
+|-----------------------------------------------+------------------------------|
+| First floppy drive                            |           /dev/fd0           |
+|-----------------------------------------------+------------------------------|
+| Second floppy drive                           |           /dev/fd1           |
+|-----------------------------------------------+------------------------------|
+| First partition on /dev/hda (typically C: in  |          /dev/hda1           |
+| other OSs)                                    |                              |
+|-----------------------------------------------+------------------------------|
+| Fifth partition on /dev/hdc                   |          /dev/hdc5           |
+|-----------------------------------------------+------------------------------|
+| Second partition on /dev/sdb                  |          /dev/sdb2           |
+|-----------------------------------------------+------------------------------|
+| Entire Primary-Master IDE hard disk or CD-ROM |           /dev/hda           |
+|-----------------------------------------------+------------

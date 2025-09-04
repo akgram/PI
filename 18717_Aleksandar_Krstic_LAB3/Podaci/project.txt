@@ -1,0 +1,137 @@
+mina nikolic
+
+dobar use case
+pristup podacima
+ne zanima gu front :(
+ne koristi projekat iz swe heh :)
+
+u tim 2 ili 3, ne 1 i ne 4
+
+3 projekta svi nesrbi hejt
+
+prva dva odbrana na pocetak roka
+treci u feb
+
+na odbranu svi da budu i brane se svi odjednom??????????
+
+
+NEMOJ DA IMPLEMENTIRAS REDIS SAMO KAO KES KES ONA VOLI SAMO KES
+
+UPDATE DELETE i JOS NES
+
+mora bude poveyano bek i ffront
+
+postavljaj na git ali bez ZIP (ima kompleksi)
+
+sve sto moze preko dockera nek ide preko dockera
+enable virtualizaciju
+
+--------------------------------------------------------------------
+
+docker run -d --name cassandra -p 9042:9042 -p 9160:9160 cassandra:3.11
+
+docker exec -it cassandra bash
+
+nano cassandra.yaml
+
+apt-get install nano
+
+apt-get update
+
+search: ctrl + 
+
+iz bash exit pa: docker exec -it cassandra cqlsh
+
+use test2;
+
+SessionMenager promeni u GetSession() cluster.Connect("key_space koji koristimo");
+
+
+
+1. Praćenje kriminalnih mreža i analiza veza
+Opis:
+
+Modeluj mrežu kriminalaca, njihovih lokacija, aktivnosti i povezanosti.
+Identifikuj ključne osobe u mreži, analiziraj tokove novca i predviđaj potencijalne veze.
+Detalji:
+
+Čvorovi: Kriminalci, lokacije, vozila, incidenti.
+Veze: Saradnja, vlasništvo, kretanje.
+Algoritmi: PageRank za otkrivanje ključnih aktera, Community Detection za grupe.
+Primeri upita:
+
+"Koji kriminalci su najviše povezani sa incidentima?"
+"Kako se ilegalna roba transportuje između gradova?"
+Zašto je zanimljivo?
+
+Ovo ima stvarnu primenu u istraživanju kriminalnih aktivnosti.
+Uključuje složene graf upite i vizualizaciju mreže u alatima poput Neo4j Bloom.
+
+
+2. Online Auction System sa Redis
+Opis:
+
+Aplikacija omogućava korisnicima da učestvuju u online aukcijama u stvarnom vremenu, 
+postavljajući ponude na proizvode. Redis omogućava brzo i efikasno upravljanje aukcijama, održavanje trenutnih ponuda i slanje obaveštenja u realnom vremenu.
+Funkcionalnosti:
+
+Kreiranje i upravljanje aukcijama:
+
+Administrator može kreirati aukcije za različite proizvode sa početnom cenom, vremenskim ograničenjem i opcijama.
+Redis se koristi za pohranu trenutnih ponuda i podataka o proizvodima.
+Praćenje ponuda u realnom vremenu:
+
+Redis Sorted Sets koristi se za praćenje ponuda u realnom vremenu, gde se korisnici mogu nadmetati sa ponudama.
+Najviša ponuda je uvek na vrhu, i Redis omogućava brzo pretrživanje trenutne ponude.
+Obaveštenja korisnicima:
+
+Korisnici koji učestvuju u aukciji dobijaju obaveštenja u realnom vremenu (putem Pub/Sub) kada neko poveća ponudu ili kada je aukcija skoro završena.
+Automatsko završavanje aukcije:
+
+Kada vreme aukcije istekne, Redis može automatski označiti aukciju kao završenu i obavestiti pobednika.
+Prikazivanje poslednjih ponuda:
+
+Aplikacija prikazuje sve poslednje ponude u realnom vremenu, omogućavajući korisnicima da vide koji je trenutni iznos ponude i ko je poslednji ponudio.
+Povratak na prethodne aukcije:
+
+Redis može omogućiti korisnicima da pretražuju završene aukcije i vide istoriju ponuda i pobedničke cene.
+Skalabilnost:
+
+Redis omogućava da se sistem lako skalira kako bi podržao veliki broj korisnika koji istovremeno učestvuju u aukcijama.
+Tehnologije:
+
+Redis Sorted Sets za praćenje trenutnih ponuda i rangiranje korisnika prema njihovim ponudama.
+Redis Pub/Sub za obaveštavanje korisnika u stvarnom vremenu.
+WebSockets ili Server-Sent Events (SSE) za ažuriranje aukcijskih podataka u realnom vremenu na klijentskoj strani.
+Zašto Redis?
+
+Brzina i efikasnost: Redis omogućava da aukcija bude dinamična, s brzim ažuriranjem ponuda u stvarnom vremenu.
+Real-Time komunikacija: Pub/Sub omogućava instant obaveštenja korisnicima kad god se nova ponuda postavi ili aukcija završi.
+Jednostavnost: Redis pruža jednostavnu implementaciju za upravljanje podacima i distribuciju u realnom vremenu.
+
+-----------------------------------------------------------------------------------------------------------------
+
+
+3. MongoDB
+✔️ Kada je ovo najbolje:
+Neo4j koristiš za relacije i mreže (npr. veze između korisnika, proizvoda, preporuke).
+
+MongoDB želiš da koristiš za:
+
+User profile info (ime, email, adrese...)
+
+Uploadovane fajlove
+
+Logove aktivnosti
+
+Konfiguracije, obrasce, komentare
+
+➕ Prednosti:
+Svaka baza radi ono u čemu je najbolja.
+
+Neo4j za pametnu logiku i povezanost.
+
+MongoDB za strukture koje su fleksibilne i nisu povezane (document-oriented).
+
+➖ Mana:
+Malo više kompleksnosti (sinhronizacija podataka, dva izvora istine).

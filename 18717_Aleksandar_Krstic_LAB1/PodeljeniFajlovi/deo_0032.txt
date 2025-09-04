@@ -1,0 +1,85 @@
+
+   Netscape.
+
+   Sometimes a program will create a dot file automatically; for
+   example, Netscape allows you to edit your preferences with a
+   graphical dialog box and then it saves your choices. Other times you
+   will create them yourself using a text editor; this is the
+   traditional way to do it, but you have to learn the peculiar format
+   of each file—inconvenient at first, but it can give you a lot of
+   power.
+
+   To see dot files, you must use the -a option to ls. The long form of
+   -a is -all, if you find that easier to remember. You can also use -A
+   or -almost-all, which displays all dot files except . and ...
+   Remember that . is the current directory, and .. is the parent of
+   the current directory; because these are guaranteed to be in every
+   directory, there is no real reason to list them with ls. You already
+   know they are there.
+
+
+5.3 Processes
+
+   We mentioned before that GNU/Linux is a _multitasking_ system. It
+   can do many tasks at once. Each of these tasks is called a
+   _process_. The best way to get a sense of this is to type top at the
+   shell prompt. You’ll get a list of processes, sorted according to
+   how much of the computer’s processing time they’re using. The order
+   will continuously change before your eyes. At the top of the
+   display, there’s some information about the system: how many users
+   are logged in, how many total processes there are, how much memory
+   you have and how much you’re using.
+
+   In the far left column, you’ll see the user owning each process. The
+   far right column shows which command invoked the process. You’ll
+   probably notice that top itself, invoked by you, is near the top of
+   the list (because anytime top checks on CPU usage, it will be active
+   and using CPU to do the check).
+
+   Note that in all the commands ending in “d” —such as kflushd and
+   inetd —the “d” stands for _daemon_.
+
+   Daemon originally meant Disks And Extensions MONitor. A daemon is a
+   non-interactive process, that is, it’s run by the system and users
+   never have to worry about it. Daemons provide services like Internet
+   connectivity, printing, or e-mail.
+
+   Now press u and give top your username when it asks. The u command
+   asks to see only those processes belonging to you; it allows you to
+   ignore all the daemons and whatever other people are doing. You
+   might notice bash, the name of your shell. You’ll pretty much always
+   be running bash.
+
+   Note that column two of the top display shows you the _PID_, or
+   Process IDentification number. Each process is assigned a unique
+   PID. You can use the PID to control individual processes (more on
+   that later). Another useful trick is to press ? to get a list of top
+   commands.
+
+   You may wonder about the difference between a “process” and a
+   “program.” In practice, people use the terms interchangeably.
+   Technically, the _program_ is the set of instructions written by a
+   programmer and kept on disk. The _process_ is the working
+   instantiation of the program kept in memory by Linux. But it’s not
+   that important to keep the terms straight.
+
+   Much of your interaction with a computer involves controlling
+   processes. You’ll want to start them, stop them, and see what
+   they’re up to. Your primary tool for this is the _shell_.
+
+
+5.4 The Shell
+
+   The _shell_ is a program that allows you to interact with your
+   computer. It’s called a shell because it provides an environment for
+   you to work in—sort of a little electronic home for you as you
+   compute. (Think hermit crab.)
+
+   The simplest function of the shell is to launch other programs. You
+   type the name of the program you want to run, followed by the
+   arguments you want, and the shell asks the system to run the program
+   for you.
+
+   Of course, graphical windowing systems also fill this need.
+   Technically, Windows 95 provides a graphical shell, and the X Window
+   system is another kind of graphical shell. But “shel
